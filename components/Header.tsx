@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
 const serviceDropdownItems = [
@@ -16,11 +15,12 @@ const facilityDropdownItems = [
   { label: "富士見園", href: "/facilities/fujimien", desc: "養護老人ホーム" },
 ];
 
+const navLinkClass = "text-sm font-medium px-3 py-2 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [facilitiesOpen, setFacilitiesOpen] = useState(false);
-  const pathname = usePathname();
   const servicesRef = useRef<HTMLDivElement>(null);
   const facilitiesRef = useRef<HTMLDivElement>(null);
 
@@ -37,9 +37,6 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const isServicesActive = pathname?.startsWith("/services");
-  const isFacilitiesActive = pathname?.startsWith("/facilities");
-
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,14 +48,7 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           >
             <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:bg-primary-dark transition-colors">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <circle cx="9" cy="6" r="3.5" fill="white" />
                 <circle cx="4.5" cy="13" r="3.5" fill="white" fillOpacity="0.7" />
                 <circle cx="13.5" cy="13" r="3.5" fill="white" fillOpacity="0.5" />
@@ -68,45 +58,24 @@ export default function Header() {
               <div className="text-[10px] text-ink-muted tracking-widest uppercase font-medium hidden sm:block">
                 社会福祉法人
               </div>
-              <div className="text-base font-bold text-ink tracking-wide">
-                三恵会
-              </div>
+              <div className="text-base font-bold text-ink tracking-wide">三恵会</div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="メインナビゲーション">
-            <Link
-              href="/about"
-              className={`text-sm font-medium px-3 py-2 rounded-md transition-colors ${
-                pathname === "/about"
-                  ? "text-primary bg-primary-light"
-                  : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-              }`}
-            >
-              三恵会とは
-            </Link>
+            <Link href="/about" className={navLinkClass}>三恵会とは</Link>
 
             {/* 施設のご案内 dropdown */}
             <div className="relative" ref={facilitiesRef}>
               <button
-                onClick={() => {
-                  setFacilitiesOpen((v) => !v);
-                  setServicesOpen(false);
-                }}
-                className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-md transition-colors ${
-                  isFacilitiesActive
-                    ? "text-primary bg-primary-light"
-                    : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-                }`}
+                onClick={() => { setFacilitiesOpen((v) => !v); setServicesOpen(false); }}
+                className={`flex items-center gap-1 ${navLinkClass}`}
               >
                 施設のご案内
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${facilitiesOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -131,23 +100,13 @@ export default function Header() {
             {/* サービスのご案内 dropdown */}
             <div className="relative" ref={servicesRef}>
               <button
-                onClick={() => {
-                  setServicesOpen((v) => !v);
-                  setFacilitiesOpen(false);
-                }}
-                className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-md transition-colors ${
-                  isServicesActive
-                    ? "text-primary bg-primary-light"
-                    : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-                }`}
+                onClick={() => { setServicesOpen((v) => !v); setFacilitiesOpen(false); }}
+                className={`flex items-center gap-1 ${navLinkClass}`}
               >
                 サービスのご案内
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -174,15 +133,7 @@ export default function Header() {
               { label: "お知らせ", href: "/blog" },
               { label: "公開情報", href: "/disclosure" },
             ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium px-3 py-2 rounded-md transition-colors ${
-                  pathname === item.href
-                    ? "text-primary bg-primary-light"
-                    : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-                }`}
-              >
+              <Link key={item.href} href={item.href} className={navLinkClass}>
                 {item.label}
               </Link>
             ))}
@@ -190,10 +141,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="text-sm text-ink-muted hover:text-primary transition-colors"
-            >
+            <Link href="/contact" className="text-sm text-ink-muted hover:text-primary transition-colors">
               お問い合わせ
             </Link>
             <Link
@@ -227,15 +175,10 @@ export default function Header() {
       {/* Mobile menu */}
       {isOpen && (
         <div className="lg:hidden border-t border-border bg-white">
-          <nav
-            className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1"
-            aria-label="モバイルナビゲーション"
-          >
+          <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label="モバイルナビゲーション">
             <Link
               href="/about"
-              className={`text-sm font-medium px-3 py-3 rounded-md transition-colors ${
-                pathname === "/about" ? "text-primary bg-primary-light" : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-              }`}
+              className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               三恵会とは
@@ -284,14 +227,13 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium px-3 py-3 rounded-md transition-colors ${
-                  pathname === item.href ? "text-primary bg-primary-light" : "text-ink-muted hover:text-primary hover:bg-primary-light/50"
-                }`}
+                className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+
             <Link
               href="/contact"
               className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
