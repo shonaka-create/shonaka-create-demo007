@@ -106,7 +106,7 @@ export default function FacilitiesPage() {
                       ))}
                     </div>
 
-                    <div className="text-xs text-ink-subtle mb-5 space-y-1">
+                    <div className="text-xs text-ink mb-5 space-y-1">
                       <p><span className="font-bold text-ink-muted">定員：</span>{f.capacity}</p>
                       <p><span className="font-bold text-ink-muted">所在地：</span>{f.location}</p>
                     </div>

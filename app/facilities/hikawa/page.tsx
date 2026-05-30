@@ -101,8 +101,8 @@ export default function HikawaPage() {
                   { label: "アクセス", value: "JR大宮駅からバス約20分" },
                 ].map((row) => (
                   <div key={row.label} className="flex gap-3">
-                    <dt className="font-bold text-ink-subtle w-24 shrink-0 text-xs pt-0.5">{row.label}</dt>
-                    <dd className="text-ink-muted text-sm">{row.value}</dd>
+                    <dt className="font-bold text-ink-muted w-24 shrink-0 text-xs pt-0.5">{row.label}</dt>
+                    <dd className="text-ink text-sm">{row.value}</dd>
                   </div>
                 ))}
               </dl>

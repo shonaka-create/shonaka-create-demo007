@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ブログ・お知らせ",
+  title: "お知らせ｜社会福祉法人 三恵会",
   description:
-    "社会福祉法人 三恵会のブログ・お知らせ。施設の日常、イベント情報、採用情報、法人からのお知らせを発信しています。",
+    "社会福祉法人 三恵会のお知らせ。施設の日常、イベント情報、採用情報、法人からのお知らせを発信しています。",
 };
 
 const categories = ["すべて", "お知らせ", "スタッフブログ", "イベント", "採用情報", "受賞・認定"];
@@ -82,8 +82,8 @@ export default function BlogPage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Blog</p>
-          <h1 className="text-3xl sm:text-4xl font-bold">ブログ・お知らせ</h1>
+          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">News</p>
+          <h1 className="text-3xl sm:text-4xl font-bold">お知らせ</h1>
           <p className="text-white/70 mt-3 text-sm leading-loose">
             三恵会からの最新情報、施設の日常、イベント報告などをお届けします。
           </p>

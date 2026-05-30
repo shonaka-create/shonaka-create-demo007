@@ -264,7 +264,7 @@ export default function TopPage() {
                       <div className="w-3 h-3 rounded-full bg-primary" />
                     </div>
                     <div className="font-bold text-ink text-sm mb-2">{item.label}</div>
-                    <div className="text-ink-subtle text-xs leading-relaxed">{item.desc}</div>
+                    <div className="text-ink-muted text-xs leading-relaxed">{item.desc}</div>
                   </div>
                 ))}
               </div>
@@ -457,7 +457,7 @@ export default function TopPage() {
                 key={item.title}
                 className="flex flex-col sm:flex-row sm:items-center gap-3 py-5 hover:bg-primary-light/30 -mx-4 px-4 rounded-lg transition-colors cursor-pointer"
               >
-                <time className="text-xs text-ink-subtle shrink-0 w-24">
+                <time className="text-xs text-ink-muted shrink-0 w-24">
                   {item.date}
                 </time>
                 <span

@@ -18,8 +18,6 @@ const jobs = [
     salary: "基本給185,500円〜＋夜勤手当36,000円＋処遇改善費46,000円程度（専門学校卒20歳の例）",
     hours: "07:00〜16:00 / 08:00〜17:00 / 11:00〜20:00 / 13:00〜22:00 / 22:00〜07:00",
     benefits: "資格手当3,000円、住宅手当15,000円、研修費補助、4週9休、有給休暇10日（6ヶ月後）",
-    color: "border-primary bg-primary-light",
-    badge: "最も募集中",
   },
   {
     title: "特別養護老人ホーム ひかわ 非常勤介護職員",
@@ -31,8 +29,6 @@ const jobs = [
     salary: "時給1,390円〜（処遇改善費含む）",
     hours: "16:00〜20:00（応相談）",
     benefits: "介護福祉士資格手当、処遇改善費",
-    color: "border-[#3A8060] bg-[#E6F4EC]",
-    badge: "急募",
   },
   {
     title: "介護支援専門員（ケアマネジャー）",
@@ -44,8 +40,6 @@ const jobs = [
     salary: "月給239,000円〜（未経験30歳）／月給259,500円〜（経験10年以上40歳）",
     hours: "08:30〜17:30 / 09:00〜18:00 / 09:30〜18:30",
     benefits: "産休・育休取得可、4週9休、年末年始休暇",
-    color: "border-accent bg-accent-light",
-    badge: null,
   },
   {
     title: "養護老人ホーム富士見園 常勤支援員",
@@ -57,8 +51,6 @@ const jobs = [
     salary: "月給244,000〜311,000円（経験考慮、各種手当・夜勤3回分含む）",
     hours: "08:30〜17:30 / 07:45〜16:45 / 10:00〜19:00 / 16:30〜翌09:30",
     benefits: "資格手当3,000円、住宅手当15,000円、扶養手当、通勤手当、職員食300円、年間107日休日",
-    color: "border-border bg-surface",
-    badge: null,
   },
   {
     title: "養護老人ホーム富士見園 調理員",
@@ -70,8 +62,6 @@ const jobs = [
     salary: "月給185,500〜234,500円（資格・経験考慮）",
     hours: "06:30〜15:30 / 09:30〜18:00 / 07:00〜16:00（ローテーション）",
     benefits: "調理師手当3,000円、住宅手当15,000円、扶養手当、通勤手当、職員食350円、年間107日休日（月9日）",
-    color: "border-border bg-surface",
-    badge: null,
   },
 ];
 
@@ -179,20 +169,15 @@ export default function RecruitPage() {
             {jobs.map((job) => (
               <div
                 key={job.title}
-                className={`rounded-2xl border-2 ${job.color} p-6 sm:p-7`}
+                className="rounded-2xl border border-border bg-surface p-6 sm:p-7"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
                       <h3 className="text-xl font-bold text-ink">{job.title}</h3>
-                      {job.badge && (
-                        <span className="text-xs font-bold bg-accent text-white px-2.5 py-1 rounded-full">
-                          {job.badge}
-                        </span>
-                      )}
                     </div>
-                    <p className="text-xs text-ink-subtle mb-3">
-                      <span className="font-bold text-ink-muted">施設：</span>{job.facility}
+                    <p className="text-xs text-ink-muted mb-3">
+                      <span className="font-bold text-ink">施設：</span>{job.facility}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {job.types.map((type) => (
@@ -207,7 +192,7 @@ export default function RecruitPage() {
                     <p className="text-sm text-ink-muted leading-loose mb-4">
                       {job.description}
                     </p>
-                    <div className="space-y-1.5 text-xs text-ink-subtle">
+                    <div className="space-y-1.5 text-xs text-ink">
                       <p>
                         <span className="font-bold text-ink-muted">給与：</span>{job.salary}
                       </p>

@@ -171,7 +171,7 @@ export default function Header() {
 
             {[
               { label: "広報誌", href: "/press" },
-              { label: "ブログ", href: "/blog" },
+              { label: "お知らせ", href: "/blog" },
               { label: "公開情報", href: "/disclosure" },
             ].map((item) => (
               <Link
@@ -278,7 +278,7 @@ export default function Header() {
 
             {[
               { label: "広報誌", href: "/press" },
-              { label: "ブログ", href: "/blog" },
+              { label: "お知らせ", href: "/blog" },
               { label: "公開情報", href: "/disclosure" },
             ].map((item) => (
               <Link

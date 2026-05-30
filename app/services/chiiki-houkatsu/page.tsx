@@ -140,7 +140,7 @@ export default function ChiikiHoukatsuPage() {
                   ].map((row) => (
                     <div key={row.label} className="flex gap-3">
                       <dt className="font-bold text-ink-muted w-24 shrink-0 text-xs">{row.label}</dt>
-                      <dd className="text-ink-muted text-xs">{row.value}</dd>
+                      <dd className="text-ink text-xs">{row.value}</dd>
                     </div>
                   ))}
                 </dl>

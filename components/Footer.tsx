@@ -16,7 +16,7 @@ const infoLinks = [
   { label: "三恵会とは", href: "/about" },
   { label: "採用情報", href: "/recruit" },
   { label: "広報誌", href: "/press" },
-  { label: "ブログ", href: "/blog" },
+  { label: "お知らせ", href: "/blog" },
   { label: "公開情報", href: "/disclosure" },
   { label: "入所申し込み", href: "/application" },
   { label: "お問い合わせ", href: "/contact" },
