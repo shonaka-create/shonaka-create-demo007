@@ -15,7 +15,7 @@ const facilityDropdownItems = [
   { label: "富士見園", href: "/facilities/fujimien", desc: "養護老人ホーム" },
 ];
 
-const navLinkClass = "text-sm font-medium px-3 py-2 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors";
+const navLinkClass = "text-sm font-medium px-3 py-2 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,7 +141,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/contact" className="text-sm text-ink-muted hover:text-primary transition-colors">
+            <Link href="/contact" className="text-sm text-ink-muted hover:text-primary-dark transition-colors">
               お問い合わせ
             </Link>
             <Link
@@ -178,7 +178,7 @@ export default function Header() {
           <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label="モバイルナビゲーション">
             <Link
               href="/about"
-              className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
+              className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors"
               onClick={() => setIsOpen(false)}
             >
               三恵会とは
@@ -192,7 +192,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-2 text-sm font-medium pl-6 pr-3 py-2.5 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium pl-6 pr-3 py-2.5 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -210,7 +210,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-2 text-sm font-medium pl-6 pr-3 py-2.5 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium pl-6 pr-3 py-2.5 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -227,7 +227,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
+                className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -236,7 +236,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary hover:bg-primary-light/50 transition-colors"
+              className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors"
               onClick={() => setIsOpen(false)}
             >
               お問い合わせ
