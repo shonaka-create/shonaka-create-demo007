@@ -4,82 +4,84 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "採用情報",
   description:
-    "社会福祉法人 三恵会の採用情報。介護職員・看護職員・相談員など各種職種を募集。埼玉県「多様な働き方実践企業 プラチナ認定」取得。充実した待遇・研修制度で長く働ける環境です。",
+    "社会福祉法人 三恵会の採用情報。介護職員・ケアマネジャー・調理員・支援員など各種職種を募集。埼玉県「多様な働き方実践企業 プラチナ認定」取得。充実した待遇・研修制度で長く働ける環境です。",
 };
 
 const jobs = [
   {
-    title: "介護職員",
-    types: ["正規職員", "パートタイム"],
+    title: "特別養護老人ホーム ひかわ 介護職員",
+    facility: "特別養護老人ホーム ひかわ",
+    types: ["正社員（新卒・中途）"],
     description:
-      "特別養護老人ホーム・デイサービスでの介護業務全般。入居者・利用者の日常生活支援（食事・入浴・排泄介助）、レクリエーション、記録業務など。",
-    qualification: "介護福祉士・初任者研修・実務者研修（いずれも歓迎。未経験でも応募可）",
+      "ユニット型施設での介護業務全般（入浴・食事・排泄介助、レクリエーション、記録など）。三交替ローテーション勤務。少人数ユニットで利用者に寄り添ったケアを実践します。",
+    qualification: "未経験可・やる気があれば応募可。介護職員初任者研修・実務者研修・介護福祉士保有者優遇。",
+    salary: "基本給185,500円〜＋夜勤手当36,000円＋処遇改善費46,000円程度（専門学校卒20歳の例）",
+    hours: "07:00〜16:00 / 08:00〜17:00 / 11:00〜20:00 / 13:00〜22:00 / 22:00〜07:00",
+    benefits: "資格手当3,000円、住宅手当15,000円、研修費補助、4週9休、有給休暇10日（6ヶ月後）",
     color: "border-primary bg-primary-light",
     badge: "最も募集中",
   },
   {
-    title: "看護職員",
-    types: ["正規職員", "パートタイム"],
+    title: "特別養護老人ホーム ひかわ 非常勤介護職員",
+    facility: "特別養護老人ホーム ひかわ",
+    types: ["パートタイム（非常勤）"],
     description:
-      "施設での健康管理、投薬管理、医療処置補助、看取り支援など。医師・介護職との連携のもとで、入居者の健康を包括的に支えます。",
-    qualification: "看護師・准看護師資格必須",
+      "入居者の日常生活支援と身体介護業務全般。夕方のシフト（16:00〜20:00）を中心に、勤務時間は相談に応じます。扶養内勤務も可能です。",
+    qualification: "高齢者への愛心があれば未経験可",
+    salary: "時給1,390円〜（処遇改善費含む）",
+    hours: "16:00〜20:00（応相談）",
+    benefits: "介護福祉士資格手当、処遇改善費",
     color: "border-[#3A8060] bg-[#E6F4EC]",
-    badge: null,
+    badge: "急募",
   },
   {
-    title: "生活相談員",
-    types: ["正規職員"],
+    title: "介護支援専門員（ケアマネジャー）",
+    facility: "居宅介護支援事業所",
+    types: ["正社員"],
     description:
-      "入居者・ご家族との相談対応、行政・医療機関との連絡調整、入所審査・契約業務、地域との連携など。",
-    qualification: "社会福祉士・精神保健福祉士・介護支援専門員のいずれか",
+      "居宅介護支援事業所でのケアプラン作成、サービス調整・連絡、モニタリング業務。月1回日曜出勤以外は基本的に土日休みで、ワークライフバランスを整えやすい環境です。",
+    qualification: "介護支援専門員証保有必須、普通自動車免許必須",
+    salary: "月給239,000円〜（未経験30歳）／月給259,500円〜（経験10年以上40歳）",
+    hours: "08:30〜17:30 / 09:00〜18:00 / 09:30〜18:30",
+    benefits: "産休・育休取得可、4週9休、年末年始休暇",
     color: "border-accent bg-accent-light",
     badge: null,
   },
   {
-    title: "介護支援専門員（ケアマネ）",
-    types: ["正規職員"],
+    title: "養護老人ホーム富士見園 常勤支援員",
+    facility: "養護老人ホーム 富士見園",
+    types: ["正社員（常勤）"],
     description:
-      "居宅介護支援事業所でのケアプラン作成、サービス調整、モニタリングなど。在宅利用者を多角的に支援します。",
-    qualification: "介護支援専門員証保有",
-    color: "border-primary bg-primary-light",
+      "入居者の生活支援・見守り、レクリエーションの企画・実施。ローテーション勤務（日勤・早番・遅番・宿直）。書道・カラオケ等のクラブ活動をサポートします。",
+    qualification: "ホームヘルパー2級以上または介護福祉士",
+    salary: "月給244,000〜311,000円（経験考慮、各種手当・夜勤3回分含む）",
+    hours: "08:30〜17:30 / 07:45〜16:45 / 10:00〜19:00 / 16:30〜翌09:30",
+    benefits: "資格手当3,000円、住宅手当15,000円、扶養手当、通勤手当、職員食300円、年間107日休日",
+    color: "border-border bg-surface",
     badge: null,
   },
   {
-    title: "事務職員",
-    types: ["正規職員", "パートタイム"],
+    title: "養護老人ホーム富士見園 調理員",
+    facility: "養護老人ホーム 富士見園",
+    types: ["正社員（常勤）"],
     description:
-      "施設事務（受付・書類管理・請求業務）または法人本部事務（経理・労務・広報）。",
-    qualification: "特になし（PCスキル歓迎）",
+      "入居者への食事提供に関わる調理・盛付・洗浄業務全般。栄養士の指示のもと、入居者に合わせた食事を提供します。ローテーション勤務（早番・日番）。",
+    qualification: "特になし（調理師免許保有者優遇）",
+    salary: "月給185,500〜234,500円（資格・経験考慮）",
+    hours: "06:30〜15:30 / 09:30〜18:00 / 07:00〜16:00（ローテーション）",
+    benefits: "調理師手当3,000円、住宅手当15,000円、扶養手当、通勤手当、職員食350円、年間107日休日（月9日）",
     color: "border-border bg-surface",
     badge: null,
   },
 ];
 
 const benefits = [
-  { icon: "💰", title: "給与・賞与", body: "月給20万円〜（経験・資格により優遇）。年2回の賞与。資格取得手当・処遇改善加算あり。" },
-  { icon: "📅", title: "休日・休暇", body: "4週8休制（シフト制）。年次有給休暇（初年度10日）。育児・介護休暇取得実績多数。" },
+  { icon: "💰", title: "給与・賞与", body: "月給185,500円〜（職種・経験・資格により優遇）。処遇改善加算・各種資格手当あり。" },
+  { icon: "📅", title: "休日・休暇", body: "4週9休制（シフト制）。年次有給休暇（6ヶ月後に10日付与）。育児・介護休暇取得実績多数。" },
   { icon: "🏥", title: "社会保険", body: "健康保険・厚生年金・雇用保険・労災保険完備。" },
   { icon: "📚", title: "研修・資格支援", body: "新人研修・OJT完備。資格取得費用補助・研修参加費用補助あり。介護福祉士受験支援。" },
-  { icon: "🏠", title: "住宅手当", body: "自宅から通勤する職員への住宅手当（規定あり）。" },
-  { icon: "⏰", title: "多様な勤務形態", body: "フルタイム・パートタイム・時短勤務に対応。育児中・介護中のスタッフも活躍中。" },
-];
-
-const voices = [
-  {
-    name: "A.M.（介護職員・入職3年目）",
-    text: "未経験から入職しましたが、先輩スタッフが丁寧に教えてくれるため安心して仕事を覚えられました。資格取得の支援も充実していて、昨年介護福祉士を取得できました。",
-    dept: "三恵苑",
-  },
-  {
-    name: "K.T.（看護師・入職5年目）",
-    text: "育児休業から復帰後も時短勤務を利用しながら働いています。職場全体で子育てを応援する雰囲気があり、家庭と仕事を両立できています。",
-    dept: "ひかわ",
-  },
-  {
-    name: "S.Y.（生活相談員・入職8年目）",
-    text: "入居者やご家族との信頼関係を築きながら、地域の介護課題に携われることに大きなやりがいを感じています。三恵会は相談しやすい職場環境です。",
-    dept: "三恵苑",
-  },
+  { icon: "🏠", title: "住宅手当", body: "住宅手当15,000円（規定あり）。通勤手当支給。" },
+  { icon: "⏰", title: "多様な勤務形態", body: "フルタイム・パートタイム・時短勤務に対応。育児中・介護中のスタッフも多数活躍中。" },
 ];
 
 export default function RecruitPage() {
@@ -157,7 +159,7 @@ export default function RecruitPage() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
                       <h3 className="text-xl font-bold text-ink">{job.title}</h3>
                       {job.badge && (
                         <span className="text-xs font-bold bg-accent text-white px-2.5 py-1 rounded-full">
@@ -165,6 +167,9 @@ export default function RecruitPage() {
                         </span>
                       )}
                     </div>
+                    <p className="text-xs text-ink-subtle mb-3">
+                      <span className="font-bold text-ink-muted">施設：</span>{job.facility}
+                    </p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {job.types.map((type) => (
                         <span
@@ -175,13 +180,24 @@ export default function RecruitPage() {
                         </span>
                       ))}
                     </div>
-                    <p className="text-sm text-ink-muted leading-loose mb-3">
+                    <p className="text-sm text-ink-muted leading-loose mb-4">
                       {job.description}
                     </p>
-                    <p className="text-xs text-ink-subtle">
-                      <span className="font-bold text-ink-muted">応募資格：</span>
-                      {job.qualification}
-                    </p>
+                    <div className="space-y-1.5 text-xs text-ink-subtle">
+                      <p>
+                        <span className="font-bold text-ink-muted">給与：</span>{job.salary}
+                      </p>
+                      <p>
+                        <span className="font-bold text-ink-muted">勤務時間：</span>{job.hours}
+                      </p>
+                      <p>
+                        <span className="font-bold text-ink-muted">待遇・休日：</span>{job.benefits}
+                      </p>
+                      <p>
+                        <span className="font-bold text-ink-muted">応募資格：</span>
+                        {job.qualification}
+                      </p>
+                    </div>
                   </div>
                   <Link
                     href="/contact"
@@ -215,40 +231,6 @@ export default function RecruitPage() {
                 <div className="text-3xl mb-3">{b.icon}</div>
                 <h3 className="font-bold text-ink mb-2">{b.title}</h3>
                 <p className="text-sm text-ink-muted leading-loose">{b.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Staff Voices */}
-      <section className="bg-bg py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">
-              Staff Voices
-            </p>
-            <h2 className="text-3xl font-bold text-ink">スタッフの声</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {voices.map((v) => (
-              <div
-                key={v.name}
-                className="bg-surface rounded-2xl border border-border p-6"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary font-bold text-lg">
-                    {v.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold text-ink text-sm">{v.name}</div>
-                    <div className="text-xs text-ink-subtle">{v.dept}</div>
-                  </div>
-                </div>
-                <p className="text-sm text-ink-muted leading-loose italic">
-                  「{v.text}」
-                </p>
               </div>
             ))}
           </div>

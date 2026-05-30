@@ -11,27 +11,27 @@ const facilities = [
     name: "三恵苑",
     type: "特別養護老人ホーム",
     description:
-      "昭和62年開設。さいたま市西区に位置し、100名を超える入居者が生活する基幹施設です。24時間体制の介護と、入居者一人ひとりの尊厳を大切にしたケアを提供しています。",
+      "昭和63年開設。さいたま市西区に位置し、80名定員の基幹施設です。24時間体制の介護と、入居者一人ひとりの尊厳を大切にしたケアを提供しています。",
     color: "bg-[#2A6B47]",
-    href: "/facilities#sankeien",
+    href: "/facilities/sankeien",
   },
   {
     id: "hikawa",
     name: "ひかわ",
     type: "特別養護老人ホーム",
     description:
-      "地域に根ざした第2の特養として、生活リハビリと個別ケアを重視した環境を整えています。ユニット型の居室でプライバシーを確保しながら、家庭的な雰囲気の中でお過ごしいただけます。",
+      "平成19年開設のユニット型特養（110名定員）。全室個室でプライバシーを確保しながら、家庭的な雰囲気の中でお過ごしいただけます。ひのき風呂も好評です。",
     color: "bg-[#3A8060]",
-    href: "/facilities#hikawa",
+    href: "/facilities/hikawa",
   },
   {
     id: "fujimien",
     name: "富士見園",
     type: "養護老人ホーム",
     description:
-      "環境的・経済的な理由で自宅での生活が困難な方を支援する養護老人ホームです。地域の行政と連携しながら、安心して生活できる環境を提供しています。",
+      "昭和31年の歴史ある養護老人ホーム。環境的・経済的な理由で自宅での生活が困難な方を支援し、自立と生きがいを大切にした生活を提供しています。",
     color: "bg-[#1A8066]",
-    href: "/facilities#fujimien",
+    href: "/facilities/fujimien",
   },
 ];
 
@@ -43,8 +43,8 @@ const services = [
       </svg>
     ),
     name: "デイサービス",
-    description: "日帰りで入浴・食事・機能訓練を提供。社会参加の機会を大切にしながら、在宅生活を支援します。",
-    href: "/services#day",
+    description: "1991年開設。和風旅館のような落ち着いた雰囲気で、入浴・食事・機能訓練・レクリエーションを提供。看板犬「ふわり」が出迎えます。",
+    href: "/services/day-service",
   },
   {
     icon: (
@@ -53,8 +53,8 @@ const services = [
       </svg>
     ),
     name: "在宅介護支援",
-    description: "訪問介護・居宅介護支援を通じて、住み慣れた自宅での生活を継続できるよう専門スタッフが支援します。",
-    href: "/services#home",
+    description: "介護保険制度以前から実績のある在宅介護支援センター。6名のケアマネジャーが訪問介護・居宅介護支援を通じて在宅生活を支援します。",
+    href: "/services/zaitaku-kaigo",
   },
   {
     icon: (
@@ -63,8 +63,8 @@ const services = [
       </svg>
     ),
     name: "地域包括支援センター",
-    description: "高齢者の総合相談窓口として、介護・医療・生活支援を包括的にコーディネートし、地域全体を支えます。",
-    href: "/services#chiiki",
+    description: "西区北部圏域の高齢者総合相談窓口（シニアサポートセンター）。介護・医療・生活支援を包括的にコーディネート。相談は無料です。",
+    href: "/services/chiiki-houkatsu",
   },
 ];
 
@@ -98,8 +98,16 @@ export default function TopPage() {
       <section
         className="relative bg-primary-dark overflow-hidden"
         aria-label="メインビジュアル"
+        style={{
+          backgroundImage: "url('/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        {/* Decorative circles representing 三恵 (heaven/earth/human) */}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-primary-dark/80" aria-hidden="true" />
+
+        {/* Decorative circles */}
         <div
           className="absolute right-0 top-0 w-[600px] h-[600px] opacity-[0.06] pointer-events-none"
           aria-hidden="true"
@@ -136,7 +144,7 @@ export default function TopPage() {
                 採用情報を見る
               </Link>
               <Link
-                href="/facilities"
+                href="/facilities/sankeien"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium px-7 py-4 rounded-full border border-white/30 transition-colors"
               >
                 施設のご案内
@@ -168,7 +176,7 @@ export default function TopPage() {
           <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
             {[
               { value: "38", unit: "年", label: "地域で歩んだ歴史" },
-              { value: "12", unit: "事業所", label: "多様なサービス拠点" },
+              { value: "3", unit: "施設", label: "特養・養護老人ホーム" },
               { value: "★", unit: "", label: "プラチナ認定取得（埼玉県）", isSpecial: true },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -221,7 +229,6 @@ export default function TopPage() {
               </Link>
             </div>
 
-            {/* Decorative card */}
             <div className="grid grid-cols-3 gap-3">
               {[
                 { label: "天の恵み", desc: "自然の豊かさと環境への感謝" },
@@ -333,12 +340,11 @@ export default function TopPage() {
         </div>
       </section>
 
-      {/* ── Recruitment CTA (PROMINENT) ── */}
+      {/* ── Recruitment CTA ── */}
       <section className="bg-primary-dark py-16 sm:py-20" aria-label="採用情報">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Platinum badge */}
               <div className="inline-flex items-center gap-2 bg-yellow-400/15 text-yellow-300 text-sm font-bold px-4 py-2 rounded-full border border-yellow-400/25 mb-6">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
                   <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z" />
@@ -357,7 +363,7 @@ export default function TopPage() {
                 スタッフが長く働き続けられる環境を整えています。
               </p>
               <p className="text-white/75 leading-loose mb-8">
-                介護職・看護職・相談員・事務職など、各種職種で仲間を募集しています。
+                介護職・看護職・ケアマネジャー・調理員・支援員など、各種職種で仲間を募集しています。
                 経験者・未経験者ともに歓迎します。
               </p>
               <Link
@@ -373,10 +379,10 @@ export default function TopPage() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { title: "介護職員", note: "正職員・パート・派遣" },
-                { title: "看護職員", note: "正職員・パート" },
-                { title: "相談員", note: "生活相談員・支援相談員" },
-                { title: "事務職員", note: "施設事務・法人本部" },
+                { title: "介護職員", note: "正規職員・非常勤" },
+                { title: "ケアマネジャー", note: "居宅介護支援" },
+                { title: "支援員・調理員", note: "養護老人ホーム" },
+                { title: "看護職員", note: "正規職員・パート" },
               ].map((job) => (
                 <div
                   key={job.title}
