@@ -136,13 +136,15 @@ export default function TopPage() {
               社会福祉法人 三恵会
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              地域に寄り添う
+              住み慣れた地域で、
               <br />
-              介護を、38年。
+              最期まで、
+              <br />
+              その人らしく。
             </h1>
             <p className="text-white/75 text-lg leading-loose mb-10 max-w-xl">
-              「天の恵み・地の恵み・人の恵み」の精神で、埼玉県さいたま市にて
-              特別養護老人ホームをはじめとした介護サービスを提供しています。
+              「天の恵み・地の恵み・人の恵み」の精神で、さいたま市西区に根ざして38年。
+              施設入居からデイサービス・在宅介護まで、大切なご家族の状況に合わせてご相談に応じます。
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
