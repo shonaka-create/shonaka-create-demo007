@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "在宅介護支援",
+  title: "在宅介護支援センター｜三恵苑在宅介護支援センター｜さいたま市西区",
   description:
-    "三恵苑在宅介護支援センターの訪問介護・居宅介護支援サービス。介護保険制度以前から実績のある6名のケアマネジャーが、住み慣れた自宅での生活継続を支援します。相談無料。",
+    "三恵苑在宅介護支援センター（さいたま市西区高木892）。6名のケアマネジャーが居宅介護支援・訪問介護を提供。ケアプラン作成・介護相談は無料。8:30〜17:30受付。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function ZaitakuKaigoPage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Services / Home Care</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/services" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">在宅介護支援</li>
+            </ol>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">在宅介護支援</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
             三恵苑在宅介護支援センター ─ 介護保険制度以前から、在宅での介護相談を支え続けてきた実績があります。
@@ -48,6 +56,17 @@ export default function ZaitakuKaigoPage() {
           </ul>
         </div>
       </nav>
+
+      {/* Service Photo Banner */}
+      <div className="relative h-56 sm:h-72 overflow-hidden">
+        <img src="/service-care.jpg" alt="在宅介護でお茶を提供する介護スタッフの様子" className="w-full h-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-primary-dark/25" />
+        <div className="absolute bottom-5 left-6">
+          <span className="bg-primary/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            居宅介護支援 ／ 相談無料
+          </span>
+        </div>
+      </div>
 
       {/* Overview */}
       <section className="bg-bg py-16 sm:py-20">

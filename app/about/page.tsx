@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "三恵会とは",
+  title: "三恵会とは｜社会福祉法人 三恵会の理念・沿革・法人概要",
   description:
-    "社会福祉法人 三恵会の理念・沿革・法人概要。「天の恵み・地の恵み・人の恵み」の精神で、埼玉県さいたま市を拠点に38年間、地域の介護サービスを支えています。",
+    "社会福祉法人 三恵会（さいたま市西区）の理念・沿革・法人概要。「天の恵み・地の恵み・人の恵み」の精神で1987年設立。特別養護老人ホーム・デイサービス・地域包括支援センターを運営。",
 };
 
 const history = [
@@ -69,8 +69,28 @@ export default function AboutPage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">About Us</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">三恵会とは</li>
+            </ol>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">三恵会とは</h1>
+          <p className="text-white/70 mt-3 max-w-xl leading-loose">
+            「天の恵み・地の恵み・人の恵み」の精神で、38年間さいたま市西区の地域介護を支えています。
+          </p>
+        </div>
+      </div>
+
+      {/* About Photo Banner */}
+      <div className="relative h-52 sm:h-64 overflow-hidden">
+        <img src="/hero-bg.jpg" alt="さいたま市西区の日本庭園─三恵会の活動拠点" className="w-full h-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-primary-dark/30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-white text-xl sm:text-2xl font-bold text-center drop-shadow-lg">
+            1987年設立 ─ 地域とともに歩んだ38年
+          </p>
         </div>
       </div>
 
@@ -114,10 +134,11 @@ export default function AboutPage() {
                 key={item.title}
                 className="bg-surface rounded-2xl border border-border overflow-hidden"
               >
-                <div className="bg-primary h-20 flex items-center justify-center">
-                  <span className="text-5xl font-bold text-white/90">
-                    {item.kanji}
-                  </span>
+                <div className="relative h-20 overflow-hidden">
+                  <img src="/hero-bg.jpg" alt="" className="w-full h-full object-cover" aria-hidden="true" loading="lazy" />
+                  <div className="absolute inset-0 bg-primary/75 flex items-center justify-center">
+                    <span className="text-5xl font-bold text-white/90">{item.kanji}</span>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-ink mb-3">{item.title}</h3>

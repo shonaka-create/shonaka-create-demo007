@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "富士見園（養護老人ホーム）",
+  title: "富士見園（養護老人ホーム）｜社会福祉法人 三恵会｜さいたま市西区",
   description:
-    "昭和31年開設の養護老人ホーム富士見園。平成18年から三恵会直営。50室（二人部屋40室・個室10室）。敷地面積8,185㎡。通院送迎・クラブ活動・季節行事など充実した生活を提供。",
+    "社会福祉法人 三恵会が運営する養護老人ホーム富士見園（さいたま市西区清河寺）。昭和31年設立、令和4年から契約入所も開始。敷地8,185㎡、50室。クラブ活動・通院送迎充実。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function FujimienPage() {
       {/* Page Header */}
       <div className="bg-[#1A8066] text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Facilities</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/facilities" className="hover:text-white/80 transition-colors">施設のご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">富士見園</li>
+            </ol>
+          </nav>
           <p className="text-white/70 text-sm mb-1">養護老人ホーム</p>
           <h1 className="text-3xl sm:text-4xl font-bold">富士見園</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
@@ -56,11 +64,12 @@ export default function FujimienPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
               {/* Facility Visual */}
-              <div className="bg-[#1A8066] rounded-2xl h-52 sm:h-64 flex items-center justify-center mb-7">
-                <div className="text-center text-white">
-                  <div className="text-5xl font-bold mb-2">富士見園</div>
-                  <div className="text-base opacity-80">養護老人ホーム</div>
-                  <div className="text-sm opacity-60 mt-1">昭和31年（1956年）設立</div>
+              <div className="relative rounded-2xl overflow-hidden h-52 sm:h-64 mb-7 shadow-md">
+                <img src="/facility-garden.jpg" alt="富士見園の緑豊かな敷地環境" className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-[#1A8066]/65 flex flex-col items-center justify-center">
+                  <div className="text-5xl font-bold text-white mb-2">富士見園</div>
+                  <div className="text-base text-white/90">養護老人ホーム</div>
+                  <div className="text-sm text-white/70 mt-1">昭和31年（1956年）設立</div>
                 </div>
               </div>
 

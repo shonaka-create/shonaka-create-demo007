@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "施設のご案内",
+  title: "施設のご案内｜社会福祉法人 三恵会｜さいたま市西区の特別養護老人ホーム",
   description:
-    "社会福祉法人 三恵会が運営する特別養護老人ホーム（三恵苑・ひかわ）と養護老人ホーム（富士見園）の施設情報・サービス内容・入所案内をご紹介します。",
+    "社会福祉法人 三恵会が運営するさいたま市西区の3施設。特別養護老人ホーム三恵苑（80名定員）・ひかわ（110名・ユニット型全室個室）・養護老人ホーム富士見園。入所申込受付中。",
 };
 
 const facilities = [
@@ -76,11 +76,19 @@ export default function FacilitiesPage() {
                 className={`rounded-2xl overflow-hidden border border-border ${idx % 2 === 0 ? "bg-surface" : "bg-white"}`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  {/* Color Header */}
-                  <div className={`${f.color} lg:col-span-1 flex flex-col justify-center items-center p-10 text-white`}>
-                    <div className="text-3xl font-bold mb-2">{f.name}</div>
-                    <div className="text-sm opacity-80">{f.type}</div>
-                    <div className="text-xs opacity-60 mt-3 text-center">{f.established}</div>
+                  {/* Photo Header */}
+                  <div className="lg:col-span-1 relative overflow-hidden min-h-[180px]">
+                    <img
+                      src={idx === 1 ? "/hero-bg.jpg" : "/facility-garden.jpg"}
+                      alt={`${f.name}の施設環境`}
+                      className="w-full h-full object-cover absolute inset-0"
+                      loading="lazy"
+                    />
+                    <div className={`absolute inset-0 ${f.color}/75 flex flex-col justify-center items-center p-10 text-white`}>
+                      <div className="text-3xl font-bold mb-2">{f.name}</div>
+                      <div className="text-sm opacity-90">{f.type}</div>
+                      <div className="text-xs opacity-70 mt-3 text-center">{f.established}</div>
+                    </div>
                   </div>
 
                   {/* Content */}

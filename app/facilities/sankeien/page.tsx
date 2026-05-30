@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "三恵苑（特別養護老人ホーム）",
+  title: "三恵苑（特別養護老人ホーム）｜社会福祉法人 三恵会｜さいたま市西区",
   description:
-    "昭和63年開設の特別養護老人ホーム三恵苑。さいたま市西区中釘に位置し、80名定員。ショートステイ4名併設。24時間体制の介護と終身利用が可能です。",
+    "社会福祉法人 三恵会が運営する特別養護老人ホーム三恵苑（さいたま市西区中釘）。昭和63年開設、80名定員。24時間体制の介護・看取りケア・ショートステイ。入所申込受付中。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function SankeienPage() {
       {/* Page Header */}
       <div className="bg-[#2A6B47] text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Facilities</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/facilities" className="hover:text-white/80 transition-colors">施設のご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">三恵苑</li>
+            </ol>
+          </nav>
           <p className="text-white/70 text-sm mb-1">特別養護老人ホーム</p>
           <h1 className="text-3xl sm:text-4xl font-bold">三恵苑</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
@@ -56,11 +64,12 @@ export default function SankeienPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
               {/* Facility Visual */}
-              <div className="bg-[#2A6B47] rounded-2xl h-52 sm:h-64 flex items-center justify-center mb-7">
-                <div className="text-center text-white">
-                  <div className="text-5xl font-bold mb-2">三恵苑</div>
-                  <div className="text-base opacity-80">特別養護老人ホーム</div>
-                  <div className="text-sm opacity-60 mt-1">昭和63年（1988年）開設</div>
+              <div className="relative rounded-2xl overflow-hidden h-52 sm:h-64 mb-7 shadow-md">
+                <img src="/facility-garden.jpg" alt="三恵苑の周辺環境・日本庭園" className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-[#2A6B47]/65 flex flex-col items-center justify-center">
+                  <div className="text-5xl font-bold text-white mb-2">三恵苑</div>
+                  <div className="text-base text-white/90">特別養護老人ホーム</div>
+                  <div className="text-sm text-white/70 mt-1">昭和63年（1988年）開設</div>
                 </div>
               </div>
 

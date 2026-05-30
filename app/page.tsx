@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "社会福祉法人 三恵会 ─ 埼玉県さいたま市の介護サービス",
+  title: "社会福祉法人 三恵会｜さいたま市西区の特別養護老人ホーム・介護サービス",
+  description:
+    "社会福祉法人 三恵会は埼玉県さいたま市西区で38年間、特別養護老人ホーム（三恵苑・ひかわ）・養護老人ホーム（富士見園）・デイサービス・地域包括支援センターを運営しています。",
 };
 
 const facilities = [
@@ -12,7 +14,8 @@ const facilities = [
     type: "特別養護老人ホーム",
     description:
       "昭和63年開設。さいたま市西区に位置し、80名定員の基幹施設です。24時間体制の介護と、入居者一人ひとりの尊厳を大切にしたケアを提供しています。",
-    color: "bg-[#2A6B47]",
+    overlay: "bg-[#2A6B47]/72",
+    img: "/facility-garden.jpg",
     href: "/facilities/sankeien",
   },
   {
@@ -21,7 +24,8 @@ const facilities = [
     type: "特別養護老人ホーム",
     description:
       "平成19年開設のユニット型特養（110名定員）。全室個室でプライバシーを確保しながら、家庭的な雰囲気の中でお過ごしいただけます。ひのき風呂も好評です。",
-    color: "bg-[#3A8060]",
+    overlay: "bg-[#3A8060]/72",
+    img: "/hero-bg.jpg",
     href: "/facilities/hikawa",
   },
   {
@@ -30,7 +34,8 @@ const facilities = [
     type: "養護老人ホーム",
     description:
       "昭和31年の歴史ある養護老人ホーム。環境的・経済的な理由で自宅での生活が困難な方を支援し、自立と生きがいを大切にした生活を提供しています。",
-    color: "bg-[#1A8066]",
+    overlay: "bg-[#1A8066]/72",
+    img: "/facility-garden.jpg",
     href: "/facilities/fujimien",
   },
 ];
@@ -44,26 +49,32 @@ const services = [
     ),
     name: "デイサービス",
     description: "1991年開設。和風旅館のような落ち着いた雰囲気で、入浴・食事・機能訓練・レクリエーションを提供。看板犬「ふわり」が出迎えます。",
+    image: "/service-dayservice.jpg",
+    imageAlt: "デイサービスでグループ体操を楽しむ高齢者",
     href: "/services/day-service",
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
     name: "在宅介護支援",
     description: "介護保険制度以前から実績のある在宅介護支援センター。6名のケアマネジャーが訪問介護・居宅介護支援を通じて在宅生活を支援します。",
+    image: "/service-care.jpg",
+    imageAlt: "在宅でお茶を提供する介護スタッフ",
     href: "/services/zaitaku-kaigo",
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
     name: "地域包括支援センター",
     description: "西区北部圏域の高齢者総合相談窓口（シニアサポートセンター）。介護・医療・生活支援を包括的にコーディネート。相談は無料です。",
+    image: "/service-community.jpg",
+    imageAlt: "地域包括支援センターでの相談対応シーン",
     href: "/services/chiiki-houkatsu",
   },
 ];
@@ -229,23 +240,34 @@ export default function TopPage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { label: "天の恵み", desc: "自然の豊かさと環境への感謝" },
-                { label: "地の恵み", desc: "大地と地域の繋がりを大切に" },
-                { label: "人の恵み", desc: "人と人との絆で支え合う" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-white rounded-2xl p-5 shadow-sm border border-border"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center mb-3">
-                    <div className="w-3 h-3 rounded-full bg-primary" />
-                  </div>
-                  <div className="font-bold text-ink text-sm mb-2">{item.label}</div>
-                  <div className="text-ink-subtle text-xs leading-relaxed">{item.desc}</div>
+            <div>
+              <div className="relative rounded-2xl overflow-hidden h-52 mb-4 shadow-sm">
+                <img src="/hero-bg.jpg" alt="さいたま市西区の日本庭園で憩う高齢者" className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-primary/15" />
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-white text-xs font-bold bg-primary-dark/60 backdrop-blur-sm rounded-full px-3 py-1.5">
+                    さいたま市西区で38年
+                  </p>
                 </div>
-              ))}
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { label: "天の恵み", desc: "自然の豊かさと環境への感謝" },
+                  { label: "地の恵み", desc: "大地と地域の繋がりを大切に" },
+                  { label: "人の恵み", desc: "人と人との絆で支え合う" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="bg-white rounded-2xl p-5 shadow-sm border border-border"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center mb-3">
+                      <div className="w-3 h-3 rounded-full bg-primary" />
+                    </div>
+                    <div className="font-bold text-ink text-sm mb-2">{item.label}</div>
+                    <div className="text-ink-subtle text-xs leading-relaxed">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -270,10 +292,11 @@ export default function TopPage() {
                 href={f.href}
                 className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-primary hover:shadow-md transition-all duration-200"
               >
-                <div className={`${f.color} h-36 flex items-center justify-center`}>
-                  <div className="text-center text-white">
-                    <div className="text-2xl font-bold mb-1">{f.name}</div>
-                    <div className="text-sm opacity-80">{f.type}</div>
+                <div className="relative h-44 overflow-hidden">
+                  <img src={f.img} alt={`${f.name}の施設風景`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div className={`absolute inset-0 ${f.overlay} flex flex-col items-center justify-center`}>
+                    <div className="text-2xl font-bold text-white mb-1">{f.name}</div>
+                    <div className="text-sm text-white/90">{f.type}</div>
                   </div>
                 </div>
                 <div className="p-5">
@@ -319,21 +342,29 @@ export default function TopPage() {
               <Link
                 key={s.name}
                 href={s.href}
-                className="group bg-white rounded-2xl p-7 border border-border hover:border-primary hover:shadow-md transition-all duration-200"
+                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-primary hover:shadow-md transition-all duration-200"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary-light text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-                  {s.icon}
+                <div className="relative h-40 overflow-hidden">
+                  <img src={s.image} alt={s.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-primary-dark/40" />
+                  <div className="absolute bottom-3 left-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/95 text-primary flex items-center justify-center shadow-sm">
+                      {s.icon}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-ink mb-3">{s.name}</h3>
-                <p className="text-ink-muted text-sm leading-loose mb-4">
-                  {s.description}
-                </p>
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
-                  詳しく見る
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-ink mb-2">{s.name}</h3>
+                  <p className="text-ink-muted text-sm leading-loose mb-4">
+                    {s.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
+                    詳しく見る
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

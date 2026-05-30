@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "デイサービス（通所介護）",
+  title: "デイサービス（通所介護）｜三恵苑デイサービスセンター｜さいたま市西区",
   description:
-    "三恵苑デイサービスセンターの通所介護サービス。1991年開設、和風旅館のような落ち着いた雰囲気で入浴・食事・機能訓練・レクリエーションを提供。要支援1〜2・要介護1〜5の方が対象です。",
+    "三恵苑デイサービスセンター（さいたま市西区高木892）。1991年開設。入浴・食事・機能訓練・レクリエーション・送迎付き。要支援1〜2・要介護1〜5対象。通所介護のご相談は無料。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function DayServicePage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Services / Day Service</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/services" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">デイサービス</li>
+            </ol>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">デイサービス</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
             三恵苑デイサービスセンター ─ 1991年の開設以来、地域の在宅高齢者の生活を支える通所介護施設です。
@@ -48,6 +56,17 @@ export default function DayServicePage() {
           </ul>
         </div>
       </nav>
+
+      {/* Service Photo Banner */}
+      <div className="relative h-56 sm:h-72 overflow-hidden">
+        <img src="/service-dayservice.jpg" alt="デイサービスでグループ体操を行う高齢者の様子" className="w-full h-full object-cover object-top" loading="lazy" />
+        <div className="absolute inset-0 bg-primary-dark/25" />
+        <div className="absolute bottom-5 left-6">
+          <span className="bg-primary/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            通所介護 ／ 1991年開設
+          </span>
+        </div>
+      </div>
 
       {/* Overview */}
       <section className="bg-bg py-16 sm:py-20">

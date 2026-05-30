@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "採用情報",
+  title: "採用情報｜社会福祉法人 三恵会｜さいたま市西区の介護職求人",
   description:
-    "社会福祉法人 三恵会の採用情報。介護職員・ケアマネジャー・調理員・支援員など各種職種を募集。埼玉県「多様な働き方実践企業 プラチナ認定」取得。充実した待遇・研修制度で長く働ける環境です。",
+    "社会福祉法人 三恵会（さいたま市西区）の採用情報。介護職員・ケアマネジャー・調理員・支援員を募集。月給185,500円〜。埼玉県プラチナ認定取得。研修充実・4週9休・育休実績多数。",
 };
 
 const jobs = [
@@ -97,21 +97,45 @@ export default function RecruitPage() {
           </svg>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="inline-flex items-center gap-2 bg-yellow-400/15 text-yellow-200 text-sm font-bold px-4 py-2 rounded-full border border-yellow-400/25 mb-6">
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z" />
-            </svg>
-            埼玉県 多様な働き方実践企業 プラチナ認定取得
+          <nav aria-label="パンくずリスト" className="mb-5">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">採用情報</li>
+            </ol>
+          </nav>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-yellow-400/15 text-yellow-200 text-sm font-bold px-4 py-2 rounded-full border border-yellow-400/25 mb-6">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z" />
+                </svg>
+                埼玉県 多様な働き方実践企業 プラチナ認定取得
+              </div>
+              <h1 className="text-3xl sm:text-5xl font-bold mb-5">
+                三恵会で、
+                <br />
+                一緒に働きませんか？
+              </h1>
+              <p className="text-white/75 text-lg leading-loose max-w-xl">
+                「天の恵み・地の恵み・人の恵み」の精神を共に体現してくれる仲間を、経験・未経験を問わず募集しています。
+              </p>
+            </div>
+
+            {/* Staff photo */}
+            <div className="hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden h-64 shadow-xl">
+                <img src="/recruit-staff.jpg" alt="三恵会スタッフのイメージ" className="w-full h-full object-cover object-top" loading="lazy" />
+                <div className="absolute inset-0 bg-primary-dark/30" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white text-xs font-bold text-center">
+                    ─ あなたのやさしさを、地域の力に ─
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Recruit</p>
-          <h1 className="text-3xl sm:text-5xl font-bold mb-5">
-            三恵会で、
-            <br />
-            一緒に働きませんか？
-          </h1>
-          <p className="text-white/75 text-lg leading-loose max-w-xl">
-            「天の恵み・地の恵み・人の恵み」の精神を共に体現してくれる仲間を、経験・未経験を問わず募集しています。
-          </p>
         </div>
       </div>
 

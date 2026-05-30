@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ひかわ（特別養護老人ホーム）",
+  title: "ひかわ（特別養護老人ホーム）｜社会福祉法人 三恵会｜さいたま市西区",
   description:
-    "平成19年開設のユニット型特別養護老人ホーム「ひかわ」。110名定員・全室個室。ひのき風呂・デイサービス・在宅介護支援センター・ショートステイ（10名）を併設。",
+    "社会福祉法人 三恵会が運営するユニット型特別養護老人ホーム「ひかわ」（さいたま市西区高木）。110名定員・全室個室。ひのき風呂・ショートステイ10名・デイサービス併設。入所申込受付中。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function HikawaPage() {
       {/* Page Header */}
       <div className="bg-[#3A8060] text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Facilities</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/facilities" className="hover:text-white/80 transition-colors">施設のご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">ひかわ</li>
+            </ol>
+          </nav>
           <p className="text-white/70 text-sm mb-1">特別養護老人ホーム</p>
           <h1 className="text-3xl sm:text-4xl font-bold">ひかわ</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
@@ -56,11 +64,12 @@ export default function HikawaPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
               {/* Facility Visual */}
-              <div className="bg-[#3A8060] rounded-2xl h-52 sm:h-64 flex items-center justify-center mb-7">
-                <div className="text-center text-white">
-                  <div className="text-5xl font-bold mb-2">ひかわ</div>
-                  <div className="text-base opacity-80">特別養護老人ホーム</div>
-                  <div className="text-sm opacity-60 mt-1">平成19年（2007年）開設</div>
+              <div className="relative rounded-2xl overflow-hidden h-52 sm:h-64 mb-7 shadow-md">
+                <img src="/hero-bg.jpg" alt="ひかわ周辺の緑豊かな環境" className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-[#3A8060]/65 flex flex-col items-center justify-center">
+                  <div className="text-5xl font-bold text-white mb-2">ひかわ</div>
+                  <div className="text-base text-white/90">特別養護老人ホーム</div>
+                  <div className="text-sm text-white/70 mt-1">平成19年（2007年）開設</div>
                 </div>
               </div>
 

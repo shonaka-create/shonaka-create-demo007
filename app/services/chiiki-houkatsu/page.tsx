@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "地域包括支援センター（シニアサポートセンター）",
+  title: "地域包括支援センター三恵苑（シニアサポートセンター）｜さいたま市西区",
   description:
-    "西区北部圏域地域包括支援センター三恵苑（シニアサポートセンター）。さいたま市西区北部の高齢者を対象とした総合相談窓口。介護・医療・生活の悩みをまとめてサポート。相談無料。",
+    "西区北部圏域地域包括支援センター三恵苑（シニアサポートセンター）。さいたま市西区の高齢者・家族の総合相談窓口。介護・医療・生活支援を無料でコーディネート。9:00〜18:00受付。",
 };
 
 const subNavItems = [
@@ -19,7 +19,15 @@ export default function ChiikiHoukatsuPage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Services / Community Care</p>
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/services" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">地域包括支援センター</li>
+            </ol>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">地域包括支援センター</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
             西区北部圏域地域包括支援センター三恵苑（シニアサポートセンター）─ 高齢者とその家族のための総合相談窓口
@@ -48,6 +56,17 @@ export default function ChiikiHoukatsuPage() {
           </ul>
         </div>
       </nav>
+
+      {/* Service Photo Banner */}
+      <div className="relative h-56 sm:h-72 overflow-hidden">
+        <img src="/service-community.jpg" alt="地域包括支援センターでの相談対応の様子" className="w-full h-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-primary-dark/25" />
+        <div className="absolute bottom-5 left-6">
+          <span className="bg-primary/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            高齢者総合相談窓口 ／ 相談無料
+          </span>
+        </div>
+      </div>
 
       {/* Overview */}
       <section className="bg-bg py-16 sm:py-20">
