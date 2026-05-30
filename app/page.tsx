@@ -105,7 +105,7 @@ export default function TopPage() {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-primary-dark/80" aria-hidden="true" />
+        <div className="absolute inset-0 bg-primary-dark/65" aria-hidden="true" />
 
         {/* Decorative circles */}
         <div
