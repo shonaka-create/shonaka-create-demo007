@@ -167,13 +167,14 @@ export default function TopPage() {
         </div>
 
         {/* Wave */}
-        <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
+        <div className="absolute bottom-0 left-0 right-0 leading-none" aria-hidden="true">
           <svg
             viewBox="0 0 1440 64"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
+            className="w-full block"
             preserveAspectRatio="none"
+            style={{ marginBottom: "-2px" }}
           >
             <path
               d="M0,32 C320,64 640,0 960,32 C1120,48 1280,56 1440,32 L1440,64 L0,64 Z"
@@ -184,7 +185,7 @@ export default function TopPage() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="bg-bg py-12 -mt-1">
+      <section className="bg-bg py-12 -mt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
             {[
