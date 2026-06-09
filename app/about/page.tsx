@@ -89,9 +89,6 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-6">
               法人の理念
             </h2>
-            <p className="text-2xl sm:text-3xl font-bold text-primary leading-loose">
-              「天の恵み・地の恵み・人の恵み」
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
