@@ -33,31 +33,18 @@ export default function Footer() {
             </address>
           </div>
 
-          {/* 施設・サービス */}
+          {/* サービスのご案内 */}
           <div>
             <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
-              施設のご案内
-            </h3>
-            <ul className="space-y-2 mb-7">
-              {[
-                { label: "延寿園（特別養護老人ホーム）", href: "/facilities/sankeien" },
-                { label: "ショートステイ 季の恵", href: "/facilities/hikawa" },
-              ].map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
-              サービスのご案内
+              各サービスのご案内
             </h3>
             <ul className="space-y-2">
               {[
+                { label: "延寿園（特別養護老人ホーム）", href: "/services/enshuuen" },
+                { label: "季の恵（ショートステイ）", href: "/services/kinoegumi" },
                 { label: "ふれあいかんデイサービスセンター", href: "/services/day-service" },
-                { label: "訪問介護・居宅介護支援", href: "/services/zaitaku-kaigo" },
+                { label: "延寿園ホームヘルプセンター", href: "/services/home-help" },
+                { label: "延寿園在宅介護支援センター", href: "/services/kaigo-support" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
@@ -71,17 +58,15 @@ export default function Footer() {
           {/* その他 */}
           <div>
             <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
-              その他
+              法人情報
             </h3>
             <ul className="space-y-2">
               {[
-                { label: "三恵会とは", href: "/about" },
-                { label: "広報誌", href: "/press" },
-                { label: "お知らせ", href: "/blog" },
-                { label: "採用情報", href: "/recruit" },
-                { label: "入所申し込み", href: "/application" },
-                { label: "公開情報", href: "/disclosure" },
+                { label: "理事長挨拶", href: "/greeting" },
+                { label: "法人概要", href: "/about" },
+                { label: "求人情報", href: "/recruit" },
                 { label: "お問い合わせ", href: "/contact" },
+                { label: "プライバシーポリシー", href: "/privacy" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">

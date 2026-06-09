@@ -7,63 +7,46 @@ export const metadata: Metadata = {
     "社会福祉法人 三恵会は青森県むつ市大畑町を拠点に、特別養護老人ホーム（延寿園）・ショートステイ（季の恵）・デイサービス・訪問介護・居宅介護支援を運営しています。",
 };
 
-const facilities = [
+const allServices = [
   {
     id: "enshuuen",
     name: "延寿園",
     type: "特別養護老人ホーム",
-    description:
-      "むつ市大畑町に位置する三恵会の基幹施設です。24時間365日体制の介護と、入居者一人ひとりの尊厳を大切にしたケアを提供しています。",
-    overlay: "bg-[#2A6B47]/72",
-    href: "/facilities/sankeien",
+    description: "むつ市大畑町に位置する三恵会の基幹施設。24時間365日体制の介護と、入居者一人ひとりの尊厳を大切にした個別ケアを提供。看取り介護・認知症ケアにも対応します。",
+    color: "bg-[#2A6B47]",
+    href: "/services/enshuuen",
   },
   {
     id: "kinoegumi",
     name: "季の恵",
     type: "ショートステイ（短期入所生活介護）",
-    description:
-      "延寿園に併設するショートステイ施設。在宅生活を続けながら短期間の宿泊介護サービスをご利用いただけます。ご家族の介護疲れの回復にもお役立てください。",
-    overlay: "bg-[#3A8060]/72",
-    href: "/facilities/hikawa",
+    description: "延寿園に併設するショートステイ施設。在宅生活を続けながら短期間の宿泊介護サービスをご利用いただけます。定員20床。ご家族の介護疲れの回復にもご活用ください。",
+    color: "bg-[#3A8060]",
+    href: "/services/kinoegumi",
   },
-];
-
-const services = [
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
+    id: "day-service",
     name: "ふれあいかんデイサービスセンター",
+    type: "通所介護",
     description: "日帰りで施設に通い、入浴・食事・機能訓練・レクリエーションを楽しめます。送迎付きで安心。「今日も来てよかった」と思っていただける場所づくりを大切にしています。",
-    image: "/service-dayservice.jpg",
-    imageAlt: "デイサービスでグループ体操を楽しむ高齢者（写真は受領次第差し替えます）",
+    color: "bg-[#1A6B80]",
     href: "/services/day-service",
   },
   {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
+    id: "home-help",
     name: "延寿園ホームヘルプセンター",
+    type: "訪問介護",
     description: "「住み慣れた自宅で暮らし続けたい」を、ホームヘルパーが直接訪問してサポートします。身体介護・生活援助・通院同行に対応。",
-    image: "/service-care.jpg",
-    imageAlt: "在宅でお茶を提供する介護スタッフ（写真は受領次第差し替えます）",
-    href: "/services/zaitaku-kaigo",
+    color: "bg-[#1E6B5A]",
+    href: "/services/home-help",
   },
   {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
+    id: "kaigo-support",
     name: "延寿園在宅介護支援センター",
+    type: "居宅介護支援",
     description: "ケアマネジャーが介護の入口から支援します。ケアプラン作成・サービス調整を一括サポート。介護についての相談は無料です。まずはお気軽にご連絡ください。",
-    image: "/service-community.jpg",
-    imageAlt: "ケアマネジャーによる相談対応（写真は受領次第差し替えます）",
-    href: "/services/zaitaku-kaigo",
+    color: "bg-[#1A8066]",
+    href: "/services/kaigo-support",
   },
 ];
 
@@ -145,13 +128,13 @@ export default function TopPage() {
                 0175-34-3297 電話で相談
               </a>
               <Link
-                href="/facilities/sankeien"
+                href="/services/enshuuen"
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-7 py-4 rounded-full transition-colors shadow-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-                施設のご案内
+                サービスのご案内
               </Link>
             </div>
           </div>
@@ -181,9 +164,9 @@ export default function TopPage() {
           <p className="text-center text-sm text-ink-muted mb-6">どのようなご相談でも、まずはお気軽に</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto mb-6">
             {[
-              { label: "施設入所を検討したい", href: "/facilities/sankeien", icon: "🏠" },
+              { label: "施設入所を検討したい", href: "/services/enshuuen", icon: "🏠" },
               { label: "デイサービスに通いたい", href: "/services/day-service", icon: "🌞" },
-              { label: "在宅介護を支援してほしい", href: "/services/zaitaku-kaigo", icon: "🏡" },
+              { label: "在宅介護を支援してほしい", href: "/services/home-help", icon: "🏡" },
               { label: "採用情報を見たい", href: "/recruit", icon: "👩‍⚕️" },
             ].map((item) => (
               <Link
@@ -270,36 +253,36 @@ export default function TopPage() {
         </div>
       </section>
 
-      {/* ── Facilities ── */}
+      {/* ── All Services ── */}
       <section className="bg-surface py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-primary text-sm font-bold tracking-widest mb-3 uppercase">
-              Facilities
+              Services
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-ink">
-              施設のご案内
+              各サービスのご案内
             </h2>
+            <p className="text-ink-muted mt-3 text-sm">
+              施設入居からデイサービス・訪問介護・ケアプラン作成まで、地域の皆さまを幅広く支援します。
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {facilities.map((f) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {allServices.map((s) => (
               <Link
-                key={f.id}
-                href={f.href}
+                key={s.id}
+                href={s.href}
                 className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-primary hover:shadow-md transition-all duration-200"
               >
-                {/* 施設写真プレースホルダー */}
-                <div className="relative h-44 overflow-hidden bg-gray-50 border-b border-dashed border-gray-200 flex flex-col items-center justify-center">
-                  <div className={`absolute inset-0 ${f.overlay} flex flex-col items-center justify-center`}>
-                    <div className="text-2xl font-bold text-white mb-1">{f.name}</div>
-                    <div className="text-sm text-white/90">{f.type}</div>
-                    <div className="text-xs text-white/60 mt-2">※ 写真は受領次第差し替えます</div>
-                  </div>
+                <div className={`h-28 ${s.color} flex flex-col items-center justify-center text-white`}>
+                  <div className="text-lg font-bold text-center px-4">{s.name}</div>
+                  <div className="text-xs opacity-80 mt-1">{s.type}</div>
+                  <div className="text-xs opacity-40 mt-1">※ 写真は受領次第差し替えます</div>
                 </div>
                 <div className="p-5">
                   <p className="text-ink-muted text-sm leading-loose mb-4">
-                    {f.description}
+                    {s.description}
                   </p>
                   <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
                     詳しく見る
@@ -314,58 +297,14 @@ export default function TopPage() {
 
           <div className="text-center mt-8">
             <Link
-              href="/application"
+              href="/services/enshuuen"
               className="inline-flex items-center gap-2 bg-primary-light hover:bg-primary text-primary hover:text-white font-bold px-7 py-3.5 rounded-full transition-colors border border-primary/30"
             >
-              入所申し込みはこちら
+              サービス詳細一覧
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Services ── */}
-      <section className="bg-bg py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-primary text-sm font-bold tracking-widest mb-3 uppercase">
-              Services
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-ink">
-              サービスのご案内
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <Link
-                key={s.name}
-                href={s.href}
-                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-primary hover:shadow-md transition-all duration-200"
-              >
-                {/* サービス写真プレースホルダー */}
-                <div className="relative h-40 overflow-hidden bg-gray-50 border-b border-dashed border-gray-200 flex flex-col items-center justify-center">
-                  <div className="absolute inset-0 bg-primary-dark/40" />
-                  <div className="absolute bottom-3 left-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/95 text-primary flex items-center justify-center shadow-sm">
-                      {s.icon}
-                    </div>
-                  </div>
-                  <p className="relative text-xs text-white/60">※ 写真は受領次第差し替えます</p>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-base font-bold text-ink mb-2">{s.name}</h3>
-                  <p className="text-ink-muted text-sm leading-loose mb-4">
-                    {s.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
-                    詳しく見る
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

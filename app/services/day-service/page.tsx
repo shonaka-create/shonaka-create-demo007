@@ -8,8 +8,11 @@ export const metadata: Metadata = {
 };
 
 const subNavItems = [
-  { label: "ふれあいかんデイサービスセンター", href: "/services/day-service", current: true },
-  { label: "訪問介護・居宅介護支援", href: "/services/zaitaku-kaigo", current: false },
+  { label: "延寿園", href: "/services/enshuuen", current: false },
+  { label: "季の恵", href: "/services/kinoegumi", current: false },
+  { label: "ふれあいかん", href: "/services/day-service", current: true },
+  { label: "ホームヘルプ", href: "/services/home-help", current: false },
+  { label: "在宅介護支援", href: "/services/kaigo-support", current: false },
 ];
 
 export default function DayServicePage() {

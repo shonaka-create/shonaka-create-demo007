@@ -9,42 +9,44 @@ export const metadata: Metadata = {
 
 const history = [
   {
-    year: "昭和○○年（○○年）",
-    event: "社会福祉法人 三恵会 設立認可（青森県むつ市）※設立年はクライアント確認後記載",
+    year: "昭和59年2月（1984年）",
+    event: "社会福祉法人 三恵会 設立認可（青森県むつ市大畑町）",
   },
   {
-    year: "昭和○○年（○○年）",
-    event: "特別養護老人ホーム 延寿園 開設（むつ市大畑町大赤川）※開設年はクライアント確認後記載",
-  },
-  {
-    year: "平成○○年（○○年）",
-    event: "ふれあいかんデイサービスセンター 開設（通所介護）※開設年はクライアント確認後記載",
+    year: "昭和59年4月（1984年）",
+    event: "特別養護老人ホーム 延寿園 開設・事業開始（むつ市大畑町大赤川29番地4）",
   },
   {
     year: "平成○○年（○○年）",
-    event: "延寿園ホームヘルプセンター 開設（訪問介護サービス開始）※開設年はクライアント確認後記載",
+    event: "ふれあいかんデイサービスセンター 開設（通所介護）※開設年はクライアント確認中",
   },
   {
     year: "平成○○年（○○年）",
-    event: "延寿園在宅介護支援センター 開設（居宅介護支援事業）※開設年はクライアント確認後記載",
+    event: "延寿園ホームヘルプセンター 開設（訪問介護）※開設年はクライアント確認中",
   },
   {
     year: "平成○○年（○○年）",
-    event: "ショートステイ 季の恵 開設（短期入所生活介護）※開設年はクライアント確認後記載",
+    event: "延寿園在宅介護支援センター 開設（居宅介護支援）※開設年はクライアント確認中",
+  },
+  {
+    year: "平成22年7月（2010年）",
+    event: "ショートステイ 季の恵 開設（短期入所生活介護・定員20床）",
   },
 ];
 
 const overview = [
   { label: "法人名", value: "社会福祉法人 三恵会" },
+  { label: "代表者", value: "理事長　松岡 茂樹" },
   { label: "法人番号", value: "※ クライアントより受領次第記載" },
+  { label: "設立", value: "昭和59年2月7日（1984年）" },
+  { label: "事業開始", value: "昭和59年4月1日（1984年）" },
   { label: "所在地", value: "〒039-4401 青森県むつ市大畑町大赤川29番地4" },
   { label: "電話", value: "0175-34-3297" },
   { label: "FAX", value: "0175-34-3495" },
-  { label: "設立", value: "※ クライアントより受領次第記載" },
   {
     label: "事業内容",
     value:
-      "特別養護老人ホーム（延寿園）/ ショートステイ（季の恵）/ デイサービス（ふれあいかん）/ 訪問介護（延寿園ホームヘルプセンター）/ 居宅介護支援（延寿園在宅介護支援センター）",
+      "【第1種】特別養護老人ホーム（延寿園）／【第2種】ショートステイ（季の恵）・デイサービス（ふれあいかん）・訪問介護（延寿園ホームヘルプセンター）・居宅介護支援（延寿園在宅介護支援センター）",
   },
 ];
 
@@ -154,18 +156,26 @@ export default function AboutPage() {
                 </div>
                 <p className="text-center text-sm text-ink-muted mt-3">
                   社会福祉法人 三恵会<br />
-                  理事長 ○○ ○○（※確認中）
+                  <strong className="text-ink">理事長　松岡 茂樹</strong>
                 </p>
               </div>
-              {/* 挨拶文プレースホルダー */}
+              {/* 挨拶文（抜粋） */}
               <div className="lg:col-span-2 bg-white rounded-2xl border border-border p-7 shadow-sm">
-                <div className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50">
-                  <svg className="w-8 h-8 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                <p className="text-sm text-ink-muted leading-[2] mb-6">
+                  社会福祉法人三恵会は、地域の高齢者を大切にする事を目的として昭和59年4月、特別養護老人ホームを運営するために設立され、開設以来、高齢化社会が進む中で地域から信頼される施設、地域に開かれた地域福祉に貢献できる法人運営を目指して努力を重ねて参りました。
+                </p>
+                <p className="text-sm text-ink-muted leading-[2] mb-6">
+                  長年の経験と実績を生かし新たな知恵を出し合い、下北の地域に根差した質の高いサービスをご利用者の皆様に提供してまいりたいと考えております。今後も創設の精神「老人福祉の充実」を胸に刻み、高齢者福祉の一翼を担ってまいります。
+                </p>
+                <Link
+                  href="/greeting"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark transition-colors"
+                >
+                  理事長挨拶の全文を読む
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  <p className="text-sm text-gray-400 font-medium text-center">理事長挨拶文</p>
-                  <p className="text-xs text-gray-300 mt-1">※ クライアントより受領次第記載します</p>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
