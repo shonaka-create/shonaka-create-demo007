@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "デイサービス（通所介護）｜三恵苑デイサービスセンター｜さいたま市西区",
+  title: "ふれあいかんデイサービスセンター（通所介護）｜社会福祉法人 三恵会｜むつ市",
   description:
-    "三恵苑デイサービスセンター（さいたま市西区高木892）。1991年開設。入浴・食事・機能訓練・レクリエーション・送迎付き。要支援1〜2・要介護1〜5対象。通所介護のご相談は無料。",
+    "ふれあいかんデイサービスセンター（青森県むつ市）。入浴・食事・機能訓練・レクリエーション・送迎付きの通所介護。要支援1〜要介護5対象。体験利用・見学随時受付中。",
 };
 
 const subNavItems = [
-  { label: "デイサービス", href: "/services/day-service", current: true },
-  { label: "在宅介護支援", href: "/services/zaitaku-kaigo", current: false },
-  { label: "地域包括支援センター", href: "/services/chiiki-houkatsu", current: false },
+  { label: "ふれあいかんデイサービスセンター", href: "/services/day-service", current: true },
+  { label: "訪問介護・居宅介護支援", href: "/services/zaitaku-kaigo", current: false },
 ];
 
 export default function DayServicePage() {
@@ -23,14 +22,15 @@ export default function DayServicePage() {
             <ol className="flex items-center gap-1.5 text-xs text-white/50">
               <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
               <li aria-hidden="true">/</li>
-              <li><Link href="/services" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
+              <li><Link href="/services/day-service" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
               <li aria-hidden="true">/</li>
               <li className="text-white/70" aria-current="page">デイサービス</li>
             </ol>
           </nav>
-          <h1 className="text-3xl sm:text-4xl font-bold">デイサービス</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">ふれあいかんデイサービスセンター</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            三恵苑デイサービスセンター ─ 1991年の開設以来、地域の在宅高齢者の生活を支える通所介護施設です。
+            むつ市大畑町で運営する通所介護施設です。「今日も来てよかった」と思っていただける
+            プログラムと雰囲気づくりを大切にしています。
           </p>
         </div>
       </div>
@@ -58,14 +58,12 @@ export default function DayServicePage() {
       </nav>
 
       {/* Service Photo Banner */}
-      <div className="relative h-56 sm:h-72 overflow-hidden">
-        <img src="/service-dayservice.jpg" alt="デイサービスでグループ体操を行う高齢者の様子" className="w-full h-full object-cover object-top" loading="lazy" />
-        <div className="absolute inset-0 bg-primary-dark/25" />
-        <div className="absolute bottom-5 left-6">
-          <span className="bg-primary/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
-            通所介護 ／ 1991年開設
-          </span>
-        </div>
+      <div className="relative h-56 sm:h-72 overflow-hidden bg-gray-100 border-b-2 border-dashed border-gray-200 flex flex-col items-center justify-center">
+        <svg className="w-14 h-14 text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p className="text-gray-400 font-medium">デイサービスの活動写真（バナー用）</p>
+        <p className="text-sm text-gray-300 mt-1">※ 写真は受領次第差し替えます</p>
       </div>
 
       {/* Overview */}
@@ -80,31 +78,31 @@ export default function DayServicePage() {
               </div>
               <p className="text-primary text-xs font-bold tracking-widest mb-2">Day Service</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-5">
-                三恵苑デイサービスセンター
+                ふれあいかんデイサービスセンター
                 <span className="block text-base font-normal text-ink-muted mt-1">
-                  通所介護 ／ 平成3年（1991年）開設
+                  通所介護
                 </span>
               </h2>
               <p className="text-ink-muted leading-loose mb-4">
-                特別養護老人ホーム「ひかわ」の1階に位置する三恵苑デイサービスセンターは、
-                1991年の開設から30年以上の歴史を持つ通所介護施設です。
-                和風旅館のような落ち着いた雰囲気が自慢で、施設の看板犬「ふわり」が皆さまをお迎えします。
+                ふれあいかんデイサービスセンターは、日帰りで施設に通い、
+                入浴・食事・機能訓練などのサービスを受けながら、
+                仲間との交流や社会参加の機会をもてる通所介護施設です。
               </p>
               <p className="text-ink-muted leading-loose mb-6">
-                日帰りで施設に通い、入浴・食事・機能訓練などのサービスを受けながら、
-                仲間との交流や社会参加の機会を持てます。ご家族の介護負担軽減にも貢献しています。
+                「今日も楽しかった」「また来たい」と思っていただけるよう、
+                スタッフ一同、日々のプログラムと施設の雰囲気づくりを大切にしています。
+                ご家族の介護負担軽減にも貢献します。
               </p>
 
               <div className="space-y-2.5">
                 <h3 className="font-bold text-ink text-sm">主なサービス内容</h3>
                 {[
-                  "入浴サービス（ひのき・ひばの香る浴槽 / リフト式浴槽による個浴）",
-                  "食事提供（週1回メイン料理選択制 / 月1回「郷土料理の日」）",
+                  "入浴サービス（個浴・機械浴対応）",
+                  "食事提供（栄養バランスのとれた昼食・おやつ）",
                   "機能訓練・リハビリテーション",
-                  "脳トレ・体操・遊びリテーション・手芸等の活動プログラム",
+                  "脳トレ・体操・レクリエーション・手芸等の活動プログラム",
                   "季節行事（新年会・夏祭り・クリスマス会 等）",
-                  "さつまいも栽培などの農芸活動",
-                  "昼食後の個別活動時間（塗り絵・脳トレプリント・トランプ等）",
+                  "昼食後の個別活動時間",
                   "送迎サービス（自宅まで）",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2 text-sm text-ink-muted">
@@ -130,10 +128,11 @@ export default function DayServicePage() {
                 </h3>
                 <dl className="space-y-3 text-sm">
                   {[
-                    { label: "施設名", value: "三恵苑デイサービスセンター" },
-                    { label: "所在地", value: "埼玉県さいたま市西区高木892（特別養護老人ホーム ひかわ内）" },
-                    { label: "電話", value: "048-623-3567" },
-                    { label: "開設年", value: "平成3年（1991年）" },
+                    { label: "施設名", value: "ふれあいかんデイサービスセンター" },
+                    { label: "所在地", value: "青森県むつ市大畑町（詳細はクライアント確認中）" },
+                    { label: "電話", value: "0175-34-3297（代表）" },
+                    { label: "開設年", value: "※ クライアントより確認中" },
+                    { label: "営業日", value: "月〜土（祝日も営業）※詳細はお問い合わせください" },
                   ].map((row) => (
                     <div key={row.label} className="flex gap-3">
                       <dt className="font-bold text-ink-muted w-20 shrink-0">{row.label}</dt>
@@ -143,13 +142,33 @@ export default function DayServicePage() {
                 </dl>
               </div>
 
+              {/* 1日のスケジュール */}
+              <div className="bg-surface rounded-2xl border border-border p-6">
+                <h3 className="font-bold text-ink mb-4">1日のスケジュール（目安）</h3>
+                <ol className="space-y-2">
+                  {[
+                    { time: "8:30〜", text: "送迎スタート（自宅までお迎え）" },
+                    { time: "9:30〜", text: "到着・健康チェック・午前のプログラム" },
+                    { time: "12:00〜", text: "昼食" },
+                    { time: "13:00〜", text: "個別活動時間（趣味・休憩）" },
+                    { time: "14:00〜", text: "午後プログラム・入浴・機能訓練" },
+                    { time: "16:00〜", text: "送迎（自宅までお送り）" },
+                  ].map((item) => (
+                    <li key={item.time} className="flex items-start gap-3 text-sm text-ink-muted">
+                      <span className="font-bold text-primary w-16 shrink-0 text-xs pt-0.5">{item.time}</span>
+                      {item.text}
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-xs text-ink-subtle mt-3">※ スケジュールは目安です。詳細はお問い合わせください。</p>
+              </div>
+
               {/* Target */}
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-4">ご利用対象</h3>
                 <p className="text-sm text-ink-muted leading-loose">
                   介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜2・要介護1〜5</strong>の方が対象です。
-                  要支援1・2の方は介護予防通所介護（総合事業）をご利用いただけます。
-                  まずはケアマネジャーまたは地域包括支援センターにご相談ください。
+                  まずはケアマネジャーまたは当センターにご相談ください。
                 </p>
               </div>
 
@@ -158,8 +177,10 @@ export default function DayServicePage() {
                 <h3 className="font-bold text-ink mb-4">利用料金の目安</h3>
                 <p className="text-sm text-ink-muted leading-loose">
                   利用料は介護保険の自己負担割合（1〜3割）により異なります。
-                  例：要介護1・1割負担の場合、基本料703円＋加算・食費等。
-                  要支援者は月単位でのご請求となります。詳細はお問い合わせください。
+                  食費・日用品費は別途発生します。詳細はお問い合わせください。
+                </p>
+                <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
+                  ※ 具体的な料金はクライアントより確認次第記載します
                 </p>
               </div>
 
@@ -195,7 +216,7 @@ export default function DayServicePage() {
               {
                 title: "脳トレ・趣味活動",
                 icon: "🧩",
-                desc: "脳トレプリント・手芸・塗り絵・トランプなど、個人の趣味や関心に合わせた活動を提供。",
+                desc: "脳トレ・手芸・塗り絵・カラオケなど、個人の趣味や関心に合わせた活動を提供。",
               },
               {
                 title: "季節の行事",
@@ -203,9 +224,9 @@ export default function DayServicePage() {
                 desc: "新年会・夏祭り・クリスマス会など、四季折々の行事で日常に彩りを添えます。",
               },
               {
-                title: "農芸・自然",
-                icon: "🌱",
-                desc: "さつまいも栽培など農芸活動を通じて、自然とのふれあいや達成感を育みます。",
+                title: "交流・つながり",
+                icon: "🌸",
+                desc: "仲間との交流や会話を通じて、社会参加の機会を提供します。孤立防止にも貢献。",
               },
             ].map((item) => (
               <div key={item.title} className="bg-bg rounded-2xl border border-border p-6 text-center">
@@ -233,10 +254,10 @@ export default function DayServicePage() {
               お問い合わせはこちら
             </Link>
             <a
-              href="tel:048-623-3567"
+              href="tel:0175-34-3297"
               className="inline-flex items-center justify-center bg-white hover:bg-primary-light text-primary font-bold px-7 py-3.5 rounded-full border border-border transition-colors"
             >
-              📞 048-623-3567
+              📞 0175-34-3297
             </a>
           </div>
         </div>

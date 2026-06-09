@@ -2,53 +2,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "施設のご案内｜社会福祉法人 三恵会｜さいたま市西区の特別養護老人ホーム",
+  title: "施設のご案内｜社会福祉法人 三恵会｜むつ市大畑町の介護施設",
   description:
-    "社会福祉法人 三恵会が運営するさいたま市西区の3施設。特別養護老人ホーム三恵苑（80名定員）・ひかわ（110名・ユニット型全室個室）・養護老人ホーム富士見園。入所申込受付中。",
+    "社会福祉法人 三恵会が運営する施設のご案内。特別養護老人ホーム延寿園・ショートステイ季の恵（青森県むつ市大畑町）。入所申込受付中。お気軽にご相談ください。",
 };
 
 const facilities = [
   {
-    id: "sankeien",
-    name: "三恵苑",
+    id: "enshuuen",
+    name: "延寿園",
     type: "特別養護老人ホーム",
-    established: "昭和63年（1988年）開設",
-    capacity: "80名 ＋ ショートステイ4名",
-    location: "埼玉県さいたま市西区中釘2219-4",
-    phone: "048-622-6727",
+    established: "開設年 ※確認中",
+    capacity: "定員 ※確認中",
+    location: "〒039-4401 青森県むつ市大畑町大赤川29番地4",
+    phone: "0175-34-3297",
     href: "/facilities/sankeien",
     color: "bg-[#2A6B47]",
     description:
-      "昭和63年の開設以来、地域の高齢者介護の中核を担う基幹施設。「小ぢんまりとした静かな処」として、24時間体制の個別ケアと看取り介護を提供しています。あじさいの丘公園での季節行事も人気です。",
-    features: ["24時間365日の介護体制", "看取り介護（ターミナルケア）", "ショートステイ（4名）", "4人部屋居室"],
+      "むつ市大畑町に位置する三恵会の基幹施設。24時間365日体制の介護と、入居者一人ひとりの尊厳を大切にした個別ケアを提供しています。看取り介護・認知症ケア・リハビリテーションにも対応します。",
+    features: ["24時間365日の介護体制", "看取り介護（ターミナルケア）", "認知症ケア", "リハビリテーション"],
   },
   {
-    id: "hikawa",
-    name: "ひかわ",
-    type: "特別養護老人ホーム",
-    established: "平成19年（2007年）開設",
-    capacity: "110名 ＋ ショートステイ10名",
-    location: "埼玉県さいたま市西区高木892",
-    phone: "048-620-7533",
+    id: "kinoegumi",
+    name: "季の恵",
+    type: "ショートステイ（短期入所生活介護）",
+    established: "開設年 ※確認中",
+    capacity: "定員 ※確認中",
+    location: "〒039-4401 青森県むつ市大畑町大赤川29番地4（延寿園内）",
+    phone: "0175-34-3297",
     href: "/facilities/hikawa",
     color: "bg-[#3A8060]",
     description:
-      "平成19年開設のユニット型特養。全室個室・10名1ユニットという家庭的な環境で、「その人らしい生活」を支えます。ひのき風呂が自慢で、デイサービスと在宅介護支援センターを1階に併設しています。",
-    features: ["全室個室（ユニット型）", "個別ケア・パーソンセンタードケア", "ひのき風呂", "ショートステイ（10名）"],
-  },
-  {
-    id: "fujimien",
-    name: "富士見園",
-    type: "養護老人ホーム",
-    established: "昭和31年（1956年）設立 / 平成18年〜三恵会直営",
-    capacity: "50室（二人部屋40室・個室10室）",
-    location: "埼玉県さいたま市西区清河寺796",
-    phone: "048-624-6253",
-    href: "/facilities/fujimien",
-    color: "bg-[#1A8066]",
-    description:
-      "昭和31年設立の歴史ある養護老人ホーム。令和4年より契約入所も開始。通院送迎・理容サービス・買物ツアー・クラブ活動（書道・カラオケ等）など充実した生活支援を提供します。",
-    features: ["措置入所・契約入所（令和4年〜）対応", "通院送迎バス・理容サービス", "書道・カラオケ等クラブ活動", "敷地面積8,185㎡"],
+      "延寿園に併設するショートステイ施設。在宅生活を続けながら、短期間の宿泊介護サービスをご利用いただけます。ご家族の介護疲れの回復や、急用時の受け入れとしてご活用ください。",
+    features: ["延寿園に併設", "在宅生活を続けながら利用可", "介護・入浴・食事を提供", "ご家族の介護負担軽減に"],
   },
 ];
 
@@ -61,7 +47,8 @@ export default function FacilitiesPage() {
           <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Facilities</p>
           <h1 className="text-3xl sm:text-4xl font-bold">施設のご案内</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            三恵会では3つの施設を運営し、さまざまなニーズをお持ちの高齢者の生活を支援しています。
+            三恵会では青森県むつ市大畑町を拠点に、特別養護老人ホーム「延寿園」と
+            ショートステイ「季の恵」を運営しています。
           </p>
         </div>
       </div>
@@ -76,18 +63,12 @@ export default function FacilitiesPage() {
                 className={`rounded-2xl overflow-hidden border border-border ${idx % 2 === 0 ? "bg-surface" : "bg-white"}`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  {/* Photo Header */}
-                  <div className="lg:col-span-1 relative overflow-hidden min-h-[180px]">
-                    <img
-                      src={idx === 1 ? "/hero-bg.jpg" : "/facility-garden.jpg"}
-                      alt={`${f.name}の施設環境`}
-                      className="w-full h-full object-cover absolute inset-0"
-                      loading="lazy"
-                    />
+                  {/* Photo Placeholder */}
+                  <div className="lg:col-span-1 relative overflow-hidden min-h-[180px] bg-gray-100 border-r-2 border-dashed border-gray-200 flex flex-col items-center justify-center">
                     <div className={`absolute inset-0 ${f.color}/75 flex flex-col justify-center items-center p-10 text-white`}>
                       <div className="text-3xl font-bold mb-2">{f.name}</div>
                       <div className="text-sm opacity-90">{f.type}</div>
-                      <div className="text-xs opacity-70 mt-3 text-center">{f.established}</div>
+                      <div className="text-xs opacity-60 mt-3 text-center">※ 写真は受領次第差し替えます</div>
                     </div>
                   </div>
 
@@ -145,9 +126,15 @@ export default function FacilitiesPage() {
             お気軽にお問い合わせください。専門スタッフが丁寧にご対応いたします。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:0175-34-3297"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              📞 0175-34-3297 お電話
+            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center bg-white hover:bg-primary-light text-primary font-bold px-7 py-3.5 rounded-full border border-border transition-colors"
             >
               お問い合わせ
             </Link>

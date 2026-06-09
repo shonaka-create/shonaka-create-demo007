@@ -22,8 +22,14 @@ export default function Footer() {
               </div>
             </Link>
             <address className="not-italic text-sm text-white/70 leading-loose">
-              <p>〒331-0052</p>
-              <p>埼玉県さいたま市西区大字中釘2219-4</p>
+              <p>〒039-4401</p>
+              <p>青森県むつ市大畑町大赤川29番地4</p>
+              <p className="mt-2">
+                <a href="tel:0175-34-3297" className="hover:text-white transition-colors">
+                  TEL: 0175-34-3297
+                </a>
+              </p>
+              <p>FAX: 0175-34-3495</p>
             </address>
           </div>
 
@@ -34,9 +40,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 mb-7">
               {[
-                { label: "三恵苑（特別養護老人ホーム）", href: "/facilities/sankeien" },
-                { label: "ひかわ（特別養護老人ホーム）", href: "/facilities/hikawa" },
-                { label: "富士見園（養護老人ホーム）", href: "/facilities/fujimien" },
+                { label: "延寿園（特別養護老人ホーム）", href: "/facilities/sankeien" },
+                { label: "ショートステイ 季の恵", href: "/facilities/hikawa" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
@@ -51,9 +56,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               {[
-                { label: "デイサービス", href: "/services/day-service" },
-                { label: "在宅介護支援", href: "/services/zaitaku-kaigo" },
-                { label: "地域包括支援センター", href: "/services/chiiki-houkatsu" },
+                { label: "ふれあいかんデイサービスセンター", href: "/services/day-service" },
+                { label: "訪問介護・居宅介護支援", href: "/services/zaitaku-kaigo" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">

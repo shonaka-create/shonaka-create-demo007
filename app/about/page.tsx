@@ -4,63 +4,48 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "三恵会とは｜社会福祉法人 三恵会の理念・沿革・法人概要",
   description:
-    "社会福祉法人 三恵会（さいたま市西区）の理念・沿革・法人概要。「天の恵み・地の恵み・人の恵み」の精神で1987年設立。特別養護老人ホーム・デイサービス・地域包括支援センターを運営。",
+    "社会福祉法人 三恵会（青森県むつ市大畑町）の理念・沿革・法人概要。「天の恵み・地の恵み・人の恵み」の精神で地域の介護を支えています。特別養護老人ホーム延寿園・ふれあいかんデイサービス等を運営。",
 };
 
 const history = [
   {
-    year: "昭和31年（1956年）",
-    event: "養護老人ホーム富士見園の前身施設が設立される",
+    year: "昭和○○年（○○年）",
+    event: "社会福祉法人 三恵会 設立認可（青森県むつ市）※設立年はクライアント確認後記載",
   },
   {
-    year: "昭和62年（1987年）11月",
-    event: "社会福祉法人 三恵会 設立認可（埼玉県さいたま市西区）",
+    year: "昭和○○年（○○年）",
+    event: "特別養護老人ホーム 延寿園 開設（むつ市大畑町大赤川）※開設年はクライアント確認後記載",
   },
   {
-    year: "昭和63年（1988年）",
-    event: "特別養護老人ホーム 三恵苑 開設（さいたま市西区中釘、定員80名）",
+    year: "平成○○年（○○年）",
+    event: "ふれあいかんデイサービスセンター 開設（通所介護）※開設年はクライアント確認後記載",
   },
   {
-    year: "平成3年（1991年）",
-    event: "三恵苑デイサービスセンター 開設（介護保険制度以前より在宅支援を開始）",
+    year: "平成○○年（○○年）",
+    event: "延寿園ホームヘルプセンター 開設（訪問介護サービス開始）※開設年はクライアント確認後記載",
   },
   {
-    year: "平成初期",
-    event: "在宅介護支援センター 開設。介護保険制度の発足以前から在宅での介護相談・支援を実施",
+    year: "平成○○年（○○年）",
+    event: "延寿園在宅介護支援センター 開設（居宅介護支援事業）※開設年はクライアント確認後記載",
   },
   {
-    year: "平成18年（2006年）",
-    event: "さいたま市より養護老人ホーム富士見園の施設移譲を受け、三恵会直営施設として運営開始",
-  },
-  {
-    year: "平成19年（2007年）",
-    event: "特別養護老人ホーム ひかわ 開設（さいたま市西区高木、ユニット型個室・定員110名）",
-  },
-  {
-    year: "平成中期〜後期",
-    event: "さいたま市より西区北部圏域地域包括支援センター三恵苑（シニアサポートセンター）を受託。居宅介護支援事業所を開設",
-  },
-  {
-    year: "令和4年（2022年）7月",
-    event: "養護老人ホーム富士見園において契約入所制度を開始",
-  },
-  {
-    year: "令和6年（2024年）2月",
-    event: "埼玉県「多様な働き方実践企業 プラチナ認定」取得（最高位の認定を受賞）",
+    year: "平成○○年（○○年）",
+    event: "ショートステイ 季の恵 開設（短期入所生活介護）※開設年はクライアント確認後記載",
   },
 ];
 
 const overview = [
   { label: "法人名", value: "社会福祉法人 三恵会" },
-  { label: "法人番号", value: "6030005001266" },
-  { label: "所在地", value: "〒331-0052 埼玉県さいたま市西区大字中釘2219-4" },
-  { label: "設立", value: "昭和62年11月18日（1987年）" },
+  { label: "法人番号", value: "※ クライアントより受領次第記載" },
+  { label: "所在地", value: "〒039-4401 青森県むつ市大畑町大赤川29番地4" },
+  { label: "電話", value: "0175-34-3297" },
+  { label: "FAX", value: "0175-34-3495" },
+  { label: "設立", value: "※ クライアントより受領次第記載" },
   {
     label: "事業内容",
     value:
-      "特別養護老人ホーム（三恵苑・ひかわ）/ 養護老人ホーム（富士見園）/ デイサービス / 在宅介護支援センター / 居宅介護支援 / 地域包括支援センター",
+      "特別養護老人ホーム（延寿園）/ ショートステイ（季の恵）/ デイサービス（ふれあいかん）/ 訪問介護（延寿園ホームヘルプセンター）/ 居宅介護支援（延寿園在宅介護支援センター）",
   },
-  { label: "受賞・認定", value: "埼玉県「多様な働き方実践企業 プラチナ認定」（令和6年2月1日取得）" },
 ];
 
 export default function AboutPage() {
@@ -78,20 +63,18 @@ export default function AboutPage() {
           </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">三恵会とは</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            「天の恵み・地の恵み・人の恵み」の精神で、38年間さいたま市西区の地域介護を支えています。
+            「天の恵み・地の恵み・人の恵み」の精神で、青森県むつ市大畑町の地域介護を支えています。
           </p>
         </div>
       </div>
 
       {/* About Photo Banner */}
-      <div className="relative h-52 sm:h-64 overflow-hidden">
-        <img src="/hero-bg.jpg" alt="さいたま市西区の日本庭園─三恵会の活動拠点" className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-primary-dark/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-xl sm:text-2xl font-bold text-center drop-shadow-lg">
-            1987年設立 ─ 地域とともに歩んだ38年
-          </p>
-        </div>
+      <div className="relative h-52 sm:h-64 overflow-hidden bg-gray-100 flex flex-col items-center justify-center border-b-2 border-dashed border-gray-200">
+        <svg className="w-12 h-12 text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p className="text-gray-400 font-medium">施設・活動の写真（バナー用）</p>
+        <p className="text-sm text-gray-300 mt-1">※ 写真は受領次第差し替えます</p>
       </div>
 
       {/* Philosophy */}
@@ -121,7 +104,7 @@ export default function AboutPage() {
                 title: "地の恵み",
                 kanji: "地",
                 description:
-                  "大地・地域への感謝。地域社会との繋がりを大切にし、地域に根ざした介護・福祉サービスを38年にわたって提供し続けています。",
+                  "大地・地域への感謝。青森県むつ市大畑町の地域社会との繋がりを大切にし、地域に根ざした介護・福祉サービスを提供し続けています。",
               },
               {
                 title: "人の恵み",
@@ -134,11 +117,8 @@ export default function AboutPage() {
                 key={item.title}
                 className="bg-surface rounded-2xl border border-border overflow-hidden"
               >
-                <div className="relative h-20 overflow-hidden">
-                  <img src="/hero-bg.jpg" alt="" className="w-full h-full object-cover" aria-hidden="true" loading="lazy" />
-                  <div className="absolute inset-0 bg-primary/75 flex items-center justify-center">
-                    <span className="text-5xl font-bold text-white/90">{item.kanji}</span>
-                  </div>
+                <div className="relative h-20 bg-primary flex items-center justify-center">
+                  <span className="text-5xl font-bold text-white/90">{item.kanji}</span>
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-ink mb-3">{item.title}</h3>
@@ -152,60 +132,41 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Platinum Certification */}
-      <section className="bg-primary-dark py-14 sm:py-16">
+      {/* President Greeting */}
+      <section className="bg-primary-light py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-yellow-400/15 text-yellow-200 text-sm font-bold px-4 py-2 rounded-full border border-yellow-400/25 mb-6">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z" />
-                </svg>
-                令和6年2月1日 取得
+          <div className="max-w-4xl mx-auto">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-4 text-center">
+              Greeting
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-10">
+              理事長挨拶
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              {/* 理事長写真プレースホルダー */}
+              <div className="lg:col-span-1">
+                <div className="rounded-2xl overflow-hidden bg-gray-100 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center h-64 shadow-sm">
+                  <svg className="w-12 h-12 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <p className="text-sm text-gray-400 font-medium">理事長 写真</p>
+                  <p className="text-xs text-gray-300 mt-1">※ 写真は受領次第差し替えます</p>
+                </div>
+                <p className="text-center text-sm text-ink-muted mt-3">
+                  社会福祉法人 三恵会<br />
+                  理事長 ○○ ○○（※確認中）
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">
-                埼玉県
-                <br />
-                「多様な働き方実践企業
-                <br />
-                プラチナ認定」
-              </h2>
-              <p className="text-white/75 leading-loose">
-                埼玉県が認定する「多様な働き方実践企業」制度において、
-                最高位の「プラチナ認定」を取得しました。
-                育児・介護との両立支援、フレキシブルな勤務体制、
-                職員の定着・育成への取り組みが高く評価されました。
-              </p>
-            </div>
-            <div className="bg-white/10 rounded-2xl border border-white/20 p-7">
-              <h3 className="text-white font-bold mb-5">認定のポイント</h3>
-              <ul className="space-y-4">
-                {[
-                  "育児休業・介護休業の積極的な取得促進",
-                  "短時間勤務制度・時差出勤制度の整備",
-                  "職員の働きやすさ向上のための施設環境改善",
-                  "法人全体でのハラスメント防止体制の確立",
-                  "キャリアアップ支援と職員研修プログラムの充実",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-white/80 text-sm">
-                    <svg
-                      className="w-5 h-5 text-yellow-300 shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              {/* 挨拶文プレースホルダー */}
+              <div className="lg:col-span-2 bg-white rounded-2xl border border-border p-7 shadow-sm">
+                <div className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50">
+                  <svg className="w-8 h-8 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                  <p className="text-sm text-gray-400 font-medium text-center">理事長挨拶文</p>
+                  <p className="text-xs text-gray-300 mt-1">※ クライアントより受領次第記載します</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -217,9 +178,12 @@ export default function AboutPage() {
           <p className="text-primary text-sm font-bold tracking-widest uppercase mb-4 text-center">
             History
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-4">
             沿革
           </h2>
+          <p className="text-center text-xs text-ink-subtle mb-12">
+            ※ 年号・詳細はクライアントより確認次第正式な情報に更新します
+          </p>
 
           <div className="max-w-3xl mx-auto">
             <div className="relative pl-8 border-l-2 border-border space-y-10">
