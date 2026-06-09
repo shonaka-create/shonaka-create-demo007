@@ -111,9 +111,6 @@ export default function TopPage() {
               <br />
               一緒に考えます。
             </h1>
-            <p className="text-primary-light text-xl sm:text-2xl font-bold mb-5">
-              「天の恵み・地の恵み・人の恵み」
-            </p>
             <p className="text-white/80 text-lg sm:text-xl leading-loose mb-10 max-w-2xl">
               昭和59年の創設以来、むつ市大畑町を拠点に下北地域の高齢者とご家族を支えてきました。
               施設入所・デイサービス・訪問介護・居宅介護支援まで、どのようなご相談にも丁寧にお応えします。
