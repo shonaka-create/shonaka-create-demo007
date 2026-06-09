@@ -159,94 +159,150 @@ export default function TopPage() {
       </section>
 
       {/* ── Quick Access ── */}
-      <section className="bg-bg py-10 -mt-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-ink-muted mb-6">どのようなご相談でも、まずはお気軽に</p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto mb-6">
+      <section className="bg-white border-b border-border py-10 -mt-2">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs font-bold tracking-widest text-ink-muted uppercase mb-7">
+            どのようなご相談でも、まずはお気軽に
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
             {[
-              { label: "施設入所を検討したい", href: "/services/enshuuen", icon: "🏠" },
-              { label: "デイサービスに通いたい", href: "/services/day-service", icon: "🌞" },
-              { label: "在宅介護を支援してほしい", href: "/services/home-help", icon: "🏡" },
-              { label: "採用情報を見たい", href: "/recruit", icon: "👩‍⚕️" },
+              {
+                label: "施設入所を\n検討したい",
+                href: "/services/enshuuen",
+                icon: (
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                ),
+              },
+              {
+                label: "デイサービスに\n通いたい",
+                href: "/services/day-service",
+                icon: (
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "在宅介護を\n支援してほしい",
+                href: "/services/home-help",
+                icon: (
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "採用情報を\n見たい",
+                href: "/recruit",
+                icon: (
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                ),
+              },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-col items-center gap-2 bg-surface hover:bg-primary-light border border-border hover:border-primary rounded-xl px-3 py-4 text-center transition-colors"
+                className="group flex flex-col items-center gap-3 bg-bg hover:bg-primary-light border border-border hover:border-primary/40 rounded-2xl px-4 py-6 text-center transition-all duration-200 hover:shadow-sm"
               >
-                <span className="text-2xl">{item.icon}</span>
-                <span className="text-xs font-medium text-ink leading-snug">{item.label}</span>
+                <span className="w-12 h-12 rounded-xl bg-primary-light group-hover:bg-primary/10 text-primary flex items-center justify-center transition-colors">
+                  {item.icon}
+                </span>
+                <span className="text-xs font-semibold text-ink leading-snug whitespace-pre-line">
+                  {item.label}
+                </span>
               </Link>
             ))}
           </div>
-          <p className="text-center text-sm text-ink-muted">
-            お電話でのご相談：
-            <a href="tel:0175-34-3297" className="font-bold text-primary hover:text-primary-dark transition-colors ml-1">
-              0175-34-3297
-            </a>
-            <span className="text-xs text-ink-subtle ml-2">（代表 / 毎日 8:30〜17:30）</span>
-          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex items-center gap-3 bg-primary-light border border-primary/20 rounded-2xl px-6 py-3.5">
+              <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <div>
+                <p className="text-[10px] text-ink-muted font-medium">お電話でのご相談</p>
+                <a href="tel:0175-34-3297" className="text-xl font-bold text-primary hover:text-primary-dark transition-colors tracking-wide">
+                  0175-34-3297
+                </a>
+              </div>
+            </div>
+            <p className="text-xs text-ink-subtle">代表 ／ 毎日 8:30〜17:30</p>
+          </div>
         </div>
       </section>
 
       {/* ── About preview ── */}
-      <section className="bg-primary-light py-16 sm:py-20">
+      <section className="bg-bg py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="text-primary text-sm font-bold tracking-widest mb-3 uppercase">
-                About Us
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-6">
-                三恵会について
-              </h2>
-              <p className="text-ink-muted leading-loose mb-6">
-                「天の恵み・地の恵み・人の恵み」── これが三恵会の名前の由来であり、私たちの根本理念です。
-                青森県むつ市大畑町を拠点として、地域の高齢者が尊厳をもって生活できる環境づくりに
-                取り組んでまいりました。
-              </p>
-              <p className="text-ink-muted leading-loose mb-8">
-                特別養護老人ホーム・ショートステイ・デイサービス・訪問介護・居宅介護支援など、
-                地域のニーズに応じた多様なサービスを通じて、
-                入居者・ご利用者・地域の皆さまと共に歩んでいます。
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
-              >
-                三恵会の理念・沿革を見る
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+          <div className="rounded-3xl overflow-hidden border border-border shadow-sm grid grid-cols-1 lg:grid-cols-5">
+
+            {/* Left: dark panel */}
+            <div className="lg:col-span-2 bg-primary-dark text-white p-10 sm:p-12 flex flex-col justify-between">
+              <div>
+                <p className="text-white/50 text-xs tracking-widest uppercase mb-6">Since 1984</p>
+                <p className="text-primary-light text-sm font-bold tracking-widest mb-4">
+                  「天の恵み・地の恵み・人の恵み」
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-6">
+                  三恵会について
+                </h2>
+                <p className="text-white/65 text-sm leading-loose">
+                  昭和59年4月、青森県むつ市大畑町に設立。下北の地域に根差した高齢者福祉を、40年以上にわたって実践してきました。
+                </p>
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-white/15 grid grid-cols-2 gap-6">
+                <div>
+                  <p className="text-3xl font-bold">40<span className="text-lg">年+</span></p>
+                  <p className="text-white/50 text-xs mt-1">地域介護の実績</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold">5</p>
+                  <p className="text-white/50 text-xs mt-1">サービス事業所</p>
+                </div>
+              </div>
             </div>
 
-            <div>
-              {/* 施設写真プレースホルダー */}
-              <div className="relative rounded-2xl overflow-hidden h-52 mb-4 bg-gray-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shadow-sm">
-                <svg className="w-10 h-10 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-sm text-gray-400 font-medium">施設・活動の写真</p>
-                <p className="text-xs text-gray-300 mt-1">※ 写真は受領次第差し替えます</p>
+            {/* Right: history text */}
+            <div className="lg:col-span-3 bg-surface p-10 sm:p-12 flex flex-col justify-between">
+              <div>
+                <p className="text-primary text-xs font-bold tracking-widest uppercase mb-6">Our History</p>
+                <div className="space-y-5 text-ink-muted text-sm leading-[2]">
+                  <p>
+                    社会福祉法人三恵会は、地域の高齢者を大切にする事を目的として昭和59年4月、特別養護老人ホームを運営するために設立され、開設以来、高齢化社会が進む中で地域から信頼される施設、ご家族・地域に開かれた福祉に貢献できる法人運営を目指して努力を重ねて参りました。
+                  </p>
+                  <p>
+                    平成12年4月に創設された介護保険制度により、高齢者福祉を取り巻く環境は急激に変化して来ました。当法人も平成22年7月、ショートステイ20床を大畑町に開設したほか、多様な福祉事業の機能を持ち、地域における福祉サービスの充実に努めて来ました。
+                  </p>
+                  <p>
+                    長年の経験と実績を生かし新たな知恵を出し合い、下北の地域に根差した質の高いサービスをご利用者の皆様に提供してまいりたいと考えております。今後も創設の精神「老人福祉の充実」を胸に刻み、高齢者福祉の一翼を担ってまいります。
+                  </p>
+                </div>
               </div>
-              <div className="grid grid-cols-3 gap-3">
-                {[
-                  { label: "天の恵み", desc: "自然の豊かさと環境への感謝" },
-                  { label: "地の恵み", desc: "大地と地域の繋がりを大切に" },
-                  { label: "人の恵み", desc: "人と人との絆で支え合う" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="bg-white rounded-2xl p-5 shadow-sm border border-border"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center mb-3">
-                      <div className="w-3 h-3 rounded-full bg-primary" />
-                    </div>
-                    <div className="font-bold text-ink text-sm mb-2">{item.label}</div>
-                    <div className="text-ink-muted text-xs leading-relaxed">{item.desc}</div>
-                  </div>
-                ))}
+
+              <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/greeting"
+                  className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
+                >
+                  理事長挨拶を読む
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-ink-muted font-medium text-sm hover:text-primary transition-colors"
+                >
+                  法人概要を見る
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
