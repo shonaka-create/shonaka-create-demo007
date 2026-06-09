@@ -102,20 +102,21 @@ export default function TopPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="max-w-2xl">
-            <p className="text-white/60 text-sm tracking-widest mb-4 uppercase">
-              社会福祉法人 三恵会
+          <div className="max-w-3xl">
+            <p className="text-white/60 text-sm tracking-widest mb-5 uppercase">
+              社会福祉法人 三恵会 ｜ 青森県むつ市大畑町
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              下北の地に根ざして、
+              大切な家族の介護を、
               <br />
-              ご家族と一緒に
-              <br />
-              支えていきます。
+              一緒に考えます。
             </h1>
-            <p className="text-white/75 text-lg leading-loose mb-10 max-w-xl">
-              「天の恵み・地の恵み・人の恵み」の精神で、青森県むつ市大畑町を拠点に地域の高齢者とそのご家族を支えています。
-              施設入居からデイサービス・在宅介護まで、大切なご家族の状況に合わせてご相談に応じます。
+            <p className="text-primary-light text-xl sm:text-2xl font-bold mb-5">
+              「天の恵み・地の恵み・人の恵み」
+            </p>
+            <p className="text-white/80 text-lg sm:text-xl leading-loose mb-10 max-w-2xl">
+              昭和59年の創設以来、むつ市大畑町を拠点に下北地域の高齢者とご家族を支えてきました。
+              施設入所・デイサービス・訪問介護・居宅介護支援まで、どのようなご相談にも丁寧にお応えします。
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -128,7 +129,7 @@ export default function TopPage() {
                 0175-34-3297 電話で相談
               </a>
               <Link
-                href="/services/enshuuen"
+                href="/services"
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-7 py-4 rounded-full transition-colors shadow-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -152,7 +153,7 @@ export default function TopPage() {
           >
             <path
               d="M0,32 C320,64 640,0 960,32 C1120,48 1280,56 1440,32 L1440,64 L0,64 Z"
-              fill="#F7FAF8"
+              fill="white"
             />
           </svg>
         </div>
@@ -211,27 +212,13 @@ export default function TopPage() {
                 <span className="w-12 h-12 rounded-xl bg-primary-light group-hover:bg-primary/10 text-primary flex items-center justify-center transition-colors">
                   {item.icon}
                 </span>
-                <span className="text-xs font-semibold text-ink leading-snug whitespace-pre-line">
+                <span className="text-sm font-semibold text-ink leading-snug whitespace-pre-line">
                   {item.label}
                 </span>
               </Link>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="flex items-center gap-3 bg-primary-light border border-primary/20 rounded-2xl px-6 py-3.5">
-              <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <div>
-                <p className="text-[10px] text-ink-muted font-medium">お電話でのご相談</p>
-                <a href="tel:0175-34-3297" className="text-xl font-bold text-primary hover:text-primary-dark transition-colors tracking-wide">
-                  0175-34-3297
-                </a>
-              </div>
-            </div>
-            <p className="text-xs text-ink-subtle">代表 ／ 毎日 8:30〜17:30</p>
-          </div>
         </div>
       </section>
 
@@ -324,23 +311,20 @@ export default function TopPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="space-y-3">
             {allServices.map((s) => (
               <Link
                 key={s.id}
                 href={s.href}
-                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-primary hover:shadow-md transition-all duration-200"
+                className="group flex rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-md transition-all duration-200 bg-white"
               >
-                <div className={`h-28 ${s.color} flex flex-col items-center justify-center text-white`}>
-                  <div className="text-lg font-bold text-center px-4">{s.name}</div>
-                  <div className="text-xs opacity-80 mt-1">{s.type}</div>
-                  <div className="text-xs opacity-40 mt-1">※ 写真は受領次第差し替えます</div>
+                <div className={`w-40 sm:w-52 ${s.color} flex flex-col items-center justify-center text-white text-center p-4 shrink-0`}>
+                  <div className="text-sm sm:text-base font-bold leading-snug">{s.name}</div>
+                  <div className="text-xs opacity-75 mt-1">{s.type}</div>
                 </div>
-                <div className="p-5">
-                  <p className="text-ink-muted text-sm leading-loose mb-4">
-                    {s.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
+                <div className="flex-1 px-5 sm:px-7 py-5 flex items-center justify-between gap-4">
+                  <p className="text-ink-muted text-sm leading-relaxed line-clamp-2">{s.description}</p>
+                  <span className="shrink-0 inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all whitespace-nowrap">
                     詳しく見る
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -353,7 +337,7 @@ export default function TopPage() {
 
           <div className="text-center mt-8">
             <Link
-              href="/services/enshuuen"
+              href="/services"
               className="inline-flex items-center gap-2 bg-primary-light hover:bg-primary text-primary hover:text-white font-bold px-7 py-3.5 rounded-full transition-colors border border-primary/30"
             >
               サービス詳細一覧
@@ -371,12 +355,12 @@ export default function TopPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-                地元・下北で、
+                むつ市大畑町で、
                 <br />
                 一緒に働きませんか？
               </h2>
               <p className="text-white/75 leading-loose mb-4">
-                むつ市大畑町で暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。
+                大畑町に暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。
                 Uターン・地元定着を歓迎。経験・資格は問いません。
               </p>
               <p className="text-white/75 leading-loose mb-8">
@@ -493,12 +477,6 @@ export default function TopPage() {
               className="inline-flex items-center justify-center bg-white hover:bg-primary-light text-primary font-bold px-7 py-4 rounded-full border border-border transition-colors"
             >
               お問い合わせフォーム
-            </Link>
-            <Link
-              href="/application"
-              className="inline-flex items-center justify-center bg-white hover:bg-primary-light text-primary font-bold px-7 py-4 rounded-full border border-border transition-colors"
-            >
-              入所申し込み
             </Link>
           </div>
         </div>

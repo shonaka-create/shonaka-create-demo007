@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -18,15 +18,15 @@ const history = [
   },
   {
     year: "平成○○年（○○年）",
-    event: "ふれあいかんデイサービスセンター 開設（通所介護）※開設年はクライアント確認中",
+    event: "ふれあいかんデイサービスセンター 開設（通所介護）※開設年は別途確認中",
   },
   {
     year: "平成○○年（○○年）",
-    event: "延寿園ホームヘルプセンター 開設（訪問介護）※開設年はクライアント確認中",
+    event: "延寿園ホームヘルプセンター 開設（訪問介護）※開設年は別途確認中",
   },
   {
     year: "平成○○年（○○年）",
-    event: "延寿園在宅介護支援センター 開設（居宅介護支援）※開設年はクライアント確認中",
+    event: "延寿園在宅介護支援センター 開設（居宅介護支援）※開設年は別途確認中",
   },
   {
     year: "平成22年7月（2010年）",
@@ -37,7 +37,7 @@ const history = [
 const overview = [
   { label: "法人名", value: "社会福祉法人 三恵会" },
   { label: "代表者", value: "理事長　松岡 茂樹" },
-  { label: "法人番号", value: "※ クライアントより受領次第記載" },
+  { label: "法人番号", value: "※ 別途確認次第記載" },
   { label: "設立", value: "昭和59年2月7日（1984年）" },
   { label: "事業開始", value: "昭和59年4月1日（1984年）" },
   { label: "所在地", value: "〒039-4401 青森県むつ市大畑町大赤川29番地4" },
@@ -117,13 +117,18 @@ export default function AboutPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-surface rounded-2xl border border-border overflow-hidden"
+                className="bg-surface rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="relative h-20 bg-primary flex items-center justify-center">
-                  <span className="text-5xl font-bold text-white/90">{item.kanji}</span>
+                <div className="relative h-44 bg-primary-dark flex items-center justify-center overflow-hidden">
+                  <span className="absolute text-[150px] font-black text-white/[0.06] select-none leading-none" aria-hidden="true">
+                    {item.kanji}
+                  </span>
+                  <div className="relative text-center">
+                    <span className="text-7xl font-bold text-white block">{item.kanji}</span>
+                    <p className="text-primary-light text-sm mt-3 font-bold tracking-widest">{item.title}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-ink mb-3">{item.title}</h3>
+                <div className="p-6 sm:p-7">
                   <p className="text-sm text-ink-muted leading-loose">
                     {item.description}
                   </p>
@@ -192,7 +197,7 @@ export default function AboutPage() {
             沿革
           </h2>
           <p className="text-center text-xs text-ink-subtle mb-12">
-            ※ 年号・詳細はクライアントより確認次第正式な情報に更新します
+            ※ 年号・詳細は別途確認次第正式な情報に更新します
           </p>
 
           <div className="max-w-3xl mx-auto">

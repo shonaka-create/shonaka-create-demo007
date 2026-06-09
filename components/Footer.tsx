@@ -66,7 +66,6 @@ export default function Footer() {
                 { label: "法人概要", href: "/about" },
                 { label: "求人情報", href: "/recruit" },
                 { label: "お問い合わせ", href: "/contact" },
-                { label: "プライバシーポリシー", href: "/privacy" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
@@ -86,9 +85,6 @@ export default function Footer() {
           <p className="text-xs text-white/50">
             © {new Date().getFullYear()} 社会福祉法人 三恵会. All rights reserved.
           </p>
-          <Link href="/privacy" className="text-xs text-white/50 hover:text-white/80 transition-colors">
-            プライバシーポリシー
-          </Link>
         </div>
       </div>
     </footer>

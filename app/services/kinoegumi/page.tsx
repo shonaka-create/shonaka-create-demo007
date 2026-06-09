@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -92,7 +92,7 @@ export default function KinoegumiPage() {
                   { label: "所在地", value: "〒039-4401 青森県むつ市大畑町大赤川29番地4（延寿園内）" },
                   { label: "電話", value: "0175-34-3297" },
                   { label: "FAX", value: "0175-34-3495" },
-                  { label: "メール", value: "※ クライアントより確認中" },
+                  { label: "メール", value: "※ 別途確認中" },
                 ].map((row) => (
                   <div key={row.label} className="flex gap-3">
                     <dt className="font-bold text-ink-muted w-24 shrink-0 text-xs pt-0.5">{row.label}</dt>
@@ -170,7 +170,7 @@ export default function KinoegumiPage() {
                   詳しくはお電話またはお問い合わせフォームよりご相談ください。
                 </p>
                 <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
-                  ※ 具体的な費用はクライアントより確認次第記載します
+                  ※ 具体的な費用は別途確認次第更新します
                 </p>
               </div>
             </div>

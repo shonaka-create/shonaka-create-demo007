@@ -57,7 +57,7 @@ export default function ContactForm() {
       {/* Contact info */}
       <aside className="lg:col-span-1 space-y-6">
         <div>
-          <h2 className="text-lg font-bold text-ink mb-5">法人本部</h2>
+          <h2 className="text-lg font-bold text-ink mb-5">延寿園（法人本部）</h2>
           <address className="not-italic space-y-4">
             <div className="flex items-start gap-3">
               <svg className="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -65,10 +65,24 @@ export default function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <div className="text-sm text-ink-muted leading-loose">
-                〒331-0052<br />
-                埼玉県さいたま市西区<br />
-                大字中釘2219-4
+                〒039-4401<br />
+                青森県むつ市大畑町<br />
+                大赤川29番地4
               </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:0175-34-3297" className="text-sm text-ink-muted hover:text-primary transition-colors">
+                0175-34-3297（代表）
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              <span className="text-sm text-ink-muted">FAX：0175-34-3495</span>
             </div>
           </address>
         </div>
@@ -76,7 +90,7 @@ export default function ContactForm() {
         <div className="bg-primary-light rounded-2xl border border-primary/20 p-5">
           <h3 className="font-bold text-ink text-sm mb-3">受付時間</h3>
           <p className="text-sm text-ink-muted leading-loose">
-            平日 9:00 〜 17:00<br />
+            平日 8:30 〜 17:30<br />
             土・日・祝日はお休みです。<br />
             フォームは24時間受付可能です。
           </p>
@@ -177,7 +191,7 @@ export default function ContactForm() {
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              placeholder="048-XXX-XXXX"
+              placeholder="0175-XX-XXXX"
               className="w-full border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-bg"
             />
           </div>

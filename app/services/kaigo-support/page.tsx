@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -122,7 +122,7 @@ export default function KaigoSupportPage() {
                     { label: "所在地", value: "青森県むつ市大畑町大赤川29番地4" },
                     { label: "電話", value: "0175-34-3297（代表）" },
                     { label: "FAX", value: "0175-34-3495" },
-                    { label: "開設年", value: "※ クライアントより確認中" },
+                    { label: "開設年", value: "※ 別途確認中" },
                     { label: "営業日", value: "月〜土（祝日も対応）※詳細はお問い合わせください" },
                   ].map((row) => (
                     <div key={row.label} className="flex gap-3">

@@ -101,12 +101,19 @@ export default function RecruitPage() {
             </ol>
           </nav>
           <div className="max-w-2xl">
+            <p className="text-white/60 text-sm tracking-widest mb-5 uppercase">
+              社会福祉法人 三恵会 ｜ 採用情報
+            </p>
             <h1 className="text-3xl sm:text-5xl font-bold mb-5">
-              地元・下北で、<br />一緒に働きませんか？
+              むつ市大畑町で、<br />一緒に働きませんか？
             </h1>
-            <p className="text-white/75 text-lg leading-loose">
-              むつ市大畑町で暮らし続けながら、地域の高齢者と向き合える仕事です。
-              経験・資格不問のポジションもあります。まずはお気軽にご連絡ください。
+            <p className="text-primary-light text-lg font-bold mb-4">
+              「天の恵み・地の恵み・人の恵み」
+            </p>
+            <p className="text-white/80 text-lg sm:text-xl leading-loose">
+              昭和59年の創設以来、大畑町に根差してきた三恵会で、
+              地域の高齢者の生活を支える仕事をしませんか。
+              Uターン・地元定着を歓迎。経験・資格不問のポジションもあります。
             </p>
           </div>
         </div>
@@ -120,53 +127,84 @@ export default function RecruitPage() {
             <h2 className="text-3xl font-bold text-ink">募集職種</h2>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-10">
             {jobs.map((job) => (
-              <div key={job.id} className="bg-surface rounded-2xl border border-border overflow-hidden">
+              <div key={job.id} className="bg-surface rounded-2xl border border-border overflow-hidden shadow-sm">
                 {/* Header */}
-                <div className={`${job.color} text-white px-7 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3`}>
-                  <div>
-                    <p className="text-white/70 text-xs mb-0.5">{job.facility}</p>
-                    <h3 className="text-xl font-bold">{job.title}</h3>
+                <div className={`${job.color} text-white relative overflow-hidden`}>
+                  <div className="absolute right-0 top-0 w-64 h-full opacity-[0.07]" aria-hidden="true">
+                    <svg viewBox="0 0 200 120" fill="none" className="w-full h-full">
+                      <circle cx="160" cy="60" r="90" stroke="white" strokeWidth="2" />
+                      <circle cx="60" cy="60" r="55" stroke="white" strokeWidth="2" />
+                    </svg>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold bg-white/20 border border-white/30 px-3 py-1 rounded-full">
-                      {job.tag}
-                    </span>
-                    <span className="text-sm text-white/80">募集{job.count}</span>
+                  <div className="relative px-7 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                      <p className="text-white/60 text-xs font-medium mb-1.5">{job.facility}</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold">{job.title}</h3>
+                    </div>
+                    <div className="flex items-center gap-4 shrink-0">
+                      <span className="text-sm font-bold bg-white/20 border border-white/30 px-4 py-1.5 rounded-full">
+                        {job.tag}
+                      </span>
+                      <div>
+                        <p className="text-white/50 text-[10px] uppercase tracking-wider">募集人数</p>
+                        <p className="text-xl font-bold">{job.count}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-7 sm:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Left */}
-                  <div className="space-y-6">
+                <div className="p-7 sm:p-9 grid grid-cols-1 lg:grid-cols-5 gap-8">
+                  {/* Left: Job Details */}
+                  <div className="lg:col-span-3 space-y-7">
                     {/* 仕事内容 */}
                     <div>
-                      <h4 className="text-xs font-bold text-ink-muted tracking-widest uppercase mb-2">仕事内容</h4>
-                      <p className="text-sm text-ink leading-loose">{job.description}</p>
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                          </svg>
+                        </span>
+                        <h4 className="text-sm font-bold text-ink">仕事内容</h4>
+                      </div>
+                      <p className="text-sm text-ink-muted leading-loose pl-[34px]">{job.description}</p>
                     </div>
 
                     {/* 勤務時間 */}
                     <div>
-                      <h4 className="text-xs font-bold text-ink-muted tracking-widest uppercase mb-2">勤務時間</h4>
-                      <ul className="space-y-1">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <h4 className="text-sm font-bold text-ink">勤務時間</h4>
+                      </div>
+                      <ul className="pl-[34px] space-y-2">
                         {job.hours.map((h) => (
-                          <li key={h} className="text-sm text-ink flex items-start gap-2">
-                            <span className="text-primary mt-1 shrink-0">›</span>
-                            {h}
-                          </li>
+                          <li key={h} className="text-sm text-ink-muted">{h}</li>
                         ))}
                       </ul>
                     </div>
 
                     {/* 応募資格 */}
                     <div>
-                      <h4 className="text-xs font-bold text-ink-muted tracking-widest uppercase mb-2">必要資格・応募条件</h4>
-                      <ul className="space-y-1">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <h4 className="text-sm font-bold text-ink">必要資格・応募条件</h4>
+                      </div>
+                      <ul className="pl-[34px] space-y-2">
                         {job.qualifications.map((q) => (
-                          <li key={q} className="text-sm text-ink flex items-start gap-2">
-                            <span className="text-primary mt-1 shrink-0">›</span>
-                            {q}
+                          <li key={q} className="text-sm text-ink-muted flex items-baseline gap-2">
+                            <svg className="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>{q}</span>
                           </li>
                         ))}
                       </ul>
@@ -174,21 +212,36 @@ export default function RecruitPage() {
                   </div>
 
                   {/* Right: Salary */}
-                  <div>
-                    <h4 className="text-xs font-bold text-ink-muted tracking-widest uppercase mb-3">給与・手当</h4>
-                    <div className="bg-primary-light rounded-xl p-5">
-                      <div className="mb-4 pb-3 border-b border-primary/20">
-                        <p className="text-xs text-ink-muted mb-0.5">基本給</p>
-                        <p className="text-2xl font-bold text-primary">{job.salary.base}</p>
-                      </div>
-                      <dl className="space-y-2">
-                        {job.salary.items.map((item) => (
-                          <div key={item.label} className="flex gap-2 text-sm">
-                            <dt className="text-ink-muted shrink-0 w-36">{item.label}</dt>
-                            <dd className="text-ink font-medium">{item.value}</dd>
+                  <div className="lg:col-span-2">
+                    <div className="flex items-center gap-2.5 mb-4">
+                      <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                        <span className="text-white text-xs font-black leading-none">¥</span>
+                      </span>
+                      <h4 className="text-sm font-bold text-ink">給与・手当</h4>
+                    </div>
+
+                    <div className={`${job.color} rounded-xl p-5 mb-3 text-white`}>
+                      <p className="text-white/70 text-xs mb-1">基本給</p>
+                      <p className="text-3xl font-bold">{job.salary.base}</p>
+                    </div>
+
+                    <div className="bg-bg rounded-xl overflow-hidden border border-border">
+                      {job.salary.items.map((item, idx) => {
+                        const isAnnual = item.label === "年間賃金";
+                        return (
+                          <div
+                            key={item.label}
+                            className={`flex text-sm ${idx < job.salary.items.length - 1 ? "border-b border-border" : ""} ${isAnnual ? "bg-primary-light" : ""}`}
+                          >
+                            <dt className={`px-4 py-2.5 w-36 shrink-0 font-medium ${isAnnual ? "text-primary" : "text-ink-muted"}`}>
+                              {item.label}
+                            </dt>
+                            <dd className={`px-4 py-2.5 ${isAnnual ? "text-primary font-bold text-base" : "text-ink font-medium"}`}>
+                              {item.value}
+                            </dd>
                           </div>
-                        ))}
-                      </dl>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
