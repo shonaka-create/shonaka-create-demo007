@@ -29,7 +29,7 @@ const allServices = [
     name: "ふれあいかんデイサービスセンター",
     type: "通所介護",
     description: "日帰りで施設に通い、入浴・食事・機能訓練・レクリエーションを楽しめます。送迎付きで安心。「今日も来てよかった」と思っていただける場所づくりを大切にしています。",
-    color: "bg-[#1A6B80]",
+    color: "bg-[#2D7A5A]",
     href: "/services/day-service",
   },
   {
