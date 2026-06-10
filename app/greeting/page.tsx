@@ -86,14 +86,11 @@ export default function GreetingPage() {
       <section className="bg-surface py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-primary text-xs font-bold tracking-widest uppercase mb-3">Philosophy</p>
-          <h2 className="text-2xl font-bold text-ink mb-6">三恵会の理念</h2>
-          <p className="text-3xl sm:text-4xl font-bold text-primary-dark mb-6 tracking-widest">
-            「天の恵み・地の恵み・人の恵み」
+          <h2 className="text-2xl font-bold text-ink mb-8">三恵会の理念</h2>
+          <p className="text-ink-muted leading-loose max-w-2xl mx-auto text-base">
+            私達はご利用者の尊厳を尊重し、安心と信頼のある施設を目指すと共に、ご家族、地域に開かれた地域福祉に貢献できる法人運営を目指します。
           </p>
-          <p className="text-ink-muted leading-loose max-w-2xl mx-auto">
-            三つの恵みを大切にし、ご利用者・ご家族・地域とともに歩む社会福祉を実践します。
-            設立以来変わらぬこの精神が、私たちの活動のすべての原点です。
-          </p>
+          <p className="text-xs text-ink-muted/60 mt-4">※ 正式な理念文は別途確認中</p>
         </div>
       </section>
 

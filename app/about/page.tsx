@@ -89,6 +89,10 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-6">
               法人の理念
             </h2>
+            <p className="text-ink-muted leading-loose text-base">
+              私達はご利用者の尊厳を尊重し、安心と信頼のある施設を目指すと共に、ご家族、地域に開かれた地域福祉に貢献できる法人運営を目指します。
+            </p>
+            <p className="text-xs text-ink-muted/60 mt-3">※ 正式な理念文は別途確認中</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
