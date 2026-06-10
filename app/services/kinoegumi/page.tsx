@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PhotoSlider from "@/components/PhotoSlider";
 
 export const metadata: Metadata = {
   title: "季の恵（ショートステイ）｜社会福祉法人 三恵会｜むつ市大畑町",
@@ -98,14 +99,12 @@ export default function KinoegumiPage() {
         </div>
       </nav>
 
-      {/* 3. Photo Banner */}
-      <div className="relative h-52 sm:h-64 overflow-hidden bg-gray-100 border-b-2 border-dashed border-gray-200 flex flex-col items-center justify-center">
-        <svg className="w-12 h-12 text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <p className="text-gray-400 font-medium">季の恵 施設写真（バナー用）</p>
-        <p className="text-sm text-gray-300 mt-1">※ 写真は受領次第差し替えます</p>
-      </div>
+      {/* 3. Photo Slider */}
+      <PhotoSlider slides={[
+        { label: "季の恵 外観" },
+        { label: "季の恵 個室・居室" },
+        { label: "季の恵 共用スペース・入浴" },
+      ]} />
 
       {/* 4. Overview */}
       <section className="bg-bg py-16 sm:py-20">

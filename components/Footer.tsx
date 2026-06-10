@@ -38,21 +38,9 @@ export default function Footer() {
             <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
               各サービスのご案内
             </h3>
-            <ul className="space-y-2">
-              {[
-                { label: "延寿園（特別養護老人ホーム）", href: "/services/enshuuen" },
-                { label: "季の恵（ショートステイ）", href: "/services/kinoegumi" },
-                { label: "ふれあいかんデイサービスセンター", href: "/services/day-service" },
-                { label: "延寿園ホームヘルプセンター", href: "/services/home-help" },
-                { label: "延寿園在宅介護支援センター", href: "/services/kaigo-support" },
-              ].map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <Link href="/services" className="text-sm text-white/70 hover:text-white transition-colors">
+              サービス一覧を見る →
+            </Link>
           </div>
 
           {/* その他 */}
