@@ -4,8 +4,21 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "採用情報｜社会福祉法人 三恵会｜むつ市の介護職求人",
   description:
-    "社会福祉法人 三恵会（青森県むつ市大畑町）の採用情報。介護職員・ホームヘルパーを募集中。年間賃金300万円〜、処遇改善手当あり。ハローワーク求人あり。",
+    "社会福祉法人 三恵会（青森県むつ市大畑町）の採用情報。介護職員・看護職員・リハビリスタッフ等10職種を募集中。20・30代を積極採用。経験・資格不問のポジションもあります。",
 };
+
+const allPositions = [
+  { title: "介護職員（特養）",         facility: "延寿園",             type: "正職員・非常勤", color: "bg-[#2A6B47]" },
+  { title: "介護職員（ショートステイ）", facility: "季の恵",             type: "正職員・非常勤", color: "bg-[#3A8060]" },
+  { title: "介護職員（デイサービス）",   facility: "ふれあいかん",         type: "正職員・非常勤", color: "bg-[#2D7A5A]" },
+  { title: "ホームヘルパー",           facility: "ホームヘルプセンター",   type: "準職員・登録",   color: "bg-[#1E6B5A]" },
+  { title: "看護職員",                facility: "延寿園",             type: "正職員・パート",  color: "bg-[#1A8066]" },
+  { title: "リハビリスタッフ（PT・OT）", facility: "延寿園",             type: "正職員・非常勤", color: "bg-[#2A6B47]" },
+  { title: "送迎ドライバー",           facility: "デイサービス等",       type: "非常勤",         color: "bg-[#3A8060]" },
+  { title: "ケアマネジャー",           facility: "在宅介護支援センター", type: "正職員",         color: "bg-[#2D7A5A]" },
+  { title: "調理員",                  facility: "延寿園等",            type: "正職員・パート",  color: "bg-[#1E6B5A]" },
+  { title: "事務スタッフ",             facility: "法人本部",            type: "正職員・非常勤", color: "bg-[#1A8066]" },
+];
 
 const jobs = [
   {
@@ -23,14 +36,14 @@ const jobs = [
     salary: {
       base: "148,100円〜",
       items: [
-        { label: "資格手当", value: "5,000円（介護福祉士）" },
-        { label: "業務手当", value: "8,000〜26,000円" },
-        { label: "処遇改善手当", value: "13,000円" },
-        { label: "夜勤手当", value: "5,000円 / 回（月3〜5回）" },
-        { label: "通勤手当", value: "上限 15,000円" },
+        { label: "資格手当",       value: "5,000円（介護福祉士）" },
+        { label: "業務手当",       value: "8,000〜26,000円" },
+        { label: "処遇改善手当",   value: "13,000円" },
+        { label: "夜勤手当",       value: "5,000円 / 回（月3〜5回）" },
+        { label: "通勤手当",       value: "上限 15,000円" },
         { label: "処遇改善手当（年）", value: "610,000円（3月・10月 2回払）" },
-        { label: "賞与（年）", value: "300,000円〜（昨年実績）" },
-        { label: "年間賃金", value: "3,000,000円〜" },
+        { label: "賞与（年）",     value: "300,000円〜（昨年実績）" },
+        { label: "年間賃金",       value: "3,000,000円〜" },
       ],
     },
     qualifications: [
@@ -53,12 +66,12 @@ const jobs = [
     salary: {
       base: "148,100円〜",
       items: [
-        { label: "資格手当", value: "5,000円（介護福祉士）" },
-        { label: "処遇改善手当", value: "13,000円" },
-        { label: "通勤手当", value: "上限 15,000円" },
+        { label: "資格手当",       value: "5,000円（介護福祉士）" },
+        { label: "処遇改善手当",   value: "13,000円" },
+        { label: "通勤手当",       value: "上限 15,000円" },
         { label: "処遇改善手当（年）", value: "200,000円（3月・10月 2回払）" },
-        { label: "賞与（年）", value: "300,000円〜（昨年実績）" },
-        { label: "年間賃金", value: "2,400,000円〜" },
+        { label: "賞与（年）",     value: "300,000円〜（昨年実績）" },
+        { label: "年間賃金",       value: "2,400,000円〜" },
       ],
     },
     qualifications: [
@@ -71,13 +84,13 @@ const jobs = [
 ];
 
 const commonBenefits = [
-  { label: "休日", value: "年間105日" },
-  { label: "昇給", value: "定時昇給あり" },
+  { label: "休日",     value: "年間105日" },
+  { label: "昇給",     value: "定時昇給あり" },
   { label: "社会保険", value: "健康保険・厚生年金・雇用保険・労災保険" },
-  { label: "退職金", value: "退職金制度加入" },
+  { label: "退職金",   value: "退職金制度加入" },
   { label: "有給休暇", value: "6ヶ月経過後 10日有" },
   { label: "育児・介護", value: "産前産後休業・育児休業・介護休業あり" },
-  { label: "制服", value: "制服貸与（登録ヘルパーを除く）" },
+  { label: "制服",     value: "制服貸与（登録ヘルパーを除く）" },
 ];
 
 export default function RecruitPage() {
@@ -104,32 +117,103 @@ export default function RecruitPage() {
             <p className="text-white/60 text-sm tracking-widest mb-5 uppercase">
               社会福祉法人 三恵会 ｜ 採用情報
             </p>
-            <h1 className="text-3xl sm:text-5xl font-bold mb-5">
-              むつ市大畑町で、<br />一緒に働きませんか？
+            <h1 className="text-3xl sm:text-5xl font-bold mb-6">
+              むつ市大畑町で、<br />介護の仕事を選ぶ理由。
             </h1>
-            <p className="text-primary-light text-lg font-bold mb-4">
-              「天の恵み・地の恵み・人の恵み」
-            </p>
             <p className="text-white/80 text-lg sm:text-xl leading-loose">
-              昭和59年の創設以来、大畑町に根差してきた三恵会で、
-              地域の高齢者の生活を支える仕事をしませんか。
-              Uターン・地元定着を歓迎。経験・資格不問のポジションもあります。
+              昭和59年の創設以来、大畑町に根差してきた三恵会。スタッフの平均勤続年数が長く、安定して働き続けられる環境があります。20代・30代を積極採用中。資格・経験がなくてもOKです。
             </p>
           </div>
         </div>
       </div>
 
-      {/* Job Listings */}
-      <section className="bg-bg py-16 sm:py-20">
+      {/* Why Work Here */}
+      <section className="bg-white py-14 sm:py-16 border-b border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Why Choose Us</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">三恵会で働く理由</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: (
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+                title: "長く続けられる安定職場",
+                body: "スタッフの平均勤続年数が長く、腰を据えて働ける職場です。育児中・介護中のスタッフも多く活躍しています。",
+                note: "※ 平均勤続年数は別途確認中",
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                ),
+                title: "大畑町になくてはならない存在",
+                body: "大畑町に唯一の特別養護老人ホームとして、40年以上にわたって地域の介護を担ってきました。「必要とされる仕事」がここにあります。",
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+                title: "20代・30代を積極採用",
+                body: "資格・経験不問の職種多数。Uターン・地元定着を歓迎します。若い世代が長く働けるよう、研修・資格取得を支援しています。",
+              },
+            ].map((reason) => (
+              <div key={reason.title} className="bg-bg rounded-2xl border border-border p-6">
+                <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-4">
+                  {reason.icon}
+                </div>
+                <h3 className="font-bold text-ink mb-3">{reason.title}</h3>
+                <p className="text-sm text-ink-muted leading-loose">{reason.body}</p>
+                {reason.note && <p className="text-xs text-ink-muted/60 mt-2">{reason.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* All Positions Overview */}
+      <section className="bg-bg py-14 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Open Positions</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">全募集職種一覧</h2>
+            <p className="text-ink-muted text-sm mt-3">10職種で仲間を募集しています。詳細はお気軽にお問い合わせください。</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {allPositions.map((pos) => (
+              <div key={pos.title} className="flex items-center gap-4 bg-white rounded-xl border border-border px-5 py-4">
+                <div className={`w-1.5 h-10 rounded-full shrink-0 ${pos.color}`} />
+                <div className="min-w-0 flex-1">
+                  <p className="font-bold text-ink text-sm leading-tight">{pos.title}</p>
+                  <p className="text-xs text-ink-muted mt-0.5">{pos.facility}</p>
+                </div>
+                <span className="shrink-0 text-xs bg-primary-light text-primary font-medium px-2.5 py-1 rounded-full whitespace-nowrap">{pos.type}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs text-ink-muted/70 mt-5">※ 詳細な条件・募集状況は別途お問い合わせください</p>
+        </div>
+      </section>
+
+      {/* Job Listings (detailed) */}
+      <section className="bg-surface py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Job Listings</p>
-            <h2 className="text-3xl font-bold text-ink">募集職種</h2>
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Job Details</p>
+            <h2 className="text-3xl font-bold text-ink">募集要項（詳細）</h2>
+            <p className="text-ink-muted text-sm mt-3">下記は主な職種の詳細です。その他の職種はお問い合わせください。</p>
           </div>
 
           <div className="space-y-10">
             {jobs.map((job) => (
-              <div key={job.id} className="bg-surface rounded-2xl border border-border overflow-hidden shadow-sm">
+              <div key={job.id} className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
                 {/* Header */}
                 <div className={`${job.color} text-white relative overflow-hidden`}>
                   <div className="absolute right-0 top-0 w-64 h-full opacity-[0.07]" aria-hidden="true">
@@ -252,7 +336,7 @@ export default function RecruitPage() {
       </section>
 
       {/* Common Benefits */}
-      <section className="bg-surface py-14">
+      <section className="bg-white py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Benefits</p>
@@ -292,7 +376,7 @@ export default function RecruitPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <p className="text-xs text-ink-subtle mb-3">※ 写真・氏名は受領次第記載</p>
+                <p className="text-xs text-ink-muted mb-3">※ 写真・氏名は受領次第記載</p>
                 <div className="w-full min-h-[80px] bg-gray-50 border border-dashed border-gray-200 rounded-lg flex items-center justify-center p-4">
                   <p className="text-xs text-gray-400 text-center">職員インタビューコメント<br />（受領次第記載）</p>
                 </div>
