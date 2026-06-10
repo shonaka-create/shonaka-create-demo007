@@ -157,6 +157,58 @@ export default function RecruitPage() {
         </div>
       </section>
 
+      {/* 数字で分かる三恵会 */}
+      <section className="bg-white py-14 sm:py-16 border-t border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Numbers</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">数字で分かる三恵会</h2>
+            <p className="text-ink-muted text-sm mt-3 leading-loose">
+              大畑町で40年以上、地域の介護を支え続けてきた三恵会の実績。
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                num: "42",
+                unit: "年",
+                label: "創設からの歴史",
+                sub: "昭和59年から地域とともに歩んできました",
+              },
+              {
+                num: "●",
+                unit: "年",
+                label: "スタッフ平均勤続年数",
+                sub: "長く安心して続けられる職場環境",
+                note: "※ 集計中",
+              },
+              {
+                num: "唯一",
+                unit: "",
+                label: "大畑町の特別養護老人ホーム",
+                sub: "地域に欠かせない「必要とされる仕事」",
+              },
+              {
+                num: "5",
+                unit: "事業",
+                label: "展開するサービス数",
+                sub: "施設から在宅まで幅広い介護を提供",
+              },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-bg hover:bg-white rounded-2xl border border-border hover:border-primary/30 hover:shadow-md p-6 sm:p-7 text-center transition-all duration-300">
+                <div className="w-8 h-1 bg-primary rounded-full mx-auto mb-5" />
+                <p className="text-3xl sm:text-4xl font-bold text-primary leading-none">
+                  {stat.num}<span className="text-lg sm:text-xl font-bold ml-0.5">{stat.unit}</span>
+                </p>
+                <p className="font-bold text-ink text-sm mt-3 mb-1.5 leading-snug">{stat.label}</p>
+                <p className="text-xs text-ink-muted leading-relaxed">{stat.sub}</p>
+                {stat.note && <p className="text-[10px] text-ink-muted/50 mt-2">{stat.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section className="bg-primary-dark py-14 sm:py-16 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,12 +241,15 @@ export default function RecruitPage() {
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white hover:bg-primary-light text-primary font-bold px-8 py-4 rounded-full transition-colors shadow-lg"
+              className="group inline-flex items-center gap-2 bg-white hover:bg-primary-light text-primary font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Webフォームで問い合わせる
+              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </Link>
           </div>
         </div>
