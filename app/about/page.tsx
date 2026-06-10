@@ -82,57 +82,64 @@ export default function AboutPage() {
       {/* Philosophy */}
       <section className="bg-bg py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-4">
-              Philosophy
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-6">
-              法人の理念
-            </h2>
-            <p className="text-ink-muted leading-loose text-base">
-              私達はご利用者の尊厳を尊重し、安心と信頼のある施設を目指すと共に、ご家族、地域に開かれた地域福祉に貢献できる法人運営を目指します。
-            </p>
-            <p className="text-xs text-ink-muted/60 mt-3">※ 正式な理念文は別途確認中</p>
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-4">Philosophy</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-8">法人の理念</h2>
           </div>
 
+          {/* Mission statement */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="bg-primary-dark rounded-3xl px-8 sm:px-12 py-10 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-64 h-64 opacity-[0.04] pointer-events-none" aria-hidden="true">
+                <svg viewBox="0 0 200 200" fill="none">
+                  <circle cx="100" cy="60" r="60" stroke="white" strokeWidth="1.5"/>
+                  <circle cx="40" cy="160" r="60" stroke="white" strokeWidth="1.5"/>
+                  <circle cx="160" cy="160" r="60" stroke="white" strokeWidth="1.5"/>
+                </svg>
+              </div>
+              <p className="text-primary-light text-xs font-bold tracking-widest uppercase mb-5 relative">Our Mission</p>
+              <p className="text-white text-xl sm:text-2xl font-bold leading-relaxed mb-5 relative">
+                「ご利用者一人ひとりの、その人らしい暮らしを支えること。それが、三恵会の変わらぬ使命です。」
+              </p>
+              <p className="text-white/70 text-sm leading-loose relative">
+                昭和59年の創設から40年以上、大畑町の地域とともに歩んできました。施設・在宅・通所のいずれのサービスにおいても、ご利用者とご家族の安心を中心に据え、温かく誠実なケアを実践しています。
+              </p>
+            </div>
+          </div>
+
+          {/* Three values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               {
                 title: "天の恵み",
                 kanji: "天",
-                description:
-                  "自然の恵みへの感謝。気候・風土・環境と調和した暮らしを大切にし、入居者・利用者が心豊かに生活できる環境を整えます。",
+                color: "bg-primary",
+                description: "青森・下北の四季と自然のリズムの中で、入居者・利用者が心穏やかに過ごせる環境を整えること。大畑の大地に根ざした暮らしの豊かさを、日々のケアの中に活かしています。",
               },
               {
                 title: "地の恵み",
                 kanji: "地",
-                description:
-                  "大地・地域への感謝。青森県むつ市大畑町の地域社会との繋がりを大切にし、地域に根ざした介護・福祉サービスを提供し続けています。",
+                color: "bg-[#2D7A5A]",
+                description: "大畑町という「場所」に40年以上こだわり続けてきました。この地で生まれ、この地で老い、この地で見送られる。地域に必要とされる存在であり続けることが、三恵会の誇りです。",
               },
               {
                 title: "人の恵み",
                 kanji: "人",
-                description:
-                  "人と人との繋がりへの感謝。スタッフ・入居者・ご家族・地域の方々との絆を大切に、互いに支え合う関係性を育んでいます。",
+                color: "bg-[#1A8066]",
+                description: "ご利用者・ご家族・スタッフ・地域の方々。すべての人のつながりが、介護の質を高めます。お互いを尊重し、力を合わせることで、一人では届かない安心が生まれると信じています。",
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="bg-surface rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="relative h-44 bg-primary-dark flex items-center justify-center overflow-hidden">
-                  <span className="absolute text-[150px] font-black text-white/[0.06] select-none leading-none" aria-hidden="true">
+              <div key={item.title} className="bg-white rounded-3xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+                <div className={`${item.color} h-1.5`} />
+                <div className="p-7 relative">
+                  <span className="absolute bottom-2 right-5 text-[100px] font-black text-ink/[0.035] select-none leading-none pointer-events-none" aria-hidden="true">
                     {item.kanji}
                   </span>
-                  <div className="relative text-center">
-                    <span className="text-7xl font-bold text-white block">{item.kanji}</span>
-                    <p className="text-primary-light text-sm mt-3 font-bold tracking-widest">{item.title}</p>
+                  <div className={`w-11 h-11 rounded-xl ${item.color} flex items-center justify-center mb-4`}>
+                    <span className="text-white font-black text-xl">{item.kanji}</span>
                   </div>
-                </div>
-                <div className="p-6 sm:p-7">
-                  <p className="text-sm text-ink-muted leading-loose">
-                    {item.description}
-                  </p>
+                  <h3 className="text-base font-bold text-ink mb-3">{item.title}</h3>
+                  <p className="text-sm text-ink-muted leading-loose relative z-10">{item.description}</p>
                 </div>
               </div>
             ))}

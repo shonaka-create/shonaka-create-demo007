@@ -1,79 +1,38 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "公開情報",
+  title: "情報公開｜社会福祉法人 三恵会",
   description:
-    "社会福祉法人 三恵会の公開情報。社会福祉法第59条の2に基づき、定款・運営規程・決算書・現況報告書・事業報告書を公開しています。",
+    "社会福祉法人 三恵会（青森県むつ市大畑町）の情報公開ページ。定款・各種規程、ならびに各年度の決算資料（財産目録・貸借対照表・資金収支計算書・事業活動計算書）を公開しています。",
 };
 
-const operationRules = [
-  { name: "特別養護老人ホーム 三恵苑", note: "（特別養護老人ホーム）", file: "uneiきlkijun_sankeien.pdf" },
-  { name: "短期入所生活介護 三恵苑", note: "（ショートステイ）", file: "unkei_short_sankeien.pdf" },
-  { name: "通所介護 三恵苑", note: "（デイサービス）", file: "unkei_day_sankeien.pdf" },
-  { name: "特別養護老人ホーム ひかわ", note: "（特別養護老人ホーム）", file: "unkei_hikawa.pdf" },
-  { name: "短期入所生活介護 ひかわ", note: "（ショートステイ）", file: "unkei_short_hikawa.pdf" },
-  { name: "通所介護 ひかわ", note: "（デイサービス）", file: "unkei_day_hikawa.pdf" },
-  { name: "養護老人ホーム 富士見園", note: "（養護老人ホーム）", file: "unkei_fujimien.pdf" },
-  { name: "居宅介護支援事業所 三恵苑", note: "（居宅介護支援）", file: "unkei_care_sankeien.pdf" },
-  { name: "居宅介護支援事業所 ひかわ", note: "（居宅介護支援）", file: "unkei_care_hikawa.pdf" },
-  { name: "訪問介護事業所", note: "（訪問介護）", file: "unkei_houmon.pdf" },
-  { name: "地域包括支援センター", note: "（地域包括支援）", file: "unkei_chiiki.pdf" },
-  { name: "介護予防支援事業所", note: "（介護予防支援）", file: "unkei_yobo.pdf" },
+const regulations = [
+  { title: "定款", note: "令和7年度版", href: "#" },
+  { title: "経理規程", note: "", href: "#" },
+  { title: "役員報酬及び費用弁償に関する規程", note: "", href: "#" },
 ];
 
-const financialDocs = [
-  {
-    category: "決算書（財務諸表）",
-    items: [
-      { year: "令和5年度（2023年度）", file: "financial_2023.pdf" },
-      { year: "令和4年度（2022年度）", file: "financial_2022.pdf" },
-      { year: "令和3年度（2021年度）", file: "financial_2021.pdf" },
-    ],
-  },
-  {
-    category: "現況報告書",
-    items: [
-      { year: "令和5年度（2023年度）", file: "report_current_2023.pdf" },
-      { year: "令和4年度（2022年度）", file: "report_current_2022.pdf" },
-    ],
-  },
-  {
-    category: "事業報告書",
-    items: [
-      { year: "令和5年度（2023年度）", file: "report_business_2023.pdf" },
-      { year: "令和4年度（2022年度）", file: "report_business_2022.pdf" },
-    ],
-  },
+const docTypes = [
+  "監査報告書（むつ市長）",
+  "監査報告書（理事長）",
+  "財産目録",
+  "貸借対照表",
+  "資金収支計算書",
+  "事業活動計算書",
 ];
 
-function PdfLink({ label, file }: { label: string; file: string }) {
-  return (
-    <a
-      href={`/documents/${file}`}
-      className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-dark font-medium group"
-      aria-label={`${label}（PDF）をダウンロード`}
-    >
-      <svg
-        className="w-5 h-5 text-primary/70 group-hover:text-primary shrink-0"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-        />
-      </svg>
-      {label}
-      <span className="text-xs text-ink-subtle bg-primary-light px-1.5 py-0.5 rounded font-normal">
-        PDF
-      </span>
-    </a>
-  );
-}
+const financialYears = [
+  "令和6年度",
+  "令和5年度",
+  "令和4年度",
+  "令和3年度",
+  "令和2年度",
+  "令和元年度",
+  "平成30年度",
+  "平成29年度",
+  "平成28年度",
+];
 
 export default function DisclosurePage() {
   return (
@@ -81,147 +40,141 @@ export default function DisclosurePage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/60 text-xs tracking-widest uppercase mb-2">
-            Disclosure
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-bold">公開情報</h1>
-          <p className="text-white/70 mt-3 max-w-2xl leading-loose text-sm">
-            社会福祉法第59条の2に基づき、社会福祉法人 三恵会は以下の書類を公開しています。
-            内容についてご不明な点は、法人本部までお問い合わせください。
+          <nav aria-label="パンくずリスト" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-xs text-white/50">
+              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white/70" aria-current="page">情報公開</li>
+            </ol>
+          </nav>
+          <h1 className="text-3xl sm:text-4xl font-bold">情報公開</h1>
+          <p className="text-white/70 mt-3 max-w-2xl leading-loose">
+            社会福祉法人 三恵会は、社会福祉法第59条の2に基づく情報公表制度に則り、法人の財務・運営に関する情報を公開しています。
           </p>
         </div>
       </div>
 
-      {/* Legal notice */}
-      <div className="bg-amber-50 border-b border-amber-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-start gap-3">
-            <svg className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              本ページは、<strong>社会福祉法第59条の2</strong>に基づく法人情報の公開義務に対応しています。
-              掲載文書はWAMNET（福祉医療機構）にも届出・公開されています。
+      {/* 各種規程 */}
+      <section className="bg-bg py-14 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Regulations</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">各種規程</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {regulations.map((reg) => (
+              <a
+                key={reg.title}
+                href={reg.href}
+                className="group bg-white rounded-2xl border border-border hover:border-primary/40 hover:shadow-md p-6 flex flex-col gap-3 transition-all duration-200"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-bold text-ink text-sm group-hover:text-primary transition-colors leading-snug">{reg.title}</p>
+                  {reg.note && <p className="text-xs text-ink-muted mt-0.5">{reg.note}</p>}
+                </div>
+                <span className="text-xs text-primary font-bold mt-auto flex items-center gap-1 group-hover:gap-2 transition-all">
+                  PDF をダウンロード
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-ink-muted/60 mt-4">
+            ※ ファイルは順次更新予定です。最新版についてはお問い合わせください。
+          </p>
+        </div>
+      </section>
+
+      {/* 現況報告書・決算資料 */}
+      <section className="bg-surface py-14 sm:py-16 border-t border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <p className="text-primary text-sm font-bold tracking-widest uppercase mb-3">Financial Reports</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">現況報告書・決算資料</h2>
+            <p className="text-ink-muted text-sm mt-2 leading-loose">
+              社会福祉法人 三恵会の各年度決算資料を公開しています。
             </p>
           </div>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="max-w-4xl space-y-14">
-
-          {/* 1. 定款 */}
-          <section>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-8 bg-primary rounded-full" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-ink">定款</h2>
-            </div>
-            <div className="bg-surface rounded-2xl border border-border p-6">
-              <PdfLink label="社会福祉法人 三恵会 定款" file="teikan.pdf" />
-              <p className="text-xs text-ink-subtle mt-3 leading-relaxed">
-                ※ 定款は直近の改定版を掲載しています。変更がある場合は随時更新します。
-              </p>
-            </div>
-          </section>
-
-          {/* 2. 運営規程 */}
-          <section>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-8 bg-primary rounded-full" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-ink">運営規程</h2>
-            </div>
-            <p className="text-sm text-ink-muted mb-5 leading-loose">
-              各事業所の運営規程を以下に掲載しています（全12事業所）。
-            </p>
-            <div className="bg-surface rounded-2xl border border-border overflow-hidden">
-              {operationRules.map((rule, idx) => (
+          <div className="space-y-5">
+            {financialYears.map((year, yearIdx) => (
+              <div key={year} className="bg-white rounded-2xl border border-border overflow-hidden">
                 <div
-                  key={rule.name}
-                  className={`flex flex-col sm:flex-row sm:items-center gap-2 px-6 py-4 ${
-                    idx < operationRules.length - 1 ? "border-b border-border" : ""
+                  className={`px-6 py-4 flex items-center justify-between ${
+                    yearIdx === 0 ? "bg-primary-dark" : "bg-primary-light"
                   }`}
                 >
-                  <div className="flex-1">
-                    <span className="text-sm text-ink font-medium">{rule.name}</span>
-                    <span className="text-xs text-ink-subtle ml-2">{rule.note}</span>
-                  </div>
-                  <PdfLink label={`${rule.name} 運営規程`} file={rule.file} />
+                  <h3 className={`font-bold text-base ${yearIdx === 0 ? "text-white" : "text-ink"}`}>
+                    {year}
+                  </h3>
+                  {yearIdx === 0 && (
+                    <span className="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-bold">
+                      最新
+                    </span>
+                  )}
                 </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 3. Financial Documents */}
-          <section>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-8 bg-primary rounded-full" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-ink">財務・事業報告書類</h2>
-            </div>
-            <p className="text-sm text-ink-muted mb-6 leading-loose">
-              社会福祉法人会計基準に基づく財務諸表（決算書）、現況報告書および事業報告書を掲載しています。
-            </p>
-
-            <div className="space-y-6">
-              {financialDocs.map((group) => (
-                <div key={group.category} className="bg-surface rounded-2xl border border-border overflow-hidden">
-                  <div className="bg-primary-light px-6 py-3">
-                    <h3 className="font-bold text-ink text-sm">{group.category}</h3>
-                  </div>
-                  <div>
-                    {group.items.map((item, idx) => (
-                      <div
-                        key={item.year}
-                        className={`flex flex-col sm:flex-row sm:items-center gap-2 px-6 py-4 ${
-                          idx < group.items.length - 1 ? "border-b border-border" : ""
-                        }`}
+                <div className="p-5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {docTypes.map((doc) => (
+                      <a
+                        key={doc}
+                        href="#"
+                        className="group flex items-center gap-2.5 bg-bg hover:bg-primary-light rounded-xl px-3.5 py-3 border border-border hover:border-primary/30 transition-all duration-200"
                       >
-                        <span className="text-sm text-ink flex-1">{item.year}</span>
-                        <PdfLink label={`${group.category} ${item.year}`} file={item.file} />
-                      </div>
+                        <svg className="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        <span className="text-xs text-ink group-hover:text-primary font-medium transition-colors leading-snug">
+                          {doc}
+                        </span>
+                      </a>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 4. WAMNET */}
-          <section>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-8 bg-primary rounded-full" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-ink">WAMNET（外部公開情報）</h2>
-            </div>
-            <div className="bg-surface rounded-2xl border border-border p-6">
-              <p className="text-sm text-ink-muted leading-loose mb-4">
-                社会福祉法人の現況報告書等は、独立行政法人福祉医療機構が運営する
-                「WAMNET」にも公開されています。下記リンクから検索することができます。
-              </p>
-              <div className="inline-flex items-center gap-2 text-sm text-ink-muted bg-bg border border-border rounded-lg px-4 py-2">
-                <svg className="w-4 h-4 text-ink-subtle" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                wam.go.jp（WAMNET）
-                <span className="text-xs text-ink-subtle">※デモサイトのためリンクを無効化しています</span>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
 
-          {/* 5. Note */}
-          <section className="bg-primary-light rounded-2xl border border-primary/20 p-6">
-            <h3 className="font-bold text-ink mb-3 flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              掲載文書についてのご注意
-            </h3>
-            <ul className="text-sm text-ink-muted space-y-2 leading-loose">
-              <li>• 掲載しているPDFファイルはデモサイトのため、実際のファイルは含まれていません。</li>
-              <li>• 本番サイトでは、各年度の書類を随時更新して掲載します。</li>
-              <li>• 掲載情報に関するお問い合わせは法人本部までご連絡ください。</li>
-            </ul>
-          </section>
+          <p className="text-xs text-ink-muted/60 mt-6">
+            ※ PDFファイルは順次掲載予定です。閲覧をご希望の方はお問い合わせください。
+          </p>
         </div>
-      </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-primary-light py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-xl font-bold text-ink mb-4">書類・内容についてのお問い合わせ</h2>
+          <p className="text-ink-muted mb-7 text-sm leading-loose">
+            掲載されている書類の内容についてご不明な点がございましたら、お気軽にお問い合わせください。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:0175-34-3297"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              0175-34-3297 お電話
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-white hover:bg-primary-light text-primary font-bold px-7 py-3.5 rounded-full border border-border transition-colors"
+            >
+              お問い合わせフォーム
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -52,6 +52,7 @@ export default function Footer() {
               {[
                 { label: "理事長挨拶", href: "/greeting" },
                 { label: "法人概要", href: "/about" },
+                { label: "情報公開", href: "/disclosure" },
                 { label: "求人情報", href: "/recruit" },
                 { label: "お問い合わせ", href: "/contact" },
               ].map((item) => (

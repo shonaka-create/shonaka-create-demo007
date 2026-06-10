@@ -34,6 +34,7 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1" aria-label="メインナビゲーション">
             <Link href="/greeting" className={navLinkClass}>理事長挨拶</Link>
             <Link href="/about" className={navLinkClass}>法人概要</Link>
+            <Link href="/disclosure" className={navLinkClass}>情報公開</Link>
             <Link href="/services" className={navLinkClass}>サービスのご案内</Link>
             <Link href="/recruit" className={navLinkClass}>求人情報</Link>
             <Link href="/contact" className={navLinkClass}>お問い合わせ</Link>
@@ -87,6 +88,9 @@ export default function Header() {
             </Link>
             <Link href="/about" className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors" onClick={() => setIsOpen(false)}>
               法人概要
+            </Link>
+            <Link href="/disclosure" className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors" onClick={() => setIsOpen(false)}>
+              情報公開
             </Link>
             <Link href="/services" className="text-sm font-medium px-3 py-3 rounded-md text-ink-muted hover:text-primary-dark hover:bg-primary-light transition-colors" onClick={() => setIsOpen(false)}>
               サービスのご案内

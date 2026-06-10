@@ -73,6 +73,19 @@ const news = [
   },
 ];
 
+const recruitPositions = [
+  { title: "介護職員（特養）", facility: "延寿園", type: "正職員・非常勤" },
+  { title: "介護職員（ショートステイ）", facility: "季の恵", type: "正職員・非常勤" },
+  { title: "介護職員（デイサービス）", facility: "ふれあいかん", type: "正職員・非常勤" },
+  { title: "ホームヘルパー", facility: "ホームヘルプセンター", type: "準職員・登録" },
+  { title: "看護職員", facility: "延寿園", type: "正職員・パート" },
+  { title: "リハビリスタッフ（PT・OT）", facility: "延寿園", type: "正職員・非常勤" },
+  { title: "送迎ドライバー", facility: "デイサービス等", type: "非常勤" },
+  { title: "ケアマネジャー", facility: "在宅介護支援センター", type: "正職員" },
+  { title: "調理員", facility: "延寿園等", type: "正職員・パート" },
+  { title: "事務スタッフ", facility: "法人本部", type: "正職員・非常勤" },
+];
+
 export default function TopPage() {
   return (
     <>
@@ -268,22 +281,22 @@ export default function TopPage() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-4">
+              <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/greeting"
-                  className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
+                  className="group inline-flex items-center gap-2 bg-primary text-white font-bold text-sm px-5 py-2.5 rounded-full hover:bg-primary-dark transition-all duration-200 shadow-sm"
                 >
                   理事長挨拶を読む
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 text-ink-muted font-medium text-sm hover:text-primary transition-colors"
+                  className="group inline-flex items-center gap-2 bg-primary-light text-primary font-bold text-sm px-5 py-2.5 rounded-full hover:bg-primary hover:text-white transition-all duration-200"
                 >
                   法人概要を見る
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -294,45 +307,61 @@ export default function TopPage() {
       </section>
 
       {/* ── All Services ── */}
-      <section className="bg-surface py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-primary text-sm font-bold tracking-widest mb-3 uppercase">
-              Services
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-ink">
-              各サービスのご案内
-            </h2>
-            <p className="text-ink-muted mt-3 text-sm">
+      <section className="bg-bg py-16 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-primary text-sm font-bold tracking-widest mb-3 uppercase">Services</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-ink">各サービスのご案内</h2>
+            <p className="text-ink-muted mt-3 text-sm max-w-xl mx-auto">
               施設入居からデイサービス・訪問介護・ケアプラン作成まで、地域の皆さまを幅広く支援します。
             </p>
           </div>
 
-          <div className="space-y-3">
-            {allServices.map((s) => (
-              <Link
-                key={s.id}
-                href={s.href}
-                className="group flex rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-md transition-all duration-200 bg-white"
-              >
-                <div className={`w-40 sm:w-52 ${s.color} flex flex-col items-center justify-center text-white text-center p-4 shrink-0`}>
-                  <div className="text-sm sm:text-base font-bold leading-snug">{s.name}</div>
-                  <div className="text-xs opacity-75 mt-1">{s.type}</div>
+          <div className="space-y-20 sm:space-y-24">
+            {allServices.map((s, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <div
+                  key={s.id}
+                  className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 lg:gap-16 items-center`}
+                >
+                  {/* Circular photo placeholder */}
+                  <div className="lg:w-5/12 flex justify-center shrink-0">
+                    <div className={`w-56 h-56 sm:w-64 sm:h-64 rounded-full ${s.color} flex flex-col items-center justify-center text-white shadow-xl overflow-hidden`}>
+                      <svg className="w-12 h-12 text-white/30 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-white/40 text-xs font-medium">写真準備中</p>
+                    </div>
+                  </div>
+
+                  {/* Text content */}
+                  <div className="lg:w-7/12">
+                    <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full text-white ${s.color} mb-4`}>
+                      {s.type}
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-4 leading-snug">
+                      {s.name}
+                    </h3>
+                    <p className="text-ink-muted leading-loose mb-7">
+                      {s.description}
+                    </p>
+                    <Link
+                      href={s.href}
+                      className={`inline-flex items-center gap-2 ${s.color} text-white font-bold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity shadow-sm`}
+                    >
+                      詳しく見る
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex-1 px-5 sm:px-7 py-5 flex items-center justify-between gap-4">
-                  <p className="text-ink-muted text-sm leading-relaxed line-clamp-2">{s.description}</p>
-                  <span className="shrink-0 inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all whitespace-nowrap">
-                    詳しく見る
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-16">
             <Link
               href="/services"
               className="inline-flex items-center gap-2 bg-primary-light hover:bg-primary text-primary hover:text-white font-bold px-7 py-3.5 rounded-full transition-colors border border-primary/30"
@@ -349,50 +378,39 @@ export default function TopPage() {
       {/* ── Recruitment CTA ── */}
       <section className="bg-primary-dark py-16 sm:py-20" aria-label="採用情報">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-                むつ市大畑町で、
-                <br />
-                一緒に働きませんか？
-              </h2>
-              <p className="text-white/75 leading-loose mb-4">
-                大畑町に暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。
-                Uターン・地元定着を歓迎。経験・資格は問いません。
-              </p>
-              <p className="text-white/75 leading-loose mb-8">
-                介護職・看護職・ケアマネジャー・調理員など、各種職種で仲間を募集しています。
-                育児中・介護中のスタッフも多数活躍しています。
-              </p>
-              <Link
-                href="/recruit"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-8 py-4 rounded-full transition-colors shadow-lg"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                採用情報・応募はこちら
-              </Link>
-            </div>
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
+              むつ市大畑町で、
+              <br />
+              一緒に働きませんか？
+            </h2>
+            <p className="text-white/75 leading-loose mb-6">
+              大畑町に暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。
+              Uターン・地元定着を歓迎。経験・資格は問いません。育児中・介護中のスタッフも多数活躍しています。
+            </p>
+            <Link
+              href="/recruit"
+              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-8 py-4 rounded-full transition-colors shadow-lg"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+              採用情報・応募はこちら
+            </Link>
+          </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { title: "介護職員", note: "正規職員・非常勤" },
-                { title: "ケアマネジャー", note: "居宅介護支援" },
-                { title: "看護職員", note: "正規職員・パート" },
-                { title: "調理員・支援員", note: "各施設" },
-              ].map((job) => (
-                <div
-                  key={job.title}
-                  className="bg-white/10 hover:bg-white/15 rounded-xl p-5 border border-white/20 transition-colors"
-                >
-                  <div className="font-bold text-white text-base mb-1">
-                    {job.title}
-                  </div>
-                  <div className="text-white/60 text-sm">{job.note}</div>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {recruitPositions.map((job) => (
+              <Link
+                key={job.title}
+                href="/recruit"
+                className="group bg-white/8 hover:bg-white/15 rounded-xl p-4 border border-white/15 hover:border-white/30 transition-all duration-200"
+              >
+                <div className="font-bold text-white text-sm mb-1 leading-snug">{job.title}</div>
+                <div className="text-white/55 text-xs">{job.facility}</div>
+                <div className="text-white/40 text-xs mt-0.5">{job.type}</div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
