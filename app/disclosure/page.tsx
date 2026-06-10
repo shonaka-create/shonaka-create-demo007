@@ -26,12 +26,6 @@ const financialYears = [
   "令和6年度",
   "令和5年度",
   "令和4年度",
-  "令和3年度",
-  "令和2年度",
-  "令和元年度",
-  "平成30年度",
-  "平成29年度",
-  "平成28年度",
 ];
 
 export default function DisclosurePage() {

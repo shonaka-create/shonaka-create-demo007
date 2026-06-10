@@ -111,35 +111,44 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               {
-                title: "天の恵み",
-                kanji: "天",
+                title: "尊厳あるケア",
                 color: "bg-primary",
-                description: "青森・下北の四季と自然のリズムの中で、入居者・利用者が心穏やかに過ごせる環境を整えること。大畑の大地に根ざした暮らしの豊かさを、日々のケアの中に活かしています。",
+                description: "入居者・利用者の「その人らしさ」を何よりも大切に。日々の介護の中でも、一人ひとりの意思・好み・生活リズムを尊重した個別ケアを実践しています。",
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                ),
               },
               {
-                title: "地の恵み",
-                kanji: "地",
+                title: "安心できる体制",
                 color: "bg-[#2D7A5A]",
-                description: "大畑町という「場所」に40年以上こだわり続けてきました。この地で生まれ、この地で老い、この地で見送られる。地域に必要とされる存在であり続けることが、三恵会の誇りです。",
+                description: "24時間365日体制の介護と、看取りにも対応した施設運営。ご本人もご家族も、最後まで安心して任せられる環境づくりを続けています。",
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                ),
               },
               {
-                title: "人の恵み",
-                kanji: "人",
+                title: "地域との共生",
                 color: "bg-[#1A8066]",
-                description: "ご利用者・ご家族・スタッフ・地域の方々。すべての人のつながりが、介護の質を高めます。お互いを尊重し、力を合わせることで、一人では届かない安心が生まれると信じています。",
+                description: "昭和59年から大畑町に根ざし続けて40年以上。地域の高齢者・ご家族・関係機関と連携しながら、施設と在宅の両面から地域全体の介護を支えています。",
+                icon: (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
               },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-3xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                 <div className={`${item.color} h-1.5`} />
-                <div className="p-7 relative">
-                  <span className="absolute bottom-2 right-5 text-[100px] font-black text-ink/[0.035] select-none leading-none pointer-events-none" aria-hidden="true">
-                    {item.kanji}
-                  </span>
+                <div className="p-7">
                   <div className={`w-11 h-11 rounded-xl ${item.color} flex items-center justify-center mb-4`}>
-                    <span className="text-white font-black text-xl">{item.kanji}</span>
+                    {item.icon}
                   </div>
                   <h3 className="text-base font-bold text-ink mb-3">{item.title}</h3>
-                  <p className="text-sm text-ink-muted leading-loose relative z-10">{item.description}</p>
+                  <p className="text-sm text-ink-muted leading-loose">{item.description}</p>
                 </div>
               </div>
             ))}
