@@ -42,10 +42,6 @@ export default function GreetingPage() {
                 <p className="text-sm text-gray-400 font-medium text-center px-4">理事長 写真</p>
                 <p className="text-xs text-gray-300 mt-1 text-center px-4">※ 写真は受領次第差し替えます</p>
               </div>
-              <div className="mt-5 text-center lg:text-left">
-                <p className="text-xs text-ink-muted tracking-widest mb-1">社会福祉法人 三恵会</p>
-                <p className="text-lg font-bold text-ink">理事長　松岡 茂樹</p>
-              </div>
             </div>
 
             {/* Text */}
