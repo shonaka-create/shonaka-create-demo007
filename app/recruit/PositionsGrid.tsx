@@ -225,8 +225,17 @@ function DetailModal({ pos, onClose }: { pos: Position; onClose: () => void }) {
           >
             応募・お問い合わせ →
           </Link>
-          <p className="text-xs text-ink-muted/50 mt-3 text-center">
-            ハローワーク むつ（0175-22-1331）でも受付中
+          <a
+            href="tel:0175-22-1331"
+            className="flex items-center justify-center gap-2 text-sm font-bold text-primary bg-white border border-border hover:border-primary/40 hover:bg-primary-light transition-all px-5 py-3 rounded-full w-full mt-3"
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            ハローワーク むつ 0175-22-1331
+          </a>
+          <p className="text-[11px] text-ink-muted/60 mt-2 text-center">
+            ※ ハローワーク経由でもご応募いただけます
           </p>
         </div>
       </div>
