@@ -15,6 +15,8 @@ const allServices = [
     description: "むつ市大畑町に位置する三恵会の基幹施設。24時間365日体制の介護と、入居者一人ひとりの尊厳を大切にした個別ケアを提供。看取り介護・認知症ケアにも対応します。",
     color: "bg-[#2A6B47]",
     href: "/services/enshuuen",
+    // 実際の施設写真に差し替えてください（サービス一覧ページと同じ仮写真）
+    photo: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "kinoegumi",
@@ -23,6 +25,7 @@ const allServices = [
     description: "延寿園に併設するショートステイ施設。在宅生活を続けながら短期間の宿泊介護サービスをご利用いただけます。定員20床。ご家族の介護疲れの回復にもご活用ください。",
     color: "bg-[#3A8060]",
     href: "/services/kinoegumi",
+    photo: "https://images.unsplash.com/photo-1586773817312-96dd0a28d04a?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "day-service",
@@ -31,6 +34,7 @@ const allServices = [
     description: "日帰りで施設に通い、入浴・食事・機能訓練・レクリエーションを楽しめます。送迎付きで安心。「今日も来てよかった」と思っていただける場所づくりを大切にしています。",
     color: "bg-[#2D7A5A]",
     href: "/services/day-service",
+    photo: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "home-help",
@@ -39,6 +43,7 @@ const allServices = [
     description: "「住み慣れた自宅で暮らし続けたい」を、ホームヘルパーが直接訪問してサポートします。身体介護・生活援助・通院同行に対応。",
     color: "bg-[#1E6B5A]",
     href: "/services/home-help",
+    photo: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "kaigo-support",
@@ -47,6 +52,7 @@ const allServices = [
     description: "ケアマネジャーが介護の入口から支援します。ケアプラン作成・サービス調整を一括サポート。介護についての相談は無料です。まずはお気軽にご連絡ください。",
     color: "bg-[#1A8066]",
     href: "/services/kaigo-support",
+    photo: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -325,13 +331,16 @@ export default function TopPage() {
                   key={s.id}
                   className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 lg:gap-16 items-center`}
                 >
-                  {/* Circular photo placeholder */}
+                  {/* Circular photo (仮写真 — サービス一覧ページと共通) */}
                   <div className="lg:w-5/12 flex justify-center shrink-0">
-                    <div className={`w-56 h-56 sm:w-64 sm:h-64 rounded-full ${s.color} flex flex-col items-center justify-center text-white shadow-xl overflow-hidden`}>
-                      <svg className="w-12 h-12 text-white/30 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-white/40 text-xs font-medium">写真準備中</p>
+                    <div className={`relative w-56 h-56 sm:w-64 sm:h-64 rounded-full ${s.color} shadow-xl overflow-hidden`}>
+                      <div
+                        className="absolute inset-0 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${s.photo})` }}
+                        role="img"
+                        aria-label={`${s.name}のイメージ写真`}
+                      />
+                      <div className="absolute inset-0 rounded-full ring-4 ring-inset ring-white/30" aria-hidden="true" />
                     </div>
                   </div>
 
