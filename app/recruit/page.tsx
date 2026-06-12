@@ -140,17 +140,32 @@ export default function RecruitPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-ink">職員の声</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="bg-white rounded-2xl border border-border p-6 flex flex-col items-center">
+            {[
+              {
+                role: "介護職員（勤続8年）",
+                comment:
+                  "未経験で入職しましたが、先輩職員が丁寧に指導してくれたおかげで、安心して仕事を覚えることができました。資格取得の支援制度もあり、働きながら介護福祉士の資格を取ることができたのが自信につながっています。",
+              },
+              {
+                role: "看護職員（勤続5年）",
+                comment:
+                  "子育てをしながら働いていますが、シフトの相談がしやすく、家庭と仕事を両立できる環境です。利用者様一人ひとりとじっくり向き合える職場なので、看護師としてのやりがいを日々感じています。",
+              },
+              {
+                role: "生活相談員（勤続3年）",
+                comment:
+                  "職種の垣根を越えて意見を言い合える、風通しの良い職場です。地元の下北で、住み慣れた地域の高齢者の暮らしを支えられることに誇りを持って働いています。",
+              },
+            ].map((voice) => (
+              <div key={voice.role} className="bg-white rounded-2xl border border-border p-6 flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-gray-100 border-2 border-dashed border-gray-200 flex items-center justify-center mb-3">
                   <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
+                <p className="text-sm font-bold text-ink mb-1">{voice.role}</p>
                 <p className="text-xs text-ink-muted mb-3">※ 写真・氏名は受領次第記載</p>
-                <div className="w-full min-h-[80px] bg-gray-50 border border-dashed border-gray-200 rounded-lg flex items-center justify-center p-4">
-                  <p className="text-xs text-gray-400 text-center">職員インタビューコメント<br />（受領次第記載）</p>
-                </div>
+                <p className="text-sm text-ink-muted leading-loose">{voice.comment}</p>
               </div>
             ))}
           </div>
