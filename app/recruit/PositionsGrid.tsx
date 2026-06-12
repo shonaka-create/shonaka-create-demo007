@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-interface SalaryItem { label: string; value: string; }
 interface Position {
   title: string;
   facility: string;
@@ -12,8 +11,19 @@ interface Position {
   description: string;
   hours: string[];
   qualifications: string[];
-  salary: { base: string; items?: SalaryItem[] };
 }
+
+// 各事業所 共通待遇（給与の詳細は非公開・お問い合わせ対応）
+const commonBenefits = [
+  "社会保険完備（健康・厚生年金・雇用・労災）",
+  "賞与・定時昇給あり",
+  "退職金制度あり",
+  "通勤手当あり",
+  "年間休日105日",
+  "有給休暇（6ヶ月経過後 10日付与）",
+  "産前産後・育児・介護休業あり",
+  "制服貸与",
+];
 
 const allPositions: Position[] = [
   {
@@ -24,15 +34,6 @@ const allPositions: Position[] = [
     description: "施設利用者に対する介護業務全般（入浴・排泄・食事・移動等の介助）",
     hours: ["① 6:45 〜 15:45", "② 8:30 〜 17:30", "③ 16:15 〜 翌9:15（夜勤）"],
     qualifications: ["介護福祉士（保有者優遇）", "普通自動車免許", "資格・経験不問（やる気があれば歓迎）"],
-    salary: {
-      base: "148,100円〜",
-      items: [
-        { label: "夜勤手当", value: "あり（月3〜5回）" },
-        { label: "通勤手当", value: "あり（上限 15,000円）" },
-        { label: "賞与", value: "年2回（実績あり）" },
-        { label: "各種手当", value: "資格手当・処遇改善手当 等" },
-      ],
-    },
   },
   {
     title: "介護職員（ショートステイ）",
@@ -42,7 +43,6 @@ const allPositions: Position[] = [
     description: "ショートステイ利用者の日常生活全般の介護（食事・入浴・排泄・機能訓練等）",
     hours: ["① 7:00 〜 16:00", "② 9:00 〜 18:00", "③ 夜勤シフトあり（詳細はご相談ください）"],
     qualifications: ["介護福祉士（保有者優遇）", "普通自動車免許", "資格・経験不問（意欲のある方歓迎）"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "介護職員（デイサービス）",
@@ -52,7 +52,6 @@ const allPositions: Position[] = [
     description: "通所介護利用者への介護全般（送迎補助・入浴介助・レクリエーション実施・食事介助等）",
     hours: ["① 8:00 〜 17:00", "② 8:30 〜 17:30（土曜シフトあり）"],
     qualifications: ["介護職員初任者研修修了（歓迎）", "普通自動車免許", "経験・資格不問（やる気があれば歓迎）"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "ホームヘルパー",
@@ -66,14 +65,6 @@ const allPositions: Position[] = [
       "普通自動車二種免許 保有者優遇◎",
       "登録ヘルパー同時募集（勤務時間等は相談後決定）",
     ],
-    salary: {
-      base: "148,100円〜",
-      items: [
-        { label: "通勤手当", value: "あり（上限 15,000円）" },
-        { label: "賞与", value: "年2回（実績あり）" },
-        { label: "各種手当", value: "資格手当・処遇改善手当 等" },
-      ],
-    },
   },
   {
     title: "看護職員",
@@ -83,7 +74,6 @@ const allPositions: Position[] = [
     description: "施設利用者のバイタル測定・服薬管理・処置・医療機関との連携・介護スタッフへの指導等",
     hours: ["① 8:30 〜 17:30（日勤）", "② 勤務形態はご相談ください"],
     qualifications: ["看護師・准看護師免許保有者", "普通自動車免許（歓迎）", "経験不問・ブランクのある方も歓迎"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "リハビリスタッフ（PT・OT）",
@@ -93,7 +83,6 @@ const allPositions: Position[] = [
     description: "施設利用者の機能訓練・リハビリテーション計画の立案・実施・評価、日常動作訓練支援",
     hours: ["① 8:30 〜 17:30（平日）", "② 非常勤の場合はご相談ください"],
     qualifications: ["理学療法士または作業療法士の資格保有者", "普通自動車免許（歓迎）", "経験・ブランク不問"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "送迎ドライバー",
@@ -103,7 +92,6 @@ const allPositions: Position[] = [
     description: "デイサービス利用者の自宅〜施設間の送迎運転業務。車椅子利用者の乗降補助含む",
     hours: ["送迎時間帯 7:30〜9:30 / 15:30〜17:30（目安）", "勤務日数・時間はご相談ください"],
     qualifications: ["普通自動車免許（AT限定可）", "福祉車両の運転経験（歓迎）", "年齢・経験不問"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "ケアマネジャー",
@@ -113,7 +101,6 @@ const allPositions: Position[] = [
     description: "要介護者のケアプラン作成・サービス調整・モニタリング・医療機関・行政との連携等",
     hours: ["① 8:30 〜 17:30（月〜土）", "② 土曜は隔週など応相談"],
     qualifications: ["介護支援専門員（ケアマネジャー）資格保有者", "普通自動車免許", "実務経験者優遇・ブランク可"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "調理員",
@@ -123,7 +110,6 @@ const allPositions: Position[] = [
     description: "施設利用者向けの食事調理・盛付・提供・厨房清掃・食材管理（きざみ食・とろみ食等の対応含む）",
     hours: ["① 6:30 〜 15:30", "② 10:00 〜 19:00（シフト制）"],
     qualifications: ["調理師免許（優遇）または食品衛生責任者", "調理経験者歓迎（経験不問も可）", "普通自動車免許（歓迎）"],
-    salary: { base: "別途確認中" },
   },
   {
     title: "事務スタッフ",
@@ -133,7 +119,6 @@ const allPositions: Position[] = [
     description: "施設の事務全般（介護保険請求・利用者対応・書類管理・電話対応・会計補助等）",
     hours: ["① 8:30 〜 17:30（平日）", "② 非常勤の場合は週3日〜応相談"],
     qualifications: ["PC基本操作（Word・Excel）", "介護保険事務経験者優遇", "経験不問・未経験から歓迎"],
-    salary: { base: "別途確認中" },
   },
 ];
 
@@ -216,55 +201,33 @@ function DetailModal({ pos, onClose }: { pos: Position; onClose: () => void }) {
           </div>
         </div>
 
-        {/* Right: Salary */}
+        {/* Right: Benefits */}
         <div>
-          <p className="text-[11px] font-bold text-ink-muted uppercase tracking-wider mb-3">給与・手当</p>
-          {pos.salary.base === "別途確認中" ? (
-            <div className="bg-bg rounded-xl border border-border p-6 flex flex-col items-center justify-center text-center gap-3 min-h-[140px]">
-              <p className="text-sm text-ink-muted leading-snug">
-                詳細な給与条件は<br />直接お問い合わせください
-              </p>
-              <Link
-                href="/contact"
-                className={`text-sm font-bold text-white ${pos.color} hover:opacity-90 transition-opacity px-5 py-2 rounded-full`}
-              >
-                お問い合わせ →
-              </Link>
-              <p className="text-xs text-ink-muted/50">ハローワーク むつ（0175-22-1331）でも受付中</p>
-            </div>
-          ) : (
-            <>
-              <div className={`${pos.color} rounded-xl p-4 mb-3 text-white`}>
-                <p className="text-white/70 text-xs mb-0.5">基本給</p>
-                <p className="text-2xl font-bold">{pos.salary.base}</p>
-              </div>
-              <div className="bg-bg rounded-xl overflow-hidden border border-border mb-4">
-                {pos.salary.items?.map((item, idx, arr) => {
-                  const isLast = idx === arr.length - 1;
-                  const isAnnual = item.label === "年間賃金";
-                  return (
-                    <div
-                      key={item.label}
-                      className={`flex text-sm ${!isLast ? "border-b border-border" : ""} ${isAnnual ? "bg-primary-light" : ""}`}
-                    >
-                      <dt className={`px-4 py-2 w-32 shrink-0 font-medium text-xs ${isAnnual ? "text-primary" : "text-ink-muted"}`}>
-                        {item.label}
-                      </dt>
-                      <dd className={`px-4 py-2 text-sm ${isAnnual ? "text-primary font-bold" : "text-ink"}`}>
-                        {item.value}
-                      </dd>
-                    </div>
-                  );
-                })}
-              </div>
-              <Link
-                href="/contact"
-                className={`flex items-center justify-center gap-2 text-sm font-bold text-white ${pos.color} hover:opacity-90 transition-opacity px-5 py-3 rounded-full w-full`}
-              >
-                応募・お問い合わせ →
-              </Link>
-            </>
-          )}
+          <p className="text-[11px] font-bold text-ink-muted uppercase tracking-wider mb-2">待遇・福利厚生</p>
+          <ul className="space-y-1.5 mb-4">
+            {commonBenefits.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-sm text-ink-muted">
+                <svg className="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <div className="bg-bg rounded-xl border border-border p-4 mb-4">
+            <p className="text-xs text-ink-muted leading-relaxed">
+              ※ 給与の詳細については、お問い合わせまたは面接時にご案内いたします。
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className={`flex items-center justify-center gap-2 text-sm font-bold text-white ${pos.color} hover:opacity-90 transition-opacity px-5 py-3 rounded-full w-full`}
+          >
+            応募・お問い合わせ →
+          </Link>
+          <p className="text-xs text-ink-muted/50 mt-3 text-center">
+            ハローワーク むつ（0175-22-1331）でも受付中
+          </p>
         </div>
       </div>
       </div>
