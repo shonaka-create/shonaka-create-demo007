@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+        <div className="flex flex-col md:flex-row md:justify-between gap-10 lg:gap-12">
 
           {/* Brand */}
           <div>
@@ -33,26 +33,14 @@ export default function Footer() {
             </address>
           </div>
 
-          {/* サービスのご案内 */}
-          <div>
-            <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
-              各サービスのご案内
-            </h3>
-            <Link href="/services" className="text-sm text-white/70 hover:text-white transition-colors">
-              サービス一覧を見る →
-            </Link>
-          </div>
-
-          {/* その他 */}
-          <div>
-            <h3 className="text-sm font-bold text-white/90 mb-3 pb-2 border-b border-white/20">
-              法人情報
-            </h3>
+          {/* Menu */}
+          <nav aria-label="フッターナビゲーション" className="md:text-right">
             <ul className="space-y-2">
               {[
                 { label: "理事長挨拶", href: "/greeting" },
                 { label: "法人概要", href: "/about" },
                 { label: "情報公開", href: "/disclosure" },
+                { label: "サービスのご案内", href: "/services" },
                 { label: "求人情報", href: "/recruit" },
                 { label: "お問い合わせ", href: "/contact" },
               ].map((item) => (
@@ -63,7 +51,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
         </div>
       </div>

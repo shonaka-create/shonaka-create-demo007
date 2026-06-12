@@ -243,20 +243,20 @@ export default function RecruitPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-8">
               <div className="bg-white/10 border border-white/20 rounded-2xl p-6">
-                <p className="text-white/60 text-xs mb-1">直接応募・見学のご予約</p>
+                <p className="text-white/90 text-xs font-medium mb-1">直接応募・見学のご予約</p>
                 <p className="font-bold text-sm mb-3">延寿園　採用担当</p>
                 <a href="tel:0175-34-3297" className="text-2xl font-bold hover:text-primary-light transition-colors">
                   0175-34-3297
                 </a>
-                <p className="text-white/60 text-xs mt-1">月〜金　9:00〜17:00</p>
+                <p className="text-white/90 text-xs font-medium mt-1">月〜金　9:00〜17:00</p>
               </div>
               <div className="bg-white/10 border border-white/20 rounded-2xl p-6">
-                <p className="text-white/60 text-xs mb-1">ハローワーク経由</p>
+                <p className="text-white/90 text-xs font-medium mb-1">ハローワーク経由</p>
                 <p className="font-bold text-sm mb-3">むつ公共職業安定所</p>
                 <a href="tel:0175-22-1331" className="text-2xl font-bold hover:text-primary-light transition-colors">
                   0175-22-1331
                 </a>
-                <p className="text-white/60 text-xs mt-1">ハローワーク むつ</p>
+                <p className="text-white/90 text-xs font-medium mt-1">ハローワーク むつ</p>
               </div>
             </div>
 
