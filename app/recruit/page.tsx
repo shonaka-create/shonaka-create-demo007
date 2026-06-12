@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import PositionsGrid from "./PositionsGrid";
 
 export const metadata: Metadata = {
@@ -32,13 +33,6 @@ export default function RecruitPage() {
           </svg>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <nav aria-label="パンくずリスト" className="mb-5">
-            <ol className="flex items-center gap-1.5 text-xs text-white/50">
-              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/70" aria-current="page">採用情報</li>
-            </ol>
-          </nav>
           <div className="max-w-2xl">
             <p className="text-white/60 text-sm tracking-widest mb-5 uppercase">
               社会福祉法人 三恵会 ｜ 採用情報
@@ -283,6 +277,8 @@ export default function RecruitPage() {
           </div>
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: "採用情報" }]} />
     </>
   );
 }

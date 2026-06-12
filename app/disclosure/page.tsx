@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "情報公開｜社会福祉法人 三恵会",
@@ -34,13 +35,6 @@ export default function DisclosurePage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="パンくずリスト" className="mb-4">
-            <ol className="flex items-center gap-1.5 text-xs text-white/50">
-              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/70" aria-current="page">情報公開</li>
-            </ol>
-          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">情報公開</h1>
           <p className="text-white/70 mt-3 max-w-2xl leading-loose">
             社会福祉法人 三恵会は、社会福祉法第59条の2に基づく情報公表制度に則り、法人の財務・運営に関する情報を公開しています。
@@ -99,21 +93,10 @@ export default function DisclosurePage() {
           </div>
 
           <div className="space-y-5">
-            {financialYears.map((year, yearIdx) => (
+            {financialYears.map((year) => (
               <div key={year} className="bg-white rounded-2xl border border-border overflow-hidden">
-                <div
-                  className={`px-6 py-4 flex items-center justify-between ${
-                    yearIdx === 0 ? "bg-primary-dark" : "bg-primary-light"
-                  }`}
-                >
-                  <h3 className={`font-bold text-base ${yearIdx === 0 ? "text-white" : "text-ink"}`}>
-                    {year}
-                  </h3>
-                  {yearIdx === 0 && (
-                    <span className="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-bold">
-                      最新
-                    </span>
-                  )}
+                <div className="px-6 py-4 bg-primary-light">
+                  <h3 className="font-bold text-base text-ink">{year}</h3>
                 </div>
                 <div className="p-5">
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -172,6 +155,8 @@ export default function DisclosurePage() {
           </div>
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: "情報公開" }]} />
     </>
   );
 }

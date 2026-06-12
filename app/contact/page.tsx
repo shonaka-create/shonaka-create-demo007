@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
@@ -24,6 +25,8 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <ContactForm />
       </div>
+
+      <Breadcrumb items={[{ label: "お問い合わせ" }]} />
     </>
   );
 }

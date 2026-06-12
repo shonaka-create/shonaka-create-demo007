@@ -1,10 +1,11 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "三恵会とは｜社会福祉法人 三恵会の理念・沿革・法人概要",
   description:
-    "社会福祉法人 三恵会（青森県むつ市大畑町）の理念・沿革・法人概要。「天の恵み・地の恵み・人の恵み」の精神で地域の介護を支えています。特別養護老人ホーム延寿園・ふれあいかんデイサービス等を運営。",
+    "社会福祉法人 三恵会（青森県むつ市大畑町）の理念・沿革・法人概要。地域の介護を支えています。特別養護老人ホーム延寿園・ふれあいかんデイサービス等を運営。",
 };
 
 const history = [
@@ -56,16 +57,9 @@ export default function AboutPage() {
       {/* Page Header */}
       <div className="bg-primary-dark text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="パンくずリスト" className="mb-4">
-            <ol className="flex items-center gap-1.5 text-xs text-white/50">
-              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/70" aria-current="page">三恵会とは</li>
-            </ol>
-          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold">三恵会とは</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            「天の恵み・地の恵み・人の恵み」の精神で、青森県むつ市大畑町の地域介護を支えています。
+            昭和59年の設立以来、青森県むつ市大畑町の地域介護を支えています。
           </p>
         </div>
       </div>
@@ -281,6 +275,8 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: "三恵会とは" }]} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
@@ -101,6 +102,8 @@ export default function PrivacyPage() {
           </div>
         </div>
       </div>
+
+      <Breadcrumb items={[{ label: "プライバシーポリシー" }]} />
     </>
   );
 }

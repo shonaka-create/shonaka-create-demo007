@@ -247,9 +247,6 @@ export default function TopPage() {
             <div className="lg:col-span-2 bg-primary-dark text-white p-10 sm:p-12 flex flex-col justify-between">
               <div>
                 <p className="text-white/50 text-xs tracking-widest uppercase mb-6">Since 1984</p>
-                <p className="text-primary-light text-sm font-bold tracking-widest mb-4">
-                  「天の恵み・地の恵み・人の恵み」
-                </p>
                 <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-6">
                   三恵会について
                 </h2>

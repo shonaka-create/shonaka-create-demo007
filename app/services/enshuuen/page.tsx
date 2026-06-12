@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import PhotoSlider from "@/components/PhotoSlider";
 
 export const metadata: Metadata = {
@@ -64,15 +65,6 @@ export default function EnshuuenPage() {
       {/* 1. Page Header */}
       <div className={`${COLOR} text-white py-14 sm:py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="パンくずリスト" className="mb-4">
-            <ol className="flex items-center gap-1.5 text-xs text-white/50">
-              <li><Link href="/" className="hover:text-white/80 transition-colors">ホーム</Link></li>
-              <li aria-hidden="true">/</li>
-              <li><Link href="/services" className="hover:text-white/80 transition-colors">サービスのご案内</Link></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/70" aria-current="page">延寿園</li>
-            </ol>
-          </nav>
           <p className="text-white/70 text-sm mb-1">特別養護老人ホーム</p>
           <h1 className="text-3xl sm:text-4xl font-bold">延寿園</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
@@ -252,6 +244,13 @@ export default function EnshuuenPage() {
           </div>
         </div>
       </section>
+
+      <Breadcrumb
+        items={[
+          { label: "サービスのご案内", href: "/services" },
+          { label: "延寿園" },
+        ]}
+      />
     </>
   );
 }
