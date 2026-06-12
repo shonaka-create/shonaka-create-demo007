@@ -23,9 +23,9 @@ const docTypes = [
 ];
 
 const financialYears = [
+  "令和7年度",
   "令和6年度",
   "令和5年度",
-  "令和4年度",
 ];
 
 export default function DisclosurePage() {
