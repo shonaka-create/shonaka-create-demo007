@@ -9,12 +9,6 @@ const prefectures = [
   { id: "hokkaido", label: "北海道" },
 ];
 
-const categories = [
-  { id: "all",      label: "すべて" },
-  { id: "facility", label: "施設・宿泊型" },
-  { id: "home",     label: "通所・在宅型" },
-];
-
 const services = [
   {
     title: "延寿園",
@@ -22,7 +16,6 @@ const services = [
     href: "/services/enshuuen",
     color: "bg-[#2A6B47]",
     overlayColor: "#2A6B47",
-    category: "facility",
     prefecture: "aomori",
     // 実際の施設写真に差し替えてください
     photo: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
@@ -37,7 +30,6 @@ const services = [
     href: "/services/kinoegumi",
     color: "bg-[#3A8060]",
     overlayColor: "#3A8060",
-    category: "facility",
     prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1586773817312-96dd0a28d04a?auto=format&fit=crop&w=600&q=80",
     description:
@@ -51,7 +43,6 @@ const services = [
     href: "/services/day-service",
     color: "bg-[#2D7A5A]",
     overlayColor: "#2D7A5A",
-    category: "home",
     prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&q=80",
     description:
@@ -65,7 +56,6 @@ const services = [
     href: "/services/home-help",
     color: "bg-[#1E6B5A]",
     overlayColor: "#1E6B5A",
-    category: "home",
     prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80",
     description:
@@ -79,7 +69,6 @@ const services = [
     href: "/services/kaigo-support",
     color: "bg-[#1A8066]",
     overlayColor: "#1A8066",
-    category: "home",
     prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=600&q=80",
     description:
@@ -90,16 +79,14 @@ const services = [
 ];
 
 export default function ServicesFilter() {
-  const [active, setActive] = useState("all");
   const [activePref, setActivePref] = useState("all");
 
-  const byPref = activePref === "all" ? services : services.filter((s) => s.prefecture === activePref);
-  const filtered = active === "all" ? byPref : byPref.filter((s) => s.category === active);
+  const filtered = activePref === "all" ? services : services.filter((s) => s.prefecture === activePref);
 
   return (
     <>
       {/* Prefecture Filter */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
         <span className="text-xs font-bold text-ink-muted mr-1">エリア</span>
         {prefectures.map((pref) => {
           const count =
@@ -118,35 +105,6 @@ export default function ServicesFilter() {
               <span
                 className={`text-xs rounded-full w-5 h-5 flex items-center justify-center ${
                   activePref === pref.id ? "bg-white/20 text-white" : "bg-primary-light text-primary"
-                }`}
-              >
-                {count}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Category Filter */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-        <span className="text-xs font-bold text-ink-muted mr-1">種別</span>
-        {categories.map((cat) => {
-          const count =
-            cat.id === "all" ? byPref.length : byPref.filter((s) => s.category === cat.id).length;
-          return (
-            <button
-              key={cat.id}
-              onClick={() => setActive(cat.id)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
-                active === cat.id
-                  ? "bg-primary text-white shadow-sm"
-                  : "bg-white border border-border text-ink-muted hover:text-primary hover:border-primary/40"
-              }`}
-            >
-              {cat.label}
-              <span
-                className={`text-xs rounded-full w-5 h-5 flex items-center justify-center ${
-                  active === cat.id ? "bg-white/20 text-white" : "bg-primary-light text-primary"
                 }`}
               >
                 {count}
