@@ -38,7 +38,7 @@ export default function RecruitPage() {
               社会福祉法人 三恵会 ｜ 採用情報
             </p>
             <h1 className="text-3xl sm:text-5xl font-bold mb-6">
-              むつ市大畑町で、<br />介護の仕事を選ぶ理由。
+              むつ市大畑町で、<br />介護の仕事を<span className="whitespace-nowrap">選ぶ理由。</span>
             </h1>
             <p className="text-white/80 text-lg sm:text-xl leading-loose">
               昭和59年の創設以来、大畑町に根差してきた三恵会。スタッフの平均勤続年数が長く、安定して働き続けられる環境があります。20代・30代を積極採用中。資格・経験がなくてもOKです。
@@ -82,7 +82,11 @@ export default function RecruitPage() {
                   </svg>
                 ),
                 title: "20代・30代を積極採用",
-                body: "資格・経験不問の職種多数。Uターン・地元定着を歓迎します。若い世代が長く働けるよう、研修・資格取得を支援しています。",
+                body: (
+                  <>
+                    資格・経験不問の職種多数。<span className="whitespace-nowrap">Uターン</span>・地元定着を歓迎します。若い世代が長く働けるよう、研修・資格取得を支援しています。
+                  </>
+                ),
               },
             ].map((reason) => (
               <div key={reason.title} className="bg-bg rounded-2xl border border-border p-6">
@@ -181,31 +185,55 @@ export default function RecruitPage() {
               {
                 num: "42",
                 unit: "年",
-                label: "創設からの歴史",
-                sub: "昭和59年から地域とともに\n歩んできました",
+                label: <>創設からの歴史</>,
+                sub: (
+                  <>
+                    昭和59年から<br className="sm:hidden" />地域とともに
+                    <br />
+                    歩んできました
+                  </>
+                ),
               },
               {
                 num: "",
                 unit: "",
                 pending: true,
-                label: "スタッフ平均勤続年数",
-                sub: "長く安心して\n続けられる職場環境",
+                label: <>スタッフ<br className="sm:hidden" />平均勤続年数</>,
+                sub: (
+                  <>
+                    長く安心して
+                    <br />
+                    続けられる職場環境
+                  </>
+                ),
               },
               {
                 num: "唯一",
                 unit: "",
-                label: "大畑町の\n特別養護老人ホーム",
-                sub: "地域に欠かせない\n「必要とされる仕事」",
+                label: <>大畑町の<br />特別養護<br className="sm:hidden" />老人ホーム</>,
+                sub: (
+                  <>
+                    地域に欠かせない
+                    <br />
+                    「必要とされる仕事」
+                  </>
+                ),
               },
               {
                 num: "5",
                 unit: "事業",
-                label: "展開するサービス数",
-                sub: "施設から在宅まで\n幅広い介護を提供",
+                label: <>展開する<br className="sm:hidden" />サービス数</>,
+                sub: (
+                  <>
+                    施設から在宅まで
+                    <br />
+                    幅広い介護を提供
+                  </>
+                ),
               },
-            ].map((stat) => (
+            ].map((stat, idx) => (
               <div
-                key={stat.label}
+                key={idx}
                 className="bg-bg hover:bg-white rounded-2xl border border-border hover:border-primary/30 hover:shadow-md px-4 py-7 sm:p-7 text-center transition-all duration-300 flex flex-col items-center"
               >
                 <div className="w-8 h-1 bg-primary rounded-full mb-6" />
@@ -219,10 +247,10 @@ export default function RecruitPage() {
                     </p>
                   )}
                 </div>
-                <p className="font-bold text-ink text-sm mt-4 mb-2 leading-snug whitespace-pre-line">
+                <p className="font-bold text-ink text-sm mt-4 mb-2 leading-snug">
                   {stat.label}
                 </p>
-                <p className="text-xs text-ink-muted leading-relaxed whitespace-pre-line">{stat.sub}</p>
+                <p className="text-xs text-ink-muted leading-relaxed">{stat.sub}</p>
               </div>
             ))}
           </div>
@@ -268,7 +296,10 @@ export default function RecruitPage() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                Webフォームで問い合わせる
+                <span>
+                  <span className="inline-block">Webフォームで</span>
+                  <span className="inline-block">問い合わせる</span>
+                </span>
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

@@ -68,8 +68,7 @@ export default function EnshuuenPage() {
           <p className="text-white/70 text-sm mb-1">特別養護老人ホーム</p>
           <h1 className="text-3xl sm:text-4xl font-bold">延寿園</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            青森県むつ市大畑町に位置する三恵会の基幹施設です。
-            地域の高齢者介護の中核として、入居者一人ひとりに寄り添ったケアを提供しています。
+            青森県むつ市大畑町に位置する三恵会の基幹施設です。地域の高齢者介護の中核として、入居者一人ひとりに寄り添ったケアを提供しています。
           </p>
         </div>
       </div>
@@ -108,13 +107,10 @@ export default function EnshuuenPage() {
             {/* Left */}
             <div>
               <p className="text-ink-muted leading-loose mb-4">
-                延寿園は、社会福祉法人 三恵会が青森県むつ市大畑町に運営する特別養護老人ホームです。
-                24時間365日体制の介護体制のもと、「その人らしい生活」を支えるための個別ケアを実践し、
-                入居者一人ひとりの尊厳を大切にしたケアを提供しています。
+                延寿園は、社会福祉法人 三恵会が青森県むつ市大畑町に運営する特別養護老人ホームです。24時間365日体制の介護体制のもと、「その人らしい生活」を支えるための個別ケアを実践し、入居者一人ひとりの尊厳を大切にしたケアを提供しています。
               </p>
               <p className="text-ink-muted leading-loose mb-7">
-                リハビリテーション・認知症ケア・看取り介護に対応し、
-                季節の行事や日常のプログラムを通じて、入居者の生きがいある生活を支えます。
+                リハビリテーション・認知症ケア・看取り介護に対応し、季節の行事や日常のプログラムを通じて、入居者の生きがいある生活を支えます。
               </p>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-ink mb-3">主なサービス・特徴</p>
@@ -178,9 +174,7 @@ export default function EnshuuenPage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-3">費用の目安</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  費用は介護度・所得段階・負担割合により異なります。
-                  減額制度（食費・居住費の負担軽減）もございます。
-                  詳しくはお電話またはお問い合わせフォームよりご相談ください。
+                  費用は介護度・所得段階・負担割合により異なります。減額制度（食費・居住費の負担軽減）もございます。詳しくはお電話またはお問い合わせフォームよりご相談ください。
                 </p>
                 <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
                   ※ 具体的な費用は別途確認次第更新します
@@ -227,8 +221,7 @@ export default function EnshuuenPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-ink mb-4">施設見学・入所のご相談</h2>
           <p className="text-ink-muted mb-8 leading-loose">
-            施設への入所をご検討の方、見学のご希望など、
-            お気軽にお問い合わせください。専門スタッフが丁寧にご対応いたします。
+            施設への入所をご検討の方、見学のご希望など、お気軽にお問い合わせください。専門スタッフが丁寧にご対応いたします。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:0175-34-3297" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-7 py-3.5 rounded-full transition-all duration-200 hover:shadow-md">

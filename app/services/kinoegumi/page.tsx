@@ -65,8 +65,7 @@ export default function KinoegumiPage() {
           <p className="text-white/70 text-sm mb-1">ショートステイ（短期入所生活介護）</p>
           <h1 className="text-3xl sm:text-4xl font-bold">季の恵</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            延寿園に併設するショートステイ施設です。
-            在宅生活を続けながら、短期間の宿泊介護サービスをご利用いただけます。
+            延寿園に併設するショートステイ施設です。在宅生活を続けながら、短期間の宿泊介護サービスをご利用いただけます。
           </p>
         </div>
       </div>
@@ -105,12 +104,10 @@ export default function KinoegumiPage() {
             {/* Left */}
             <div>
               <p className="text-ink-muted leading-loose mb-4">
-                「季の恵」は、延寿園に併設するショートステイ（短期入所生活介護）施設です。
-                在宅での生活を続けながら、短期間だけ施設に宿泊して介護・看護を受けることができます。
+                「季の恵」は、延寿園に併設するショートステイ（短期入所生活介護）施設です。在宅での生活を続けながら、短期間だけ施設に宿泊して介護・看護を受けることができます。
               </p>
               <p className="text-ink-muted leading-loose mb-7">
-                ご本人の体調管理・機能維持はもちろん、介護をされているご家族の
-                疲れの回復や、仕事・急用などへの対応として幅広くご利用いただいています。
+                ご本人の体調管理・機能維持はもちろん、介護をされているご家族の疲れの回復や、仕事・急用などへの対応として幅広くご利用いただいています。
               </p>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-ink mb-3">主なサービス・特徴</p>
@@ -157,8 +154,7 @@ export default function KinoegumiPage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-4">ご利用条件</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜要介護5</strong>の方が対象です。
-                  利用期間は介護保険の範囲内（原則30日以内）。連続利用・定期利用も可能です。
+                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜要介護5</strong>の方が対象です。利用期間は介護保険の範囲内（原則30日以内）。連続利用・定期利用も可能です。
                 </p>
               </div>
 
@@ -166,8 +162,7 @@ export default function KinoegumiPage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-3">費用の目安</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  費用は介護度・所得段階・負担割合により異なります。
-                  詳しくはお電話またはお問い合わせフォームよりご相談ください。
+                  費用は介護度・所得段階・負担割合により異なります。詳しくはお電話またはお問い合わせフォームよりご相談ください。
                 </p>
                 <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
                   ※ 具体的な費用は別途確認次第更新します

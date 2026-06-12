@@ -18,8 +18,7 @@ export default function ServicesPage() {
           <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Services</p>
           <h1 className="text-3xl sm:text-4xl font-bold">各サービスのご案内</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            三恵会では、施設入居からデイサービス・訪問介護・居宅介護支援まで、
-            地域で暮らし続けるための多様なサービスを提供しています。
+            三恵会では、施設入居からデイサービス・訪問介護・居宅介護支援まで、地域で暮らし続けるための多様なサービスを提供しています。
           </p>
         </div>
       </div>

@@ -62,9 +62,7 @@ export default function PrivacyPage() {
           {/* Intro */}
           <div className="bg-primary-light rounded-2xl border border-primary/20 p-6 mb-12">
             <p className="text-sm text-ink-muted leading-loose">
-              社会福祉法人 三恵会（以下「当法人」）は、利用者・入居者・求職者をはじめ、
-              当サイトをご利用の皆さまの個人情報の保護を重要な責務と考えています。
-              以下の方針に従って個人情報を適切に取り扱います。
+              社会福祉法人 三恵会（以下「当法人」）は、利用者・入居者・求職者をはじめ、当サイトをご利用の皆さまの個人情報の保護を重要な責務と考えています。以下の方針に従って個人情報を適切に取り扱います。
             </p>
             <p className="text-xs text-ink-subtle mt-4">
               制定日：令和7年5月　最終更新：令和7年5月

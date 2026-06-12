@@ -110,7 +110,10 @@ export default function DisclosurePage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         <span className="text-xs text-ink group-hover:text-primary font-medium transition-colors leading-snug">
-                          {doc}
+                          {/* （…）の途中で折り返さず、括弧の前で改行する */}
+                          {doc.split(/(?=（)/).map((part, i) => (
+                            <span key={i} className="inline-block">{part}</span>
+                          ))}
                         </span>
                       </a>
                     ))}

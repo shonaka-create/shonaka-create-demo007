@@ -125,14 +125,13 @@ export default function TopPage() {
             <p className="text-white/60 text-sm tracking-widest mb-5 uppercase">
               社会福祉法人 三恵会 ｜ 青森県むつ市大畑町
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               大切な家族の介護を、
               <br />
               一緒に考えます。
             </h1>
             <p className="text-white/80 text-lg sm:text-xl leading-loose mb-10 max-w-2xl">
-              昭和59年の創設以来、むつ市大畑町を拠点に下北地域の高齢者とご家族を支えてきました。
-              施設入所・デイサービス・訪問介護・居宅介護支援まで、どのようなご相談にも丁寧にお応えします。
+              昭和59年の創設以来、むつ市大畑町を拠点に下北地域の高齢者とご家族を支えてきました。施設入所・デイサービス・訪問介護・居宅介護支援まで、どのようなご相談にも丁寧にお応えします。
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -391,8 +390,7 @@ export default function TopPage() {
               一緒に働きませんか？
             </h2>
             <p className="text-white/75 leading-loose mb-6">
-              大畑町に暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。
-              Uターン・地元定着を歓迎。経験・資格は問いません。育児中・介護中のスタッフも多数活躍しています。
+              大畑町に暮らし続けながら、地域の高齢者と向き合えるのが三恵会の仕事です。<span className="whitespace-nowrap">Uターン</span>・地元定着を歓迎。経験・資格は問いません。育児中・介護中のスタッフも多数活躍しています。
             </p>
             <Link
               href="/recruit"
@@ -480,8 +478,7 @@ export default function TopPage() {
             ご相談・お問い合わせ
           </h2>
           <p className="text-ink-muted leading-loose mb-8">
-            施設への入所のご相談、サービスについてのご質問、見学のご希望など、
-            お気軽にお問い合わせください。相談は無料です。
+            施設への入所のご相談、サービスについてのご質問、見学のご希望など、お気軽にお問い合わせください。相談は無料です。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

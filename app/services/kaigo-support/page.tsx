@@ -64,8 +64,7 @@ export default function KaigoSupportPage() {
           <p className="text-white/70 text-sm mb-1">居宅介護支援</p>
           <h1 className="text-3xl sm:text-4xl font-bold">延寿園在宅介護支援センター</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            ケアマネジャーがご本人・ご家族の状況を丁寧にヒアリングし、
-            最適なケアプランを作成・調整します。相談は無料です。
+            ケアマネジャーがご本人・ご家族の状況を丁寧にヒアリングし、最適なケアプランを作成・調整します。相談は無料です。
           </p>
         </div>
       </div>
@@ -104,14 +103,10 @@ export default function KaigoSupportPage() {
             {/* Left */}
             <div>
               <p className="text-ink-muted leading-loose mb-4">
-                延寿園在宅介護支援センターは、ケアマネジャー（介護支援専門員）が在籍する居宅介護支援事業所です。
-                ご本人やご家族のご希望・生活状況をしっかりとヒアリングし、
-                最適な介護サービスの組み合わせを考えたケアプランを作成します。
+                延寿園在宅介護支援センターは、ケアマネジャー（介護支援専門員）が在籍する居宅介護支援事業所です。ご本人やご家族のご希望・生活状況をしっかりとヒアリングし、最適な介護サービスの組み合わせを考えたケアプランを作成します。
               </p>
               <p className="text-ink-muted leading-loose mb-7">
-                「どこに相談したらいいかわからない」「どんなサービスが使えるのかわからない」
-                そんな時も、まず当センターにお気軽にお問い合わせください。
-                介護に関するあらゆるご相談を無料でお受けします。
+                「どこに相談したらいいかわからない」「どんなサービスが使えるのかわからない」そんな時も、まず当センターにお気軽にお問い合わせください。介護に関するあらゆるご相談を無料でお受けします。
               </p>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-ink mb-3">主な業務内容</p>
@@ -163,8 +158,7 @@ export default function KaigoSupportPage() {
                   ケアプラン作成・相談は無料です
                 </h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  居宅介護支援（ケアプランの作成）は、介護保険が費用を全額負担するため、
-                  利用者の自己負担はありません。また、相談だけでも無料でお受けしています。
+                  居宅介護支援（ケアプランの作成）は、介護保険が費用を全額負担するため、利用者の自己負担はありません。また、相談だけでも無料でお受けしています。
                 </p>
               </div>
 

@@ -63,8 +63,7 @@ export default function DayServicePage() {
           <p className="text-white/70 text-sm mb-1">通所介護</p>
           <h1 className="text-3xl sm:text-4xl font-bold">ふれあいかんデイサービスセンター</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            むつ市大畑町で運営する通所介護施設です。「今日も来てよかった」と思っていただける
-            プログラムと雰囲気づくりを大切にしています。
+            むつ市大畑町で運営する通所介護施設です。「今日も来てよかった」と思っていただけるプログラムと雰囲気づくりを大切にしています。
           </p>
         </div>
       </div>
@@ -103,14 +102,10 @@ export default function DayServicePage() {
             {/* Left */}
             <div>
               <p className="text-ink-muted leading-loose mb-4">
-                ふれあいかんデイサービスセンターは、日帰りで施設に通い、
-                入浴・食事・機能訓練などのサービスを受けながら、
-                仲間との交流や社会参加の機会をもてる通所介護施設です。
+                ふれあいかんデイサービスセンターは、日帰りで施設に通い、入浴・食事・機能訓練などのサービスを受けながら、仲間との交流や社会参加の機会をもてる通所介護施設です。
               </p>
               <p className="text-ink-muted leading-loose mb-7">
-                「今日も楽しかった」「また来たい」と思っていただけるよう、
-                スタッフ一同、日々のプログラムと施設の雰囲気づくりを大切にしています。
-                ご家族の介護負担軽減にも貢献します。
+                「今日も楽しかった」「また来たい」と思っていただけるよう、スタッフ一同、日々のプログラムと施設の雰囲気づくりを大切にしています。ご家族の介護負担軽減にも貢献します。
               </p>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-ink mb-3">主なサービス・特徴</p>
@@ -158,8 +153,7 @@ export default function DayServicePage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-4">ご利用対象</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜2・要介護1〜5</strong>の方が対象です。
-                  まずはケアマネジャーまたは当センターにご相談ください。
+                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜2・要介護1〜5</strong>の方が対象です。まずはケアマネジャーまたは当センターにご相談ください。
                 </p>
               </div>
 
@@ -167,8 +161,7 @@ export default function DayServicePage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-3">利用料金の目安</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  利用料は介護保険の自己負担割合（1〜3割）により異なります。
-                  食費・日用品費は別途発生します。詳細はお問い合わせください。
+                  利用料は介護保険の自己負担割合（1〜3割）により異なります。食費・日用品費は別途発生します。詳細はお問い合わせください。
                 </p>
                 <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
                   ※ 具体的な料金は別途確認次第更新します

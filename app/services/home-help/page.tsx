@@ -63,8 +63,7 @@ export default function HomeHelpPage() {
           <p className="text-white/70 text-sm mb-1">訪問介護</p>
           <h1 className="text-3xl sm:text-4xl font-bold">延寿園ホームヘルプセンター</h1>
           <p className="text-white/70 mt-3 max-w-xl leading-loose">
-            ホームヘルパーが自宅を訪問し、身体介護・生活援助を提供します。
-            「住み慣れた自宅で暮らし続けたい」を実現するためのサポートです。
+            ホームヘルパーが自宅を訪問し、身体介護・生活援助を提供します。「住み慣れた自宅で暮らし続けたい」を実現するためのサポートです。
           </p>
         </div>
       </div>
@@ -103,12 +102,10 @@ export default function HomeHelpPage() {
             {/* Left */}
             <div>
               <p className="text-ink-muted leading-loose mb-4">
-                延寿園ホームヘルプセンターは、ホームヘルパーがご自宅を訪問して、
-                身体介護や生活援助などのサービスを提供する訪問介護事業所です。
+                延寿園ホームヘルプセンターは、ホームヘルパーがご自宅を訪問して、身体介護や生活援助などのサービスを提供する訪問介護事業所です。
               </p>
               <p className="text-ink-muted leading-loose mb-7">
-                「住み慣れた自宅で、これからも安心して暮らし続けたい」という願いを
-                かなえるために、利用者の状態や生活スタイルに合わせた、きめ細かなサービスを提供します。
+                「住み慣れた自宅で、これからも安心して暮らし続けたい」という願いをかなえるために、利用者の状態や生活スタイルに合わせた、きめ細かなサービスを提供します。
               </p>
               <div className="space-y-2">
                 <p className="text-sm font-bold text-ink mb-3">主なサービス内容</p>
@@ -155,8 +152,7 @@ export default function HomeHelpPage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-4">ご利用対象</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜2・要介護1〜5</strong>の方が対象です。
-                  まずはケアマネジャーまたは当センターにご相談ください。
+                  介護保険の要介護認定を受けた<strong className="text-ink">要支援1〜2・要介護1〜5</strong>の方が対象です。まずはケアマネジャーまたは当センターにご相談ください。
                 </p>
               </div>
 
@@ -164,8 +160,7 @@ export default function HomeHelpPage() {
               <div className="bg-surface rounded-2xl border border-border p-6">
                 <h3 className="font-bold text-ink mb-3">利用料金</h3>
                 <p className="text-sm text-ink-muted leading-loose">
-                  利用料は介護保険の自己負担割合（1〜3割）により異なります。
-                  詳細はお問い合わせください。
+                  利用料は介護保険の自己負担割合（1〜3割）により異なります。詳細はお問い合わせください。
                 </p>
                 <p className="text-xs text-ink-subtle mt-3 border-t border-border pt-3">
                   ※ 具体的な料金は別途確認次第更新します
