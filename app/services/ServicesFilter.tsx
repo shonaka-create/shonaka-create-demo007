@@ -3,10 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 
+const prefectures = [
+  { id: "all",      label: "すべて" },
+  { id: "aomori",   label: "青森県" },
+  { id: "hokkaido", label: "北海道" },
+];
+
 const categories = [
-  { id: "all",      label: "すべて",       count: 5 },
-  { id: "facility", label: "施設・宿泊型", count: 2 },
-  { id: "home",     label: "通所・在宅型", count: 3 },
+  { id: "all",      label: "すべて" },
+  { id: "facility", label: "施設・宿泊型" },
+  { id: "home",     label: "通所・在宅型" },
 ];
 
 const services = [
@@ -17,6 +23,7 @@ const services = [
     color: "bg-[#2A6B47]",
     overlayColor: "#2A6B47",
     category: "facility",
+    prefecture: "aomori",
     // 実際の施設写真に差し替えてください
     photo: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
     description:
@@ -31,6 +38,7 @@ const services = [
     color: "bg-[#3A8060]",
     overlayColor: "#3A8060",
     category: "facility",
+    prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1586773817312-96dd0a28d04a?auto=format&fit=crop&w=600&q=80",
     description:
       "延寿園に併設するショートステイ施設。在宅生活を続けながら、短期間の宿泊介護サービスをご利用いただけます。",
@@ -44,6 +52,7 @@ const services = [
     color: "bg-[#2D7A5A]",
     overlayColor: "#2D7A5A",
     category: "home",
+    prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&q=80",
     description:
       "日帰りで施設に通い、入浴・食事・機能訓練・レクリエーションを楽しめます。送迎付きで安心。「今日も来てよかった」と思っていただける場所づくりを大切にしています。",
@@ -57,6 +66,7 @@ const services = [
     color: "bg-[#1E6B5A]",
     overlayColor: "#1E6B5A",
     category: "home",
+    prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80",
     description:
       "ホームヘルパーが自宅を訪問し、身体介護・生活援助・通院同行を行います。「住み慣れた自宅で暮らし続けたい」を実現するためのサポートを提供します。",
@@ -70,6 +80,7 @@ const services = [
     color: "bg-[#1A8066]",
     overlayColor: "#1A8066",
     category: "home",
+    prefecture: "aomori",
     photo: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=600&q=80",
     description:
       "ケアマネジャーがご本人・ご家族の状況を丁寧にヒアリングし、最適なケアプランを作成・調整します。介護のことならどんな相談でも無料で承ります。",
@@ -80,34 +91,77 @@ const services = [
 
 export default function ServicesFilter() {
   const [active, setActive] = useState("all");
+  const [activePref, setActivePref] = useState("all");
 
-  const filtered = active === "all" ? services : services.filter((s) => s.category === active);
+  const byPref = activePref === "all" ? services : services.filter((s) => s.prefecture === activePref);
+  const filtered = active === "all" ? byPref : byPref.filter((s) => s.category === active);
 
   return (
     <>
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setActive(cat.id)}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
-              active === cat.id
-                ? "bg-primary text-white shadow-sm"
-                : "bg-white border border-border text-ink-muted hover:text-primary hover:border-primary/40"
-            }`}
-          >
-            {cat.label}
-            <span
-              className={`text-xs rounded-full w-5 h-5 flex items-center justify-center ${
-                active === cat.id ? "bg-white/20 text-white" : "bg-primary-light text-primary"
+      {/* Prefecture Filter */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+        <span className="text-xs font-bold text-ink-muted mr-1">エリア</span>
+        {prefectures.map((pref) => {
+          const count =
+            pref.id === "all" ? services.length : services.filter((s) => s.prefecture === pref.id).length;
+          return (
+            <button
+              key={pref.id}
+              onClick={() => setActivePref(pref.id)}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
+                activePref === pref.id
+                  ? "bg-primary text-white shadow-sm"
+                  : "bg-white border border-border text-ink-muted hover:text-primary hover:border-primary/40"
               }`}
             >
-              {cat.count}
-            </span>
-          </button>
-        ))}
+              {pref.label}
+              <span
+                className={`text-xs rounded-full w-5 h-5 flex items-center justify-center ${
+                  activePref === pref.id ? "bg-white/20 text-white" : "bg-primary-light text-primary"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
       </div>
+
+      {/* Category Filter */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <span className="text-xs font-bold text-ink-muted mr-1">種別</span>
+        {categories.map((cat) => {
+          const count =
+            cat.id === "all" ? byPref.length : byPref.filter((s) => s.category === cat.id).length;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => setActive(cat.id)}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
+                active === cat.id
+                  ? "bg-primary text-white shadow-sm"
+                  : "bg-white border border-border text-ink-muted hover:text-primary hover:border-primary/40"
+              }`}
+            >
+              {cat.label}
+              <span
+                className={`text-xs rounded-full w-5 h-5 flex items-center justify-center ${
+                  active === cat.id ? "bg-white/20 text-white" : "bg-primary-light text-primary"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Empty state */}
+      {filtered.length === 0 && (
+        <div className="text-center py-16 bg-white rounded-2xl border border-border">
+          <p className="text-ink-muted text-sm">該当するエリアの施設は現在ありません。</p>
+        </div>
+      )}
 
       {/* Service Cards */}
       <div className="space-y-5">

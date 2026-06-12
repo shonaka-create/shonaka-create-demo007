@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface SalaryItem { label: string; value: string; }
@@ -144,9 +144,34 @@ const allPositions: Position[] = [
   },
 ];
 
-function DetailPanel({ pos, onClose }: { pos: Position; onClose: () => void }) {
+function DetailModal({ pos, onClose }: { pos: Position; onClose: () => void }) {
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
   return (
-    <div className="bg-white rounded-2xl border border-border shadow-lg overflow-hidden mt-3">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${pos.title}の募集詳細`}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-[fadeIn_0.2s_ease-out]"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      {/* Panel */}
+      <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-3xl max-h-[85vh] flex flex-col animate-[modalIn_0.25s_ease-out]">
       {/* Header */}
       <div className={`${pos.color} text-white px-6 py-5 flex items-start justify-between gap-4`}>
         <div>
@@ -168,7 +193,7 @@ function DetailPanel({ pos, onClose }: { pos: Position; onClose: () => void }) {
       </div>
 
       {/* Body */}
-      <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto">
         {/* Left */}
         <div className="space-y-5">
           <div>
@@ -249,24 +274,13 @@ function DetailPanel({ pos, onClose }: { pos: Position; onClose: () => void }) {
           )}
         </div>
       </div>
+      </div>
     </div>
   );
 }
 
 export default function PositionsGrid() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const detailRef = useRef<HTMLDivElement>(null);
-
-  const handleSelect = (idx: number) => {
-    if (selectedIdx === idx) {
-      setSelectedIdx(null);
-    } else {
-      setSelectedIdx(idx);
-      setTimeout(() => {
-        detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }, 60);
-    }
-  };
 
   return (
     <section className="bg-bg py-14 sm:py-16">
@@ -280,45 +294,34 @@ export default function PositionsGrid() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {allPositions.map((pos, idx) => {
-            const isSelected = selectedIdx === idx;
-            return (
-              <button
-                key={pos.title}
-                onClick={() => handleSelect(idx)}
-                className={`flex items-center gap-4 bg-white rounded-xl border px-5 py-4 text-left w-full transition-all cursor-pointer ${
-                  isSelected
-                    ? "border-primary shadow-md ring-1 ring-primary/20"
-                    : "border-border hover:border-primary/30 hover:shadow-sm"
-                }`}
+          {allPositions.map((pos, idx) => (
+            <button
+              key={pos.title}
+              onClick={() => setSelectedIdx(idx)}
+              className="flex items-center gap-4 bg-white rounded-xl border border-border px-5 py-4 text-left w-full transition-all cursor-pointer hover:border-primary/30 hover:shadow-sm"
+            >
+              <div className={`w-1.5 h-10 rounded-full shrink-0 ${pos.color}`} />
+              <div className="min-w-0 flex-1">
+                <p className="font-bold text-ink text-sm leading-tight">{pos.title}</p>
+                <p className="text-xs text-ink-muted mt-0.5">{pos.facility}</p>
+              </div>
+              <span className="shrink-0 text-xs bg-primary-light text-primary font-medium px-2.5 py-1 rounded-full whitespace-nowrap">
+                {pos.type}
+              </span>
+              <svg
+                className="w-4 h-4 shrink-0 text-ink-muted"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <div className={`w-1.5 h-10 rounded-full shrink-0 ${pos.color}`} />
-                <div className="min-w-0 flex-1">
-                  <p className="font-bold text-ink text-sm leading-tight">{pos.title}</p>
-                  <p className="text-xs text-ink-muted mt-0.5">{pos.facility}</p>
-                </div>
-                <span className="shrink-0 text-xs bg-primary-light text-primary font-medium px-2.5 py-1 rounded-full whitespace-nowrap">
-                  {pos.type}
-                </span>
-                <svg
-                  className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
-                    isSelected ? "rotate-180 text-primary" : "text-ink-muted"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            );
-          })}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          ))}
         </div>
 
         {selectedIdx !== null && (
-          <div ref={detailRef}>
-            <DetailPanel pos={allPositions[selectedIdx]} onClose={() => setSelectedIdx(null)} />
-          </div>
+          <DetailModal pos={allPositions[selectedIdx]} onClose={() => setSelectedIdx(null)} />
         )}
 
         <p className="text-center text-xs text-ink-muted/70 mt-5">
